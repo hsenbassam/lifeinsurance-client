@@ -31,7 +31,7 @@ export class RegisterComponent implements OnInit {
       },
         (error: AppError) => {
           if(error instanceof AppError) {
-            console.log("Expected Error");
+            console.log("Registration Failed");
           }
           else 
             throw error;

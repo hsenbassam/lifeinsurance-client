@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AppError } from '../common/app-error';
 import { LoginService } from '../services/login.service';
+import { NotFoundError } from '../common/not-found-error';
+import { BadInput } from '../common/bad-input';
 
 @Component({
   selector: 'app-login',
@@ -25,7 +27,7 @@ export class LoginComponent implements OnInit {
         },
         (error: AppError) => {
           if(error instanceof AppError) {
-            console.log("Expected Error");
+            console.log("Login Failed");
           }
           else 
             throw error;

@@ -27,6 +27,7 @@ import { ErrorHandler } from '@angular/core';
 import { LoginService } from './services/login.service';
 import { RegisterService } from './services/register.service';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
+import { ProductService } from './services/product.service';
 
 
 
@@ -74,6 +75,7 @@ import { ProductFormComponent } from './admin/product-form/product-form.componen
   providers: [
     LoginService,
     RegisterService,
+    ProductService,
     DatePipe,
     { provide: ErrorHandler, useClass: AppErrorHandler }
   ],

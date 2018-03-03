@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ProductService } from '../../services/product.service';
+import { AppError } from '../../common/app-error';
 
 @Component({
   selector: 'app-product-form',
@@ -14,13 +16,25 @@ export class ProductFormComponent implements OnInit {
     { name: "Property Insurance" }
   ];
 
-  constructor() { }
+  constructor( private productService: ProductService) { }
 
   ngOnInit() {
   }
 
   addProduct(form: NgForm) {
-    console.log(form.value)
+    this.productService.post(form.value)
+      .subscribe(
+        response => {
+            console.log(response)
+        },
+        (error: AppError) => {
+          if(error instanceof AppError) {
+            console.log("Adding Product is Failed");
+          }
+          else 
+            throw error;
+      }
+      )
   }
 
 }

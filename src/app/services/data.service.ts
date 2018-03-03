@@ -22,6 +22,12 @@ export class DataService {
             .catch(this.handleError)
     }
 
+    get(key) {
+        return this.http.get(this.url + '/' + key)
+            .map(response => response.json())
+            .catch(this.handleError)
+    }
+
     post(resource) {
         return this.http.post(this.url, resource, this.options)
             .map(response => response.json())
@@ -44,10 +50,10 @@ export class DataService {
     private handleError(error: Response) {
 
         if(error.status === 404)
-            return Observable.throw(new NotFoundError(error.json()))
+            return Observable.throw(new NotFoundError(error))
         if(error.status === 400)
-            return Observable.throw(new BadInput(error.json()))
-        return Observable.throw(new AppError(error.json()));
+            return Observable.throw(new BadInput(error))
+        return Observable.throw(new AppError(error));
             
     }
 }
