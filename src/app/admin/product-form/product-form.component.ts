@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ProductService } from '../../services/product.service';
 import { AppError } from '../../common/app-error';
+import { CategoryService } from '../../services/category.service';
 
 @Component({
   selector: 'app-product-form',
@@ -10,13 +11,13 @@ import { AppError } from '../../common/app-error';
 })
 export class ProductFormComponent implements OnInit {
 
-  categories = [
-    { name: "Life Insurance" },
-    { name: "Car Insurance" },
-    { name: "Property Insurance" }
-  ];
+  categories$;
 
-  constructor( private productService: ProductService) { }
+  constructor( private productService: ProductService, private categoryService: CategoryService) { 
+
+    this.categories$ = categoryService.getAll();
+
+  }
 
   ngOnInit() {
   }

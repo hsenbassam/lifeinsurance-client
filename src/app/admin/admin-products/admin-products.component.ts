@@ -23,6 +23,7 @@ export class AdminProductsComponent implements OnInit{
     .subscribe(
       products => {
         this.products = products;
+        console.log(this.products);
         this.initializeTable(this.products);
       },
       (error: AppError) => {
