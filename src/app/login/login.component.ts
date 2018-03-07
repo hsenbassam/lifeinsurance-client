@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AppError } from '../common/app-error';
-import { LoginService } from '../services/login.service';
 import { NotFoundError } from '../common/not-found-error';
 import { BadInput } from '../common/bad-input';
+import { Router, ActivatedRoute } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -13,21 +14,32 @@ import { BadInput } from '../common/bad-input';
 export class LoginComponent implements OnInit {
 
   user: any;
+  invalidLogin = false;
 
-  constructor(private loginService: LoginService) { }
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {}
 
   loginProcess(form: NgForm) {
-    this.loginService.post(form.value)
+    this.authService.login(form.value)
       .subscribe(
-        user => {
-          this.user = user;
-          console.log(this.user);
+         response => {
+           if(response){
+              this.invalidLogin = false;
+              console.log(this.authService.isAuthenticated())
+              let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
+              this.router.navigate([returnUrl || '/'])
+           }
+           else
+             this.invalidLogin = true;
         },
         (error: AppError) => {
           if(error instanceof AppError) {
             console.log("Login Failed");
+            this.invalidLogin = true;
           }
           else 
             throw error;

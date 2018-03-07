@@ -29,6 +29,7 @@ export class DataService {
     }
 
     post(resource) {
+        this.headers.append('Authorization ', 'Bearer ' + localStorage.getItem('token'));
         return this.http.post(this.url, resource, this.options)
             .map(response => response.json())
             .catch(this.handleError);

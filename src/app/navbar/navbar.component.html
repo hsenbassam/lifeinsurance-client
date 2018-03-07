@@ -10,7 +10,7 @@
       <li class="nav-item">
           <a class="nav-link" routerLinkActive="active" routerLink="/products">Products</a>
         </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="authService.isAuthenticated()">
         <a class="nav-link" routerLinkActive="active" routerLink="/shopping-cart">
           <i class="fa fa-shopping-cart" ></i>
         </a>
@@ -18,16 +18,18 @@
       <li class="nav-item">
         <a class="nav-link" routerLinkActive="active" routerLink="/register">Register</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="!authService.isAuthenticated()">
         <a class="nav-link" routerLinkActive="active" routerLink="/login">Login</a>
       </li>
     
-      <li class="nav-item dropdown" dropdown>
-        <a class="nav-link dropdown-toggle" dropdownToggle id="dropdown01">Username</a>
+      <li class="nav-item dropdown" dropdown *ngIf="authService.isAuthenticated()">
+        <a class="nav-link dropdown-toggle" dropdownToggle id="dropdown01">{{authService.currentUser.sub}}</a>
         <div class="dropdown-menu" *dropdownMenu aria-labelledby="dropdown01">
           <a class="dropdown-item" routerLinkActive="active" routerLink="/my-orders">My Orders</a>
-          <a class="dropdown-item" routerLinkActive="active" routerLink="/admin/orders">Manage Orders</a>
-          <a class="dropdown-item" routerLinkActive="active" routerLink="/admin/products">Manage Products</a>
+          <a class="dropdown-item" *ngIf="authService.currentUser.role.includes('ROLE_ADMIN')"
+          routerLinkActive="active" routerLink="/admin/orders">Manage Orders</a>
+          <a class="dropdown-item" *ngIf="authService.currentUser.role.includes('ROLE_ADMIN')"
+          routerLinkActive="active" routerLink="/admin/products">Manage Products</a>
           <a class="dropdown-item" (click)="logout()" >Logout</a>
         </div>
       </li>

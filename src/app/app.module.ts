@@ -24,12 +24,17 @@ import { DataTableModule } from 'angular5-data-table'
 import { BsDropdownModule, CollapseModule, BsDatepickerModule } from 'ngx-bootstrap';
 import { AppErrorHandler } from './common/app-error-handler';
 import { ErrorHandler } from '@angular/core';
-import { LoginService } from './services/login.service';
 import { RegisterService } from './services/register.service';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
 import { ProductService } from './services/product.service';
 import { CategoryService } from './services/category.service';
-
+import { AuthService } from './services/auth.service';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { JwtModule } from '@auth0/angular-jwt';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthGuardService as AuthGuard  } from './services/auth-guard.service';
+import { NoAccessComponent } from './no-access/no-access.component';
+import { AdminAuthGuard } from './services/admin-auth-guard.service';
 
 
 @NgModule({
@@ -47,12 +52,22 @@ import { CategoryService } from './services/category.service';
     LoginComponent,
     RegisterComponent,
     FooterComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    NoAccessComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,     
     HttpModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+          return localStorage.getItem('token');
+        },
+        whitelistedDomains: ['localhost:3001']
+      }
+    }),
+    HttpClientModule,
     DataTableModule,
     BsDropdownModule.forRoot(),
     CollapseModule.forRoot(),
@@ -60,22 +75,58 @@ import { CategoryService } from './services/category.service';
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'products', component: ProductsComponent },
-      { path: 'shopping-cart', component: ShoppingCartComponent },
-      { path: 'checkout', component: CheckoutComponent },
-      { path: 'my-orders', component: MyOrdersComponent },
-      { path: 'order-success', component: OrderSuccessComponent },
+      { 
+        path: 'shopping-cart',
+        component: ShoppingCartComponent,
+        canActivate: [AuthGuard] 
+      },
+      { 
+        path: 'checkout',
+        component: CheckoutComponent,
+        canActivate: [AuthGuard] 
+      },
+      { 
+        path: 'my-orders',
+        component: MyOrdersComponent,
+        canActivate: [AuthGuard] 
+      },
+      {
+        path: 'order-success',
+        component: OrderSuccessComponent,
+        canActivate: [AuthGuard] 
+      },
+
       { path: 'login', component: LoginComponent },
+
       { path: 'register', component: RegisterComponent },
-      { path: 'admin/products/new', component: ProductFormComponent },
-      { path: 'admin/products/:id', component: ProductFormComponent },
-      { path: 'admin/products', component: AdminProductsComponent },
-      { path: 'admin/orders', component: AdminOrdersComponent },
+
+      { path: 'admin/products/new', 
+        component: ProductFormComponent,
+        canActivate: [AuthGuard] 
+      },
+      { path: 'admin/products/:id', 
+        component: ProductFormComponent,
+        canActivate: [AuthGuard, AdminAuthGuard] 
+      },
+      { path: 'admin/products',
+        component: AdminProductsComponent,
+        canActivate: [AuthGuard, AdminAuthGuard] 
+      },
+      { path: 'admin/orders',
+        component: AdminOrdersComponent,
+        canActivate: [AuthGuard, AdminAuthGuard] },
+
+      { path: 'no-access', component: NoAccessComponent },
+        
       { path: '**', redirectTo: '' }
     ])
   ],
   providers: [
-    LoginService,
     RegisterService,
+    AuthService,
+    AuthGuard,
+    AdminAuthGuard,
+    JwtHelperService,
     ProductService,
     CategoryService,
     DatePipe,
