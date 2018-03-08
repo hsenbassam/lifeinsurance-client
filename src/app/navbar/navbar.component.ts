@@ -11,7 +11,7 @@ export class NavbarComponent implements OnInit {
 
   isCollapsed = true;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(public authService: AuthService, private router: Router) { }
 
   ngOnInit() {
   }

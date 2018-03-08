@@ -61,10 +61,9 @@ import { AdminAuthGuard } from './services/admin-auth-guard.service';
     HttpModule,
     JwtModule.forRoot({
       config: {
-        tokenGetter: () => {
-          return localStorage.getItem('token');
-        },
-        whitelistedDomains: ['localhost:3001']
+       tokenGetter() {
+          return localStorage.getItem('token')
+        }
       }
     }),
     HttpClientModule,

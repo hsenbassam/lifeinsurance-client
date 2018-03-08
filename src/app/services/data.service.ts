@@ -11,13 +11,17 @@ import 'rxjs/add/observable/throw';
 @Injectable()
 export class DataService {
 
-    private headers = new Headers({ 'Content-Type': 'application/json'});
+    private headers = new Headers({ 
+        'Content-Type': 'application/json',
+        'Authorization' : 'Bearer ' + localStorage.getItem('token')
+    });
     private options = new RequestOptions({ headers: this.headers });
 
     constructor(private url: string, private http: Http) {}
 
     getAll() {
-        return this.http.get(this.url)
+        console.log(this.headers)
+        return this.http.get(this.url, this.options)
             .map(response => response.json())
             .catch(this.handleError)
     }
@@ -29,7 +33,7 @@ export class DataService {
     }
 
     post(resource) {
-        this.headers.append('Authorization ', 'Bearer ' + localStorage.getItem('token'));
+        
         return this.http.post(this.url, resource, this.options)
             .map(response => response.json())
             .catch(this.handleError);
