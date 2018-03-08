@@ -27,13 +27,13 @@ export class AuthService {
                 let payload = response.json();
                 console.log(payload)
                 localStorage.setItem('token', token);
-                console.log(this.jwtHelper.tokenGetter())
+                console.log(localStorage.getItem('token'))
                 return true;
               }
               return false;
             })
             .catch(this.handleError);
-    }
+        }
 
     logout() {
         localStorage.removeItem("token");
@@ -42,12 +42,12 @@ export class AuthService {
 
     isAuthenticated(): boolean {
 
-        const token = this.jwtHelper.tokenGetter();
+        const token = localStorage.getItem('token');
 
         if(!token)
             return false;
 
-        let expirationDate = this.jwtHelper.getTokenExpirationDate(token);
+        //let expirationDate = this.jwtHelper.getTokenExpirationDate(token);
         let isExpired = this.jwtHelper.isTokenExpired(token);
         return !isExpired;
       }
@@ -63,7 +63,7 @@ export class AuthService {
     }
 
     get currentUser() {
-        let token = this.jwtHelper.tokenGetter();
+        let token = localStorage.getItem('token');
         if(!token) return null;
         return this.jwtHelper.decodeToken(token);
     }

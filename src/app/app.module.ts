@@ -21,7 +21,7 @@ import { FooterComponent } from './footer/footer.component';
 import { DatePipe } from '@angular/common';
 import { DataTableModule } from 'angular5-data-table'
 
-import { BsDropdownModule, CollapseModule, BsDatepickerModule } from 'ngx-bootstrap';
+import { BsDropdownModule, CollapseModule, BsDatepickerModule, CarouselModule } from 'ngx-bootstrap';
 import { AppErrorHandler } from './common/app-error-handler';
 import { ErrorHandler } from '@angular/core';
 import { RegisterService } from './services/register.service';
@@ -71,6 +71,7 @@ import { AdminAuthGuard } from './services/admin-auth-guard.service';
     BsDropdownModule.forRoot(),
     CollapseModule.forRoot(),
     BsDatepickerModule.forRoot(),
+    CarouselModule.forRoot(),
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'products', component: ProductsComponent },
