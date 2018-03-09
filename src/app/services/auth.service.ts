@@ -25,9 +25,9 @@ export class AuthService {
                 let token = response.headers.get('Token');
                 if(response && token) {
                 let payload = response.json();
-                console.log(payload)
+                console.log(payload);
                 localStorage.setItem('token', token);
-                console.log(localStorage.getItem('token'))
+                localStorage.setItem('user', JSON.stringify(payload));
                 return true;
               }
               return false;
@@ -44,13 +44,25 @@ export class AuthService {
 
         const token = localStorage.getItem('token');
 
-        if(!token)
-            return false;
+        if(!token) return false;
 
         //let expirationDate = this.jwtHelper.getTokenExpirationDate(token);
         let isExpired = this.jwtHelper.isTokenExpired(token);
         return !isExpired;
-      }
+    }
+
+    
+    get currentUser() {
+        let token = localStorage.getItem('token');
+        if(!token ) return null;
+        return this.jwtHelper.decodeToken(token);
+    }
+
+    get userInfo() {
+        return JSON.parse(localStorage.getItem('user'));
+    }
+
+ 
 
     private handleError(error: Response) {
 
@@ -62,10 +74,6 @@ export class AuthService {
             
     }
 
-    get currentUser() {
-        let token = localStorage.getItem('token');
-        if(!token) return null;
-        return this.jwtHelper.decodeToken(token);
-    }
+  
 
 }

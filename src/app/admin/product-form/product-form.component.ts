@@ -3,6 +3,8 @@ import { NgForm } from '@angular/forms';
 import { ProductService } from '../../services/product.service';
 import { AppError } from '../../common/app-error';
 import { CategoryService } from '../../services/category.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import 'rxjs/add/operator/take';
 
 @Component({
   selector: 'app-product-form',
@@ -12,8 +14,19 @@ import { CategoryService } from '../../services/category.service';
 export class ProductFormComponent implements OnInit {
 
   categories$;
+  product = {};
 
-  constructor( private productService: ProductService, private categoryService: CategoryService) { 
+  constructor( 
+    private productService: ProductService,
+    private categoryService: CategoryService,
+    private router: Router,
+    private route: ActivatedRoute) { 
+
+    let id = this.route.snapshot.paramMap.get('id');
+
+    if(id) {
+      this.product = this.productService.get(id).take(1).subscribe(p => this.product = p);
+    }
 
     this.categories$ = categoryService.getAll();
 

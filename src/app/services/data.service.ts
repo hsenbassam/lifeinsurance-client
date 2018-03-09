@@ -20,7 +20,6 @@ export class DataService {
     constructor(private url: string, private http: Http) {}
 
     getAll() {
-        console.log(this.headers)
         return this.http.get(this.url, this.options)
             .map(response => response.json())
             .catch(this.handleError)
