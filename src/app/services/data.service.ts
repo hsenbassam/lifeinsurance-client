@@ -26,7 +26,7 @@ export class DataService {
     }
 
     get(key) {
-        return this.http.get(this.url + '/' + key)
+        return this.http.get(this.url + '/' + key, this.options)
             .map(response => response.json())
             .catch(this.handleError)
     }
@@ -44,9 +44,9 @@ export class DataService {
             .catch(this.handleError);
     }
 
-    delete(id) {
-        return this.http.delete(this.url + '/' + id)
-            .map(response => response.json())
+    delete(id){
+        return this.http.delete(this.url + '/' + id, this.options)
+            .map(response => (response.status === 200))
             .catch(this.handleError);
     }
 

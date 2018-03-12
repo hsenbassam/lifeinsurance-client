@@ -35,6 +35,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthGuardService as AuthGuard  } from './services/auth-guard.service';
 import { NoAccessComponent } from './no-access/no-access.component';
 import { AdminAuthGuard } from './services/admin-auth-guard.service';
+import { ProductFilterComponent } from './products/product-filter/product-filter.component';
+import { ProductCardComponent } from './products/product-card/product-card.component';
 
 
 @NgModule({
@@ -53,7 +55,9 @@ import { AdminAuthGuard } from './services/admin-auth-guard.service';
     RegisterComponent,
     FooterComponent,
     ProductFormComponent,
-    NoAccessComponent
+    NoAccessComponent,
+    ProductFilterComponent,
+    ProductCardComponent
   ],
   imports: [
     BrowserModule,
