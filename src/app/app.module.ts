@@ -21,7 +21,7 @@ import { FooterComponent } from './footer/footer.component';
 import { DatePipe } from '@angular/common';
 import { DataTableModule } from 'angular5-data-table'
 
-import { BsDropdownModule, CollapseModule, BsDatepickerModule, CarouselModule } from 'ngx-bootstrap';
+import { BsDropdownModule, CollapseModule, BsDatepickerModule, CarouselModule  } from 'ngx-bootstrap';
 import { AppErrorHandler } from './common/app-error-handler';
 import { ErrorHandler } from '@angular/core';
 import { RegisterService } from './services/register.service';
@@ -37,6 +37,9 @@ import { NoAccessComponent } from './no-access/no-access.component';
 import { AdminAuthGuard } from './services/admin-auth-guard.service';
 import { ProductFilterComponent } from './products/product-filter/product-filter.component';
 import { ProductCardComponent } from './products/product-card/product-card.component';
+import { ProductItemComponent } from './product-item/product-item.component';
+import { QuoteComponent } from './quote/quote.component';
+import { QuoteResultComponent } from './quote/quote-result/quote-result.component';
 
 
 @NgModule({
@@ -57,7 +60,10 @@ import { ProductCardComponent } from './products/product-card/product-card.compo
     ProductFormComponent,
     NoAccessComponent,
     ProductFilterComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    ProductItemComponent,
+    QuoteComponent,
+    QuoteResultComponent
   ],
   imports: [
     BrowserModule,
@@ -78,12 +84,14 @@ import { ProductCardComponent } from './products/product-card/product-card.compo
     CarouselModule.forRoot(),
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
+      { path: 'products/:id', component: ProductItemComponent},
       { path: 'products', component: ProductsComponent },
       { 
         path: 'shopping-cart',
         component: ShoppingCartComponent,
         canActivate: [AuthGuard] 
       },
+      { path: 'quote/:type', component: QuoteComponent },
       { 
         path: 'checkout',
         component: CheckoutComponent,

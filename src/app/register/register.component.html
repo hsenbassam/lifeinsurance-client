@@ -46,7 +46,8 @@
                  name="birthday" 
                  bsDatepicker
                  [(ngModel)]="bsValue"
-                 [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }">
+                 [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }"
+                 required>
         </div>
         <div class="col-xs-12 col-12 col-md-3 form-group">
           <button class="btn btn-success" type="button" (click)="dp.toggle()">Date Picker</button>

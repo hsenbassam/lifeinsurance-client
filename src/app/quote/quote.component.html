@@ -1,0 +1,122 @@
+<div class="col-md-8 order-md-1 quote" *ngIf="!completed">
+  <h4 class="mb-3">Free Term Life Quotes</h4>
+  <form class="needs-validation" (ngSubmit)="getQuoteProcess(f)" #f="ngForm"  ngNativeValidate>
+
+
+
+    <div class="mb-3">
+      <label for="address">Date of Birth</label>
+
+      <div class="row">
+        <div class="col-xs-12 col-12 col-md-4 form-group">
+          <input type="text" class="form-control" [maxDate]="maxDate" #dp="bsDatepicker" #birthday="ngModel" name="birthday" bsDatepicker
+            [(ngModel)]="bsValue" [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" required>
+        </div>
+        <div class="col-xs-12 col-12 col-md-3 form-group">
+          <button class="btn btn-success" type="button" (click)="dp.toggle()">Date Picker</button>
+        </div>
+      </div>
+
+    </div>
+
+
+
+    <div class="mb-3">
+      <label for="gender">Gender</label>
+      <div class="input-group">
+
+        <select [ngModel]= "userQuote.gender" #gender="ngModel" name="gender" class="form-control" id="gender" required>
+          <option [ngValue]="undefined" hidden disabled selected>Choose your Gender</option>
+          <option value="1">Male</option>
+          <option value="2">Female</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="country">Country</label>
+      <div class="input-group">
+
+        <select [ngModel]= "userQuote.country" #country="ngModel" name="country" class="form-control" id="country" required>
+          <option disabled [ngValue]="undefined" hidden selected>Choose your Country</option>
+          <option value="LB">Lebanon</option>
+          <option value="FR">France</option>
+          <option value="US">The United States of America</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="nationality">Nationality</label>
+      <div class="input-group">
+
+        <select [ngModel]= "userQuote.nationality" #nationality="ngModel" name="nationality" class="form-control" id="nationality" required>
+          <option disabled [ngValue]="undefined" hidden selected>Choose your Nationality</option>
+          <option value="LB">Lebanese</option>
+          <option value="FR">French</option>
+          <option value="US">American</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="health">Health Level</label>
+      <div class="input-group">
+
+        <select [ngModel]= "userQuote.health"  #health="ngModel" name="health" class="form-control" id="health" required>
+          <option disabled [ngValue]="undefined" hidden selected>Choose your Health Level</option>
+          <option value="1">Excellent</option>
+          <option value="2">Good</option>
+          <option value="3">Fair</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="nicotine">Tobacco/Nicotine Use</label>
+      <div class="input-group">
+
+        <select [ngModel]= "userQuote.nicotine"  #nicotine="ngModel" name="nicotine" class="form-control" id="nicotine" required>
+          <option disabled [ngValue]="undefined" hidden selected>Choose your Tobacco/Nicotine Use</option>
+          <option value="1">Yes</option>
+          <option value="2">No</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="coverage">Coverage Type</label>
+      <div class="input-group">
+
+        <select [ngModel]= "userQuote.coverage"  #coverage="ngModel" name="coverage" class="form-control" id="coverage" required>
+          <option disabled [ngValue]="undefined" hidden selected>Choose your Coverage Type</option>
+          <option value="35">35-Year Guarenteed Level Term</option>
+          <option value="30">30-Year Guarenteed Level Term</option>
+          <option value="25">25-Year Guarenteed Level Term</option>
+          <option value="20">20-Year Guarenteed Level Term</option>
+          <option value="15">15-Year Guarenteed Level Term</option>
+        </select>
+      </div>
+    </div>
+    <div class="mb-3">
+        <label for="amount">Coverage Amount</label>
+        <div class="input-group">
+  
+          <select [ngModel]= "userQuote.amount"  #amount="ngModel" name="amount" class="form-control" id="amount" required>
+            <option disabled [ngValue]="undefined" hidden selected>Choose your Coverage Amount</option>
+            <option value="750">$750,000</option>
+            <option value="700">$700,000</option>
+            <option value="650">$650,000</option>
+            <option value="600">$600,000</option>
+            <option value="550">$550,000</option>
+          </select>
+        </div>
+      </div>
+
+    <hr class="mb-4">
+    <button class="btn btn-success" type="submit">Continue</button>
+  </form>
+</div>
+
+
+<quote-result *ngIf="completed"></quote-result>
