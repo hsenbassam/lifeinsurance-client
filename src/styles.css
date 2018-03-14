@@ -12,9 +12,12 @@ html {
 body {
   padding-top: 80px;
   margin-bottom: 60px;
-  background-color: rgb(243, 245, 245);
+  background-color: rgb(235, 245, 245);
   overflow-x:hidden;
 }
+ a{
+  color: #28a745
+ }
 
 
 

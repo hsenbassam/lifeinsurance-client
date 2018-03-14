@@ -9,7 +9,7 @@ import { NgForm } from '@angular/forms';
 export class QuoteResultComponent implements OnInit {
 
   //quote: any;
-  @Input('quote') quote: {};
+  @Input('quote') quote: {amount: number, coverage: number};
 
 
   constructor() { 

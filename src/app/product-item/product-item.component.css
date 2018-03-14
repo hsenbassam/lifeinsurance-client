@@ -5,8 +5,9 @@
     border-bottom: 1px solid #e5e5e5;
   }
   .jumbotron{
-    background-image: url("/assets/term-life.jpg");
+    background-image: url("/assets/term-life1.jpg");
     background-size: cover;
+    height: 50vh;
   }
   
   .blog-header-logo {
@@ -17,8 +18,6 @@
   .blog-header-logo:hover {
     text-decoration: none;
   }
-  
- 
   
   .display-4 {
     font-size: 2.5rem;

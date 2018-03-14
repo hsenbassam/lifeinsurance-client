@@ -3,6 +3,8 @@ import { NgForm } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { Router, ActivatedRoute} from '@angular/router';
 
+declare var $: any
+
 @Component({
   selector: 'app-quote',
   templateUrl: './quote.component.html',
