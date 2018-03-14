@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'quote-result',
@@ -7,16 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuoteResultComponent implements OnInit {
 
-  quote: any;
+  //quote: any;
+  @Input('quote') quote: {};
 
 
   constructor() { 
 
-    this.quote = JSON.parse(localStorage.getItem("quote"))
-    console.log(this.quote)
   }
 
   ngOnInit() {
+
+    console.log(this.quote)
   }
+
 
 }

@@ -21,7 +21,7 @@ import { FooterComponent } from './footer/footer.component';
 import { DatePipe } from '@angular/common';
 import { DataTableModule } from 'angular5-data-table'
 
-import { BsDropdownModule, CollapseModule, BsDatepickerModule, CarouselModule  } from 'ngx-bootstrap';
+import { BsDropdownModule, CollapseModule, BsDatepickerModule, CarouselModule } from 'ngx-bootstrap';
 import { AppErrorHandler } from './common/app-error-handler';
 import { ErrorHandler } from '@angular/core';
 import { RegisterService } from './services/register.service';
@@ -40,7 +40,6 @@ import { ProductCardComponent } from './products/product-card/product-card.compo
 import { ProductItemComponent } from './product-item/product-item.component';
 import { QuoteComponent } from './quote/quote.component';
 import { QuoteResultComponent } from './quote/quote-result/quote-result.component';
-
 
 @NgModule({
   declarations: [

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms/src/directives/ng_form';
+import { NgForm } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { Router, ActivatedRoute} from '@angular/router';
 
@@ -10,9 +10,10 @@ import { Router, ActivatedRoute} from '@angular/router';
 })
 export class QuoteComponent implements OnInit {
   
-  userQuote : {} = {};
-
   completed;
+  maxDate = new Date();
+  bsValue: Date = new Date();
+  userQuote : {} = {};
 
   constructor( private datePipe: DatePipe,private _router: Router, private _route: ActivatedRoute) {
 
@@ -20,14 +21,43 @@ export class QuoteComponent implements OnInit {
   }
 
   ngOnInit() {
+    $(document).ready(function(){
+      var current = 1,current_step,next_step,steps;
+      steps = $("fieldset").length;
+      $(".next").click(function(){
+        current_step = $(this).parent();
+        next_step = $(this).parent().next();
+        next_step.show();
+        current_step.hide();
+        setProgressBar(++current);
+      });
+      $(".previous").click(function(){
+        current_step = $(this).parent();
+        next_step = $(this).parent().prev();
+        next_step.show();
+        current_step.hide();
+        setProgressBar(--current);
+      });
+      setProgressBar(current);
+      // Change progress bar action
+      function setProgressBar(curStep){
+        var percent = 100 / steps * curStep;
+        percent = parseFloat(percent.toFixed());
+        $(".progress-bar")
+          .css("width",percent+"%")
+          .html(percent+"%");   
+      }
+    });
   }
 
   getQuoteProcess(form: NgForm){
+    
 
     form.value.birthday = this.datePipe.transform(form.value.birthday, 'yyyy-MM-dd');
     form.value.datecreated = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
 
-    console.log(form.value);
+    this.userQuote = form.value;
+    
     this._router.navigate([], {
       relativeTo: this._route,
       queryParams: {
@@ -35,7 +65,7 @@ export class QuoteComponent implements OnInit {
       }
    });
 
-   localStorage.setItem("quote", JSON.stringify(form.value))
+  // localStorage.setItem("quote", JSON.stringify(form.value))
 
 
 
