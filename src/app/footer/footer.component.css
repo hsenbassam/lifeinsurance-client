@@ -14,3 +14,7 @@ footer.footer {
   padding-top: 4rem;
   padding-bottom: 4rem;
 }
+
+a {
+  color: #17a2b8 !important;
+}

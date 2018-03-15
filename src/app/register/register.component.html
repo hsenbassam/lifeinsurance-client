@@ -46,11 +46,11 @@
                  name="birthday" 
                  bsDatepicker
                  [(ngModel)]="bsValue"
-                 [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }"
+                 [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD', containerClass: 'theme-blue' }"
                  required>
         </div>
         <div class="col-xs-12 col-12 col-md-3 form-group">
-          <button class="btn btn-success" type="button" (click)="dp.toggle()">Date Picker</button>
+          <button class="btn btn-default" type="button" (click)="dp.toggle()">Date Picker</button>
         </div>
       </div>
 
@@ -70,6 +70,6 @@
       <input type="number" ngModel #phone="ngModel" name="phone" class="form-control" id="phone" placeholder="Phone Number" >
     </div>
     <hr class="mb-4">
-    <button class="btn btn-success btn-block" type="submit">Register</button>
+    <button class="btn btn-info btn-block" type="submit">Register</button>
   </form>
 </div>

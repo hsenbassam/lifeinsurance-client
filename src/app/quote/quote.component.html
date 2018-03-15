@@ -1,6 +1,7 @@
-<h2>Term Life Insurance Simulator</h2>
-<hr>
+
 <form class="needs-validation col-md-10 quote" *ngIf="!completed" (ngSubmit)="getQuoteProcess(f)" #f="ngForm" ngNativeValidate>
+    <h2>Term Life Insurance Simulator</h2>
+    <hr>
   <div class="progress">
     <div class="progress-bar progress-bar-striped bg-success active progress-bar-animated" role="progressbar" aria-valuemin="0"
       aria-valuemax="100"></div>
@@ -24,10 +25,10 @@
         <div class="row">
           <div class="col-xs-12 col-6 col-md-7 form-group">
             <input type="text" class="form-control" [maxDate]="maxDate" #dp="bsDatepicker" #birthday="ngModel" name="birthday" bsDatepicker
-              [(ngModel)]="bsValue" [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" required>
+              [(ngModel)]="bsValue" [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD', containerClass: 'theme-blue'  }" required>
           </div>
           <div class="col-xs-12 col-6 col-md-3 form-group">
-            <button class="btn btn-success" type="button" (click)="dp.toggle()">Date Picker</button>
+            <button class="btn btn-default" type="button" (click)="dp.toggle()">Date Picker</button>
           </div>
         </div>
 

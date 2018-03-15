@@ -7,58 +7,60 @@
 </div>
 
 <div class="container" *ngIf="quote.amount">
-  <div class="card-deck mb-3 text-center">
-    <div class="card mb-4 box-shadow">
-      <div class="card-header">
-        <h4 class="my-0 font-weight-normal">Platinum</h4>
+   <!-- Content Row -->
+   <div class="row">
+      <div class="col-lg-4 mb-4">
+        <div class="card h-100">
+          <h3 class="card-header">Basic</h3>
+          <div class="card-body">
+            <div class="display-4">$19.99</div>
+            <div class="font-italic">per month</div>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+            <li class="list-group-item">
+              <a href="#" class="btn btn-info">Sign Up!</a>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div class="card-body">
-        <h1 class="card-title pricing-card-title">$20
-          <small class="text-muted">/ mo</small>
-        </h1>
-        <ul class="list-unstyled mt-3 mb-4">
-          <li>10 users included</li>
-          <li>2 GB of storage</li>
-          <li>Email support</li>
-          <li>Help center access</li>
-        </ul>
-        <button type="button" class="btn btn-lg btn-block btn-success">Select</button>
+      <div class="col-lg-4 mb-4">
+        <div class="card card-outline-info h-100">
+          <h3 class="card-header bg-info text-white">Plus</h3>
+          <div class="card-body">
+            <div class="display-4">$39.99</div>
+            <div class="font-italic">per month</div>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+            <li class="list-group-item">
+              <a href="#" class="btn btn-info">Sign Up!</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-4 mb-4">
+        <div class="card h-100">
+          <h3 class="card-header">Ultra</h3>
+          <div class="card-body">
+            <div class="display-4">$159.99</div>
+            <div class="font-italic">per month</div>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+            <li class="list-group-item">
+              <a href="#" class="btn btn-info">Sign Up!</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-    <div class="card mb-4 box-shadow">
-      <div class="card-header">
-        <h4 class="my-0 font-weight-normal">Gold</h4>
-      </div>
-      <div class="card-body">
-        <h1 class="card-title pricing-card-title">$15
-          <small class="text-muted">/ mo</small>
-        </h1>
-        <ul class="list-unstyled mt-3 mb-4">
-          <li>20 users included</li>
-          <li>10 GB of storage</li>
-          <li>Priority email support</li>
-          <li>Help center access</li>
-        </ul>
-        <button type="button" class="btn btn-lg btn-block btn-success">Select</button>
-      </div>
-    </div>
-    <div class="card mb-4 box-shadow">
-      <div class="card-header">
-        <h4 class="my-0 font-weight-normal">Silver</h4>
-      </div>
-      <div class="card-body">
-        <h1 class="card-title pricing-card-title">$10
-          <small class="text-muted">/ mo</small>
-        </h1>
-        <ul class="list-unstyled mt-3 mb-4">
-          <li>30 users included</li>
-          <li>15 GB of storage</li>
-          <li>Phone and email support</li>
-          <li>Help center access</li>
-        </ul>
-        <button type="button" class="btn btn-lg btn-block btn-success">Select</button>
-      </div>
-    </div>
-  </div>
+    <!-- /.row -->
 </div>
 <a routerLink="/quote/term-life" *ngIf="!quote.amount">Back to The Quote Form</a>

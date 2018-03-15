@@ -2,12 +2,14 @@
     cursor: pointer;
 }
 
-.navbar-fixed-top { position: absolute!important; }
+.navbar-fixed-top { position: absolute!important;}
 
 ul {
     list-style-type: none;
     padding-left: 0;
   }
- 
+  .dropdown-item:focus, .dropdown-item:active, .dropdown-item.active{
+    background-color: #17a2b8 !important;
+}
   
   
