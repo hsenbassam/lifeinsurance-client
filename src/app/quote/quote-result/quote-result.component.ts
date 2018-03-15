@@ -11,15 +11,13 @@ export class QuoteResultComponent implements OnInit {
   //quote: any;
   @Input('quote') quote: {amount: number, coverage: number};
 
-  userData = this.quote;
-
-
   constructor() { 
 
   }
 
   ngOnInit() {
-
+      
+    console.log(this.quote)
   
   }
 

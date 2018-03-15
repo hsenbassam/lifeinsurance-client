@@ -1,199 +1,213 @@
 
-<form class="needs-validation col-md-10 quote" *ngIf="!completed" (ngSubmit)="getQuoteProcess(f)" #f="ngForm" ngNativeValidate>
+<form class="col-md-10 quote" *ngIf="!completed" (ngSubmit)="getQuoteProcess(f)" #f="ngForm" ngNativeValidate>
     <h2>Term Life Insurance Simulator</h2>
     <hr>
-  <div class="progress">
+  <!-- <div class="progress">
     <div class="progress-bar progress-bar-striped bg-success active progress-bar-animated" role="progressbar" aria-valuemin="0"
       aria-valuemax="100"></div>
-  </div>
-  <fieldset>
-    <h4>Step 1: Your Profile</h4>
-    <div class="row">
-      <div class="col-md-6 mb-3">
-        <label for="gender">Gender</label>
-        <div class="input-group">
-          <select [ngModel]="userQuote.gender" #gender="ngModel" name="gender" class="form-control" id="gender" required>
-            <option [ngValue]="undefined" hidden disabled selected>Choose your Gender</option>
-            <option value="1">Male</option>
-            <option value="2">Female</option>
-          </select>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <label for="address">Date of Birth</label>
-
+  </div> -->
+  
+ 
+ 
+  <mat-horizontal-stepper>
+    <mat-step label="Step 1">
+      <fieldset>
+        <h4>Step 1: Your Profile</h4>
         <div class="row">
-          <div class="col-xs-12 col-6 col-md-7 form-group">
-            <input type="text" class="form-control" [maxDate]="maxDate" #dp="bsDatepicker" #birthday="ngModel" name="birthday" bsDatepicker
-              [(ngModel)]="bsValue" [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD', containerClass: 'theme-blue'  }" required>
+          <div class="col-md-6 mb-3">
+            <label for="gender">Gender</label>
+            <div class="input-group">
+              <select [ngModel]="userQuote.gender" #gender="ngModel" name="gender" class="form-control" id="gender" required>
+                <option [ngValue]="undefined" hidden disabled selected>Choose your Gender</option>
+                <option value="1">Male</option>
+                <option value="2">Female</option>
+              </select>
+            </div>
           </div>
-          <div class="col-xs-12 col-6 col-md-3 form-group">
-            <button class="btn btn-default" type="button" (click)="dp.toggle()">Date Picker</button>
-          </div>
-        </div>
-
-      </div>
-
-
-    </div>
-    <div class="row">
-      <div class="col-md-6 mb-3">
-        <label for="country">Country</label>
-        <div class="input-group">
-
-          <select [ngModel]="userQuote.country" #country="ngModel" name="country" class="form-control" id="country" required>
-            <option disabled [ngValue]="undefined" hidden selected>Choose your Country</option>
-            <option value="LB">Lebanon</option>
-            <option value="FR">France</option>
-            <option value="US">The United States of America</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="col-md-6 mb-3">
-        <label for="nationality">Nationality</label>
-        <div class="input-group">
-
-          <select [ngModel]="userQuote.nationality" #nationality="ngModel" name="nationality" class="form-control" id="nationality"
-            required>
-            <option disabled [ngValue]="undefined" hidden selected>Choose your Nationality</option>
-            <option value="LB">Lebanese</option>
-            <option value="FR">French</option>
-            <option value="US">American</option>
-          </select>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-6 mb-3">
-        <label for="coverage">Coverage Type</label>
-        <div class="input-group">
-
-          <select [ngModel]="userQuote.coverage" #coverage="ngModel" name="coverage" class="form-control" id="coverage" required>
-            <option disabled [ngValue]="undefined" hidden selected>Choose your Coverage Type</option>
-            <option value="35">35-Year Guarenteed Level Term</option>
-            <option value="30">30-Year Guarenteed Level Term</option>
-            <option value="25">25-Year Guarenteed Level Term</option>
-            <option value="20">20-Year Guarenteed Level Term</option>
-            <option value="15">15-Year Guarenteed Level Term</option>
-          </select>
-        </div>
-      </div>
-      <div class="col-md-6 mb-3">
-        <label for="amount">Coverage Amount</label>
-        <div class="input-group">
-
-          <select [ngModel]="userQuote.amount" #amount="ngModel" name="amount" class="form-control" id="amount" required>
-            <option disabled [ngValue]="undefined" hidden selected>Choose your Coverage Amount</option>
-            <option value="750000">$750,000</option>
-            <option value="700000">$700,000</option>
-            <option value="650000">$650,000</option>
-            <option value="600000">$600,000</option>
-            <option value="550000">$550,000</option>
-          </select>
-        </div>
-      </div>
-    </div>
-    <input type="button" class="next btn btn-info" value="Next" />
-  </fieldset>
-  <fieldset>
-    <h4> Step 2: Health Questions</h4>
-   
-      <div class="mb-3">
-        <label for="health">Do you take any prescription medications?</label>
-        <div class="input-group">
-          <ul>
-            <li>
-              <div class="form-check">
-                <input class="form-check-input" checked="checked" required type="radio" value="1" name="health1" [ngModel]="userQuote.health1" #health1="ngModel" id="health1-1">
-                <label class="form-check-label" for="health1-1">
-                  Yes
-                </label>
+          <div class="col-md-6">
+            <label for="address">Date of Birth</label>
+    
+            <div class="row">
+              <div class="col-xs-12 col-6 col-md-7 form-group">
+                <input type="text" class="form-control" [maxDate]="maxDate" #dp="bsDatepicker" #birthday="ngModel" name="birthday" bsDatepicker
+                  [(ngModel)]="bsValue" [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD', containerClass: 'theme-blue'  }" required>
               </div>
-            </li>
-            <li>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" value="2" name="health1" [ngModel]="userQuote.health1" #health1="ngModel" id="health1-2">
-                <label class="form-check-label" for="health1-2">
-                  No
-                </label>
+              <div class="col-xs-12 col-6 col-md-3 form-group">
+                <button class="btn btn-default" type="button" (click)="dp.toggle()">Date Picker</button>
               </div>
-            </li>
-          </ul>
-
+            </div>
+    
+          </div>
+    
+    
         </div>
-      </div>
-
-      <div class="mb-3">
-          <label for="health">Have you ever had any health conditions such as diabetes, cardiovascular disease, cancer, depression, or surgeries?</label>
-          <div class="input-group">
-            <ul>
-              <li>
-                <div class="form-check">
-                  <input class="form-check-input" checked="checked" required type="radio" value="1" name="health2" [ngModel]="userQuote.health2" #health2="ngModel" id="health2-1">
-                  <label class="form-check-label" for="health2-1">
-                    Yes
-                  </label>
-                </div>
-              </li>
-              <li>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" value="2" name="health2" [ngModel]="userQuote.health2" #health2="ngModel" id="health2-2">
-                  <label class="form-check-label" for="health2-2">
-                    No
-                  </label>
-                </div>
-              </li>
-            </ul>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="country">Country</label>
+            <div class="input-group">
+    
+              <select [ngModel]="userQuote.country" #country="ngModel" name="country" class="form-control" id="country" required>
+                <option disabled [ngValue]="undefined" hidden selected>Choose your Country</option>
+                <option value="LB">Lebanon</option>
+                <option value="FR">France</option>
+                <option value="US">The United States of America</option>
+              </select>
+            </div>
+          </div>
+    
+          <div class="col-md-6 mb-3">
+            <label for="nationality">Nationality</label>
+            <div class="input-group">
+    
+              <select [ngModel]="userQuote.nationality" #nationality="ngModel" name="nationality" class="form-control" id="nationality"
+                required>
+                <option disabled [ngValue]="undefined" hidden selected>Choose your Nationality</option>
+                <option value="LB">Lebanese</option>
+                <option value="FR">French</option>
+                <option value="US">American</option>
+              </select>
+            </div>
           </div>
         </div>
-
-        <div class="mb-3">
-            <label for="health">Do you use Nicotine/Tobacco</label>
+    
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="coverage">Coverage Type</label>
+            <div class="input-group">
+    
+              <select [ngModel]="userQuote.coverage" #coverage="ngModel" name="coverage" class="form-control" id="coverage" required>
+                <option disabled [ngValue]="undefined" hidden selected>Choose your Coverage Type</option>
+                <option value="35">35-Year Guarenteed Level Term</option>
+                <option value="30">30-Year Guarenteed Level Term</option>
+                <option value="25">25-Year Guarenteed Level Term</option>
+                <option value="20">20-Year Guarenteed Level Term</option>
+                <option value="15">15-Year Guarenteed Level Term</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="amount">Coverage Amount</label>
+            <div class="input-group">
+    
+              <select [ngModel]="userQuote.amount" #amount="ngModel" name="amount" class="form-control" id="amount" required>
+                <option disabled [ngValue]="undefined" hidden selected>Choose your Coverage Amount</option>
+                <option value="750000">$750,000</option>
+                <option value="700000">$700,000</option>
+                <option value="650000">$650,000</option>
+                <option value="600000">$600,000</option>
+                <option value="550000">$550,000</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <button type="button" mat-button matStepperNext class="next btn btn-info">Next</button>
+        
+      </fieldset>
+    </mat-step>
+    <mat-step label="Step 2">
+      <fieldset>
+        <h4> Step 2: Health Questions</h4>
+       
+          <div class="mb-3">
+            <label for="health">Do you take any prescription medications?</label>
             <div class="input-group">
               <ul>
                 <li>
                   <div class="form-check">
-                    <input class="form-check-input" checked="checked" required type="radio" value="1" name="health3" [ngModel]="userQuote.health3" #health3="ngModel" id="health3-1">
-                    <label class="form-check-label" for="health3-1">
+                    <input class="form-check-input" checked="checked" required type="radio" value="1" name="health1" [ngModel]="userQuote.health1" #health1="ngModel" id="health1-1">
+                    <label class="form-check-label" for="health1-1">
                       Yes
                     </label>
                   </div>
                 </li>
                 <li>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" value="2" name="health3" [ngModel]="userQuote.health3" #health3="ngModel" id="health3-2">
-                    <label class="form-check-label" for="health3-2">
+                    <input class="form-check-input" type="radio" value="2" name="health1" [ngModel]="userQuote.health1" #health1="ngModel" id="health1-2">
+                    <label class="form-check-label" for="health1-2">
                       No
                     </label>
                   </div>
                 </li>
               </ul>
+    
             </div>
           </div>
     
-    <input type="button" name="previous" class="previous btn btn-default" value="Previous" />
-    <input type="button" name="next" class="next btn btn-info" value="Next" />
-  </fieldset>
-  <fieldset>
-    <h4>Step 3: Employement</h4>
-    <div class="form-group">
-      <label for="occupation">Occupation</label>
-      <input type="text" class="form-control" [ngModel]="userQuote.occupation" required #occupation="ngModel" name="occupation" id="occupation" placeholder="Occupation">
-    </div>
-    <div class="form-group">
-      <label for="income">Monthly Salary</label>
-      <input type="number" class="form-control" name="income" [ngModel]="userQuote.income" required #income="ngModel" name="income" placeholder="Yearly Income $"/>
-    </div>
-    <input type="button" name="previous" class="previous btn btn-default" value="Previous" />
-    <button class="btn btn-success" type="submit" [disabled]="!f.valid">Continue</button>
-
-    <div class="alert alert-danger small" [hidden]="f.valid" role="alert" style="margin-top:10px">
-      <strong>You need to fill all the form to continue !</strong>
-    </div>
-  </fieldset>
+          <div class="mb-3">
+              <label for="health">Have you ever had any health conditions such as diabetes, cardiovascular disease, cancer, depression, or surgeries?</label>
+              <div class="input-group">
+                <ul>
+                  <li>
+                    <div class="form-check">
+                      <input class="form-check-input" checked="checked" required type="radio" value="1" name="health2" [ngModel]="userQuote.health2" #health2="ngModel" id="health2-1">
+                      <label class="form-check-label" for="health2-1">
+                        Yes
+                      </label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" value="2" name="health2" [ngModel]="userQuote.health2" #health2="ngModel" id="health2-2">
+                      <label class="form-check-label" for="health2-2">
+                        No
+                      </label>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+    
+            <div class="mb-3">
+                <label for="health">Do you use Nicotine/Tobacco</label>
+                <div class="input-group">
+                  <ul>
+                    <li>
+                      <div class="form-check">
+                        <input class="form-check-input" checked="checked" required type="radio" value="1" name="health3" [ngModel]="userQuote.health3" #health3="ngModel" id="health3-1">
+                        <label class="form-check-label" for="health3-1">
+                          Yes
+                        </label>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" value="2" name="health3" [ngModel]="userQuote.health3" #health3="ngModel" id="health3-2">
+                        <label class="form-check-label" for="health3-2">
+                          No
+                        </label>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+        
+        <button type="button" name="previous" mat-button matStepperPrevious class="previous btn btn-default" >Previous</button>
+        <button type="button" name="next" mat-button matStepperNext class="next btn btn-info">Next</button>
+      </fieldset>
+    </mat-step>
+    <mat-step label="Step 3">
+      <fieldset>
+        <h4>Step 3: Employement</h4>
+        <div class="form-group">
+          <label for="occupation">Occupation</label>
+          <input type="text" class="form-control" [ngModel]="userQuote.occupation" required #occupation="ngModel" name="occupation" id="occupation" placeholder="Occupation">
+        </div>
+        <div class="form-group">
+          <label for="income">Monthly Salary</label>
+          <input type="number" class="form-control" name="income" [ngModel]="userQuote.income" required #income="ngModel" name="income" placeholder="Yearly Income $"/>
+        </div>
+        <button type="button" name="previous" mat-button matStepperPrevious  class="previous btn btn-default">Previous</button>
+        <button class="btn btn-success" type="submit" [disabled]="!f.valid">Continue</button>
+    
+        <div class="alert alert-danger small" [hidden]="f.valid" role="alert" style="margin-top:10px">
+          <strong>You need to fill all the form to continue !</strong>
+        </div>
+      </fieldset>
+    </mat-step>
+  </mat-horizontal-stepper>
 </form>
+
+
 
 
 

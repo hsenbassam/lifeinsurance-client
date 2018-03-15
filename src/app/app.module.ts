@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router'
 import { FormsModule } from '@angular/forms';
@@ -22,6 +23,9 @@ import { DatePipe } from '@angular/common';
 import { DataTableModule } from 'angular5-data-table'
 
 import { BsDropdownModule, CollapseModule, BsDatepickerModule, TabsModule  } from 'ngx-bootstrap';
+
+import { MatStepperModule, MatProgressSpinnerModule } from '@angular/material'
+
 import { AppErrorHandler } from './common/app-error-handler';
 import { ErrorHandler } from '@angular/core';
 import { RegisterService } from './services/register.service';
@@ -40,6 +44,7 @@ import { ProductCardComponent } from './products/product-card/product-card.compo
 import { ProductItemComponent } from './product-item/product-item.component';
 import { QuoteComponent } from './quote/quote.component';
 import { QuoteResultComponent } from './quote/quote-result/quote-result.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -62,11 +67,15 @@ import { QuoteResultComponent } from './quote/quote-result/quote-result.componen
     ProductCardComponent,
     ProductItemComponent,
     QuoteComponent,
-    QuoteResultComponent
+    QuoteResultComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,     
+    FormsModule,    
+    MatStepperModule,
+    MatProgressSpinnerModule,
+    BrowserAnimationsModule, 
     HttpModule,
     JwtModule.forRoot({
       config: {

@@ -6,13 +6,6 @@
     border-color: gray ;
 }
 
-.needs-validation fieldset:not(:first-of-type) {
-    display: none;
-}
-.progress {
-    margin-top:50px;
-    margin-bottom:20px;
-}
 
 ul {
   list-style-type: none;
