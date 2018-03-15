@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewChecked } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { Router, ActivatedRoute} from '@angular/router';
@@ -16,10 +16,12 @@ export class QuoteComponent implements OnInit {
   maxDate = new Date();
   bsValue: Date = new Date();
   userQuote : {} = {};
+  
 
   constructor( private datePipe: DatePipe,private _router: Router, private _route: ActivatedRoute) {
 
     this._route.queryParams.subscribe(params => this.completed = params['completed']);
+
   }
 
   ngOnInit() {
@@ -54,7 +56,6 @@ export class QuoteComponent implements OnInit {
 
 
   getQuoteProcess(form: NgForm){
-    
 
     form.value.birthday = this.datePipe.transform(form.value.birthday, 'yyyy-MM-dd');
     form.value.datecreated = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
