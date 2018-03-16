@@ -9,7 +9,7 @@
   
  
  
-  <mat-horizontal-stepper>
+  <mat-horizontal-stepper class="simulator">
     <mat-step label="Step 1">
       <fieldset>
         <h4>Step 1: Your Profile</h4>
@@ -19,8 +19,8 @@
             <div class="input-group">
               <select [ngModel]="userQuote.gender" #gender="ngModel" name="gender" class="form-control" id="gender" required>
                 <option [ngValue]="undefined" hidden disabled selected>Choose your Gender</option>
-                <option value="1">Male</option>
-                <option value="2">Female</option>
+                <option value="m">Male</option>
+                <option value="f">Female</option>
               </select>
             </div>
           </div>
@@ -56,15 +56,16 @@
           </div>
     
           <div class="col-md-6 mb-3">
-            <label for="nationality">Nationality</label>
+            <label for="marial">Marial Status</label>
             <div class="input-group">
     
-              <select [ngModel]="userQuote.nationality" #nationality="ngModel" name="nationality" class="form-control" id="nationality"
+              <select [ngModel]="userQuote.marial" #marial="ngModel" name="marial" class="form-control" id="marial"
                 required>
-                <option disabled [ngValue]="undefined" hidden selected>Choose your Nationality</option>
-                <option value="LB">Lebanese</option>
-                <option value="FR">French</option>
-                <option value="US">American</option>
+                <option disabled [ngValue]="undefined" hidden selected>Choose your Marial Status</option>
+                <option value="s">Single</option>
+                <option value="m">Married - Dont Have Children</option>
+                <option value="mc">Married - Have Children</option>
+                <option value="d">Divorced</option>
               </select>
             </div>
           </div>
@@ -77,11 +78,11 @@
     
               <select [ngModel]="userQuote.coverage" #coverage="ngModel" name="coverage" class="form-control" id="coverage" required>
                 <option disabled [ngValue]="undefined" hidden selected>Choose your Coverage Type</option>
-                <option value="35">35-Year Guarenteed Level Term</option>
-                <option value="30">30-Year Guarenteed Level Term</option>
-                <option value="25">25-Year Guarenteed Level Term</option>
-                <option value="20">20-Year Guarenteed Level Term</option>
-                <option value="15">15-Year Guarenteed Level Term</option>
+                <option [ngValue]="35">35-Year Guarenteed Level Term</option>
+                <option [ngValue]="30">30-Year Guarenteed Level Term</option>
+                <option [ngValue]="25">25-Year Guarenteed Level Term</option>
+                <option [ngValue]="20">20-Year Guarenteed Level Term</option>
+                <option [ngValue]="15">15-Year Guarenteed Level Term</option>
               </select>
             </div>
           </div>
@@ -91,11 +92,11 @@
     
               <select [ngModel]="userQuote.amount" #amount="ngModel" name="amount" class="form-control" id="amount" required>
                 <option disabled [ngValue]="undefined" hidden selected>Choose your Coverage Amount</option>
-                <option value="750000">$750,000</option>
-                <option value="700000">$700,000</option>
-                <option value="650000">$650,000</option>
-                <option value="600000">$600,000</option>
-                <option value="550000">$550,000</option>
+                <option [ngValue]="750000">$750,000</option>
+                <option [ngValue] ="700000">$700,000</option>
+                <option [ngValue] ="650000">$650,000</option>
+                <option [ngValue] ="600000">$600,000</option>
+                <option [ngValue] ="550000">$550,000</option>
               </select>
             </div>
           </div>
@@ -114,7 +115,7 @@
               <ul>
                 <li>
                   <div class="form-check">
-                    <input class="form-check-input" checked="checked" required type="radio" value="1" name="health1" [ngModel]="userQuote.health1" #health1="ngModel" id="health1-1">
+                    <input class="form-check-input" checked="checked" required type="radio" value="true" name="health1" [ngModel]="userQuote.health1" #health1="ngModel" id="health1-1">
                     <label class="form-check-label" for="health1-1">
                       Yes
                     </label>
@@ -122,7 +123,7 @@
                 </li>
                 <li>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" value="2" name="health1" [ngModel]="userQuote.health1" #health1="ngModel" id="health1-2">
+                    <input class="form-check-input" type="radio" value="false" name="health1" [ngModel]="userQuote.health1" #health1="ngModel" id="health1-2">
                     <label class="form-check-label" for="health1-2">
                       No
                     </label>
@@ -139,7 +140,7 @@
                 <ul>
                   <li>
                     <div class="form-check">
-                      <input class="form-check-input" checked="checked" required type="radio" value="1" name="health2" [ngModel]="userQuote.health2" #health2="ngModel" id="health2-1">
+                      <input class="form-check-input" checked="checked" required type="radio" value="true" name="health2" [ngModel]="userQuote.health2" #health2="ngModel" id="health2-1">
                       <label class="form-check-label" for="health2-1">
                         Yes
                       </label>
@@ -147,7 +148,7 @@
                   </li>
                   <li>
                     <div class="form-check">
-                      <input class="form-check-input" type="radio" value="2" name="health2" [ngModel]="userQuote.health2" #health2="ngModel" id="health2-2">
+                      <input class="form-check-input" type="radio" value="false" name="health2" [ngModel]="userQuote.health2" #health2="ngModel" id="health2-2">
                       <label class="form-check-label" for="health2-2">
                         No
                       </label>
@@ -163,7 +164,7 @@
                   <ul>
                     <li>
                       <div class="form-check">
-                        <input class="form-check-input" checked="checked" required type="radio" value="1" name="health3" [ngModel]="userQuote.health3" #health3="ngModel" id="health3-1">
+                        <input class="form-check-input" checked="checked" required type="radio" value="true" name="health3" [ngModel]="userQuote.health3" #health3="ngModel" id="health3-1">
                         <label class="form-check-label" for="health3-1">
                           Yes
                         </label>
@@ -171,7 +172,7 @@
                     </li>
                     <li>
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" value="2" name="health3" [ngModel]="userQuote.health3" #health3="ngModel" id="health3-2">
+                        <input class="form-check-input" type="radio" value="false" name="health3" [ngModel]="userQuote.health3" #health3="ngModel" id="health3-2">
                         <label class="form-check-label" for="health3-2">
                           No
                         </label>
@@ -194,7 +195,7 @@
         </div>
         <div class="form-group">
           <label for="income">Monthly Salary</label>
-          <input type="number" class="form-control" name="income" [ngModel]="userQuote.income" required #income="ngModel" name="income" placeholder="Yearly Income $"/>
+          <input type="number" class="form-control" name="income" [ngModel]="userQuote.income" required #income="ngModel" name="income" placeholder="Monthly Income"/>
         </div>
         <button type="button" name="previous" mat-button matStepperPrevious  class="previous btn btn-default">Previous</button>
         <button class="btn btn-success" type="submit" [disabled]="!f.valid">Continue</button>

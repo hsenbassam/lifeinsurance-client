@@ -3,8 +3,6 @@ import { NgForm } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { Router, ActivatedRoute} from '@angular/router';
 
-declare var $: any
-
 @Component({
   selector: 'app-quote',
   templateUrl: './quote.component.html',
@@ -24,15 +22,12 @@ export class QuoteComponent implements OnInit {
 
   }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
 
   getQuoteProcess(form: NgForm){
 
     form.value.birthday = this.datePipe.transform(form.value.birthday, 'yyyy-MM-dd');
-    form.value.datecreated = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
 
     this.userQuote = form.value;
     
