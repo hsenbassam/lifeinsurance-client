@@ -44,7 +44,8 @@ import { ProductCardComponent } from './products/product-card/product-card.compo
 import { ProductItemComponent } from './product-item/product-item.component';
 import { QuoteComponent } from './quote/quote.component';
 import { QuoteResultComponent } from './quote/quote-result/quote-result.component';
-import { SpinnerComponent } from './spinner/spinner.component';
+import { TermLifeSimulatorService } from './services/termlife-simulator.service';
+
 
 @NgModule({
   declarations: [
@@ -67,8 +68,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
     ProductCardComponent,
     ProductItemComponent,
     QuoteComponent,
-    QuoteResultComponent,
-    SpinnerComponent
+    QuoteResultComponent
   ],
   imports: [
     BrowserModule,
@@ -149,6 +149,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
     JwtHelperService,
     ProductService,
     CategoryService,
+    TermLifeSimulatorService,
     DatePipe,
     { provide: ErrorHandler, useClass: AppErrorHandler }
   ],

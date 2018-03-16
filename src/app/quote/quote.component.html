@@ -29,7 +29,7 @@
     
             <div class="row">
               <div class="col-xs-12 col-6 col-md-7 form-group">
-                <input type="text" class="form-control" [maxDate]="maxDate" #dp="bsDatepicker" #birthday="ngModel" name="birthday" bsDatepicker
+                <input type="text" class="form-control" [maxDate]="maxDate"  #dp="bsDatepicker" #birthday="ngModel" name="birthday" bsDatepicker
                   [(ngModel)]="bsValue" [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD', containerClass: 'theme-blue'  }" required>
               </div>
               <div class="col-xs-12 col-6 col-md-3 form-group">
@@ -212,4 +212,4 @@
 
 
 
-<quote-result *ngIf="completed" [quote]="userQuote"></quote-result>
+<quote-result *ngIf="completed" [rates]="rates" [quote]="userQuote"></quote-result>

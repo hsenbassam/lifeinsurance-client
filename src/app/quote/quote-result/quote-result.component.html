@@ -13,7 +13,7 @@
         <div class="card h-100">
           <h3 class="card-header">Basic</h3>
           <div class="card-body">
-            <div class="display-4">$19.99</div>
+            <div class="display-4">{{rates.basic_monthly | currency:'USD':symbol}}</div>
             <div class="font-italic">per month</div>
           </div>
           <ul class="list-group list-group-flush">
@@ -29,7 +29,7 @@
         <div class="card card-outline-info h-100">
           <h3 class="card-header bg-info text-white">Plus</h3>
           <div class="card-body">
-            <div class="display-4">$39.99</div>
+            <div class="display-4">{{rates.plus_monthly | currency:'USD':symbol}}</div>
             <div class="font-italic">per month</div>
           </div>
           <ul class="list-group list-group-flush">
@@ -46,7 +46,7 @@
         <div class="card h-100">
           <h3 class="card-header">Ultra</h3>
           <div class="card-body">
-            <div class="display-4">$159.99</div>
+            <div class="display-4">{{rates.ultra_monthly | currency:'USD':symbol}}</div>
             <div class="font-italic">per month</div>
           </div>
           <ul class="list-group list-group-flush">

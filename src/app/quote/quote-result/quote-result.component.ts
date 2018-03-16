@@ -10,6 +10,7 @@ export class QuoteResultComponent implements OnInit {
 
   //quote: any;
   @Input('quote') quote: {amount: number, coverage: number};
+  @Input('rates') rates: {basic_monthly: number, plus_monthly: number, ultra_monthly: number};
 
   constructor() { 
 
@@ -18,6 +19,7 @@ export class QuoteResultComponent implements OnInit {
   ngOnInit() {
       
     console.log(this.quote)
+    console.log(this.rates)
   
   }
 
