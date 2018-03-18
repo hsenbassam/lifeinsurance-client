@@ -1,14 +1,13 @@
-
 <form class="col-md-10 quote" *ngIf="!completed" (ngSubmit)="getQuoteProcess(f)" #f="ngForm" ngNativeValidate>
-    <h2>Term Life Insurance Simulator</h2>
-    <hr>
+  <h2>Term Life Insurance Simulator</h2>
+  <hr>
   <!-- <div class="progress">
     <div class="progress-bar progress-bar-striped bg-success active progress-bar-animated" role="progressbar" aria-valuemin="0"
       aria-valuemax="100"></div>
   </div> -->
-  
- 
- 
+
+
+
   <mat-horizontal-stepper class="simulator">
     <mat-step label="Step 1">
       <fieldset>
@@ -26,26 +25,26 @@
           </div>
           <div class="col-md-6">
             <label for="address">Date of Birth</label>
-    
+
             <div class="row">
               <div class="col-xs-12 col-6 col-md-7 form-group">
-                <input type="text" class="form-control" [maxDate]="maxDate"  #dp="bsDatepicker" #birthday="ngModel" name="birthday" bsDatepicker
+                <input type="text" class="form-control" [maxDate]="maxDate" #dp="bsDatepicker" #birthday="ngModel" name="birthday" bsDatepicker
                   [(ngModel)]="bsValue" [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD', containerClass: 'theme-blue'  }" required>
               </div>
               <div class="col-xs-12 col-6 col-md-3 form-group">
                 <button class="btn btn-default" type="button" (click)="dp.toggle()">Date Picker</button>
               </div>
             </div>
-    
+
           </div>
-    
-    
+
+
         </div>
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="country">Country</label>
             <div class="input-group">
-    
+
               <select [ngModel]="userQuote.country" #country="ngModel" name="country" class="form-control" id="country" required>
                 <option disabled [ngValue]="undefined" hidden selected>Choose your Country</option>
                 <option value="LB">Lebanon</option>
@@ -54,13 +53,12 @@
               </select>
             </div>
           </div>
-    
+
           <div class="col-md-6 mb-3">
             <label for="marial">Marial Status</label>
             <div class="input-group">
-    
-              <select [ngModel]="userQuote.marial" #marial="ngModel" name="marial" class="form-control" id="marial"
-                required>
+
+              <select [ngModel]="userQuote.marial" #marial="ngModel" name="marial" class="form-control" id="marial" required>
                 <option disabled [ngValue]="undefined" hidden selected>Choose your Marial Status</option>
                 <option value="s">Single</option>
                 <option value="m">Married - Dont Have Children</option>
@@ -70,12 +68,12 @@
             </div>
           </div>
         </div>
-    
+
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="coverage">Coverage Type</label>
             <div class="input-group">
-    
+
               <select [ngModel]="userQuote.coverage" #coverage="ngModel" name="coverage" class="form-control" id="coverage" required>
                 <option disabled [ngValue]="undefined" hidden selected>Choose your Coverage Type</option>
                 <option [ngValue]="35">35-Year Guarenteed Level Term</option>
@@ -89,100 +87,79 @@
           <div class="col-md-6 mb-3">
             <label for="amount">Coverage Amount</label>
             <div class="input-group">
-    
               <select [ngModel]="userQuote.amount" #amount="ngModel" name="amount" class="form-control" id="amount" required>
                 <option disabled [ngValue]="undefined" hidden selected>Choose your Coverage Amount</option>
                 <option [ngValue]="750000">$750,000</option>
-                <option [ngValue] ="700000">$700,000</option>
-                <option [ngValue] ="650000">$650,000</option>
-                <option [ngValue] ="600000">$600,000</option>
-                <option [ngValue] ="550000">$550,000</option>
+                <option [ngValue]="700000">$700,000</option>
+                <option [ngValue]="650000">$650,000</option>
+                <option [ngValue]="600000">$600,000</option>
+                <option [ngValue]="550000">$550,000</option>
+                <option [ngValue]="500000">$500,000</option>
+                <option [ngValue]="450000">$450,000</option>
+                <option [ngValue]="400000">$400,000</option>
               </select>
             </div>
           </div>
         </div>
         <button type="button" mat-button matStepperNext class="next btn btn-info">Next</button>
-        
+
       </fieldset>
     </mat-step>
     <mat-step label="Step 2">
       <fieldset>
         <h4> Step 2: Health Questions</h4>
-       
-          <div class="mb-3">
-            <label for="health">Do you take any prescription medications?</label>
-            <div class="input-group">
-              <ul>
-                <li>
-                  <div class="form-check">
-                    <input class="form-check-input" checked="checked" required type="radio" value="true" name="health1" [ngModel]="userQuote.health1" #health1="ngModel" id="health1-1">
-                    <label class="form-check-label" for="health1-1">
-                      Yes
-                    </label>
-                  </div>
-                </li>
-                <li>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" value="false" name="health1" [ngModel]="userQuote.health1" #health1="ngModel" id="health1-2">
-                    <label class="form-check-label" for="health1-2">
-                      No
-                    </label>
-                  </div>
-                </li>
-              </ul>
-    
-            </div>
+
+        <div class="mb-3">
+          <label for="health">Do you take any prescription medications?</label>
+          <div class="input-group">
+            <mat-radio-group>
+              <div class="form-check">
+                <mat-radio-button checked="checked" required value="true" name="health1" [ngModel]="userQuote.health1" #health1="ngModel"
+                  id="health1-1">Yes</mat-radio-button>
+              </div>
+              <div class="form-check">
+                <mat-radio-button value="false" name="health1" [ngModel]="userQuote.health1" #health1="ngModel" id="health1-2">No</mat-radio-button>
+              </div>
+            </mat-radio-group>
           </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="health">Have you ever had any health conditions such as diabetes, cardiovascular disease, cancer, depression, or surgeries?</label>
+          <div class="input-group">
+              <mat-radio-group >
+                  <div class="form-check">
+                    <mat-radio-button checked="checked" required  value="true" name="health2" [ngModel]="userQuote.health2"
+                    #health2="ngModel" id="health2-1" >Yes</mat-radio-button>
+                  </div>
+                  <div class="form-check">
+                    <mat-radio-button value="false" name="health2" [ngModel]="userQuote.health2" #health2="ngModel"
+                    id="health2-2">No</mat-radio-button>
+                  </div>
+                </mat-radio-group>
     
-          <div class="mb-3">
-              <label for="health">Have you ever had any health conditions such as diabetes, cardiovascular disease, cancer, depression, or surgeries?</label>
-              <div class="input-group">
-                <ul>
-                  <li>
-                    <div class="form-check">
-                      <input class="form-check-input" checked="checked" required type="radio" value="true" name="health2" [ngModel]="userQuote.health2" #health2="ngModel" id="health2-1">
-                      <label class="form-check-label" for="health2-1">
-                        Yes
-                      </label>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" value="false" name="health2" [ngModel]="userQuote.health2" #health2="ngModel" id="health2-2">
-                      <label class="form-check-label" for="health2-2">
-                        No
-                      </label>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="health">Do you use Nicotine/Tobacco</label>
+          <div class="input-group">
+              <mat-radio-group>
+                  <div class="form-check">
+                    <mat-radio-button checked="checked" required value="true" name="health3" [ngModel]="userQuote.health3"
+                    #health3="ngModel" id="health3-1">Yes</mat-radio-button>
+                  </div>
+                  <div class="form-check">
+                    <mat-radio-button value="false" name="health3" [ngModel]="userQuote.health3" #health3="ngModel"
+                    id="health3-2">No</mat-radio-button>
+                  </div>
+                </mat-radio-group>
     
-            <div class="mb-3">
-                <label for="health">Do you use Nicotine/Tobacco</label>
-                <div class="input-group">
-                  <ul>
-                    <li>
-                      <div class="form-check">
-                        <input class="form-check-input" checked="checked" required type="radio" value="true" name="health3" [ngModel]="userQuote.health3" #health3="ngModel" id="health3-1">
-                        <label class="form-check-label" for="health3-1">
-                          Yes
-                        </label>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" value="false" name="health3" [ngModel]="userQuote.health3" #health3="ngModel" id="health3-2">
-                        <label class="form-check-label" for="health3-2">
-                          No
-                        </label>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
         
-        <button type="button" name="previous" mat-button matStepperPrevious class="previous btn btn-default" >Previous</button>
+          </div>
+        </div>
+
+        <button type="button" name="previous" mat-button matStepperPrevious class="previous btn btn-default">Previous</button>
         <button type="button" name="next" mat-button matStepperNext class="next btn btn-info">Next</button>
       </fieldset>
     </mat-step>
@@ -191,15 +168,17 @@
         <h4>Step 3: Employement</h4>
         <div class="form-group">
           <label for="occupation">Occupation</label>
-          <input type="text" class="form-control" [ngModel]="userQuote.occupation" required #occupation="ngModel" name="occupation" id="occupation" placeholder="Occupation">
+          <input type="text" class="form-control" [ngModel]="userQuote.occupation" required #occupation="ngModel" name="occupation"
+            id="occupation" placeholder="Occupation">
         </div>
         <div class="form-group">
           <label for="income">Monthly Salary</label>
-          <input type="number" class="form-control" name="income" [ngModel]="userQuote.income" required #income="ngModel" name="income" placeholder="Monthly Income"/>
+          <input type="number" class="form-control" name="income" [ngModel]="userQuote.income" required #income="ngModel" name="income"
+            placeholder="Monthly Income" />
         </div>
-        <button type="button" name="previous" mat-button matStepperPrevious  class="previous btn btn-default">Previous</button>
+        <button type="button" name="previous" mat-button matStepperPrevious class="previous btn btn-default">Previous</button>
         <button class="btn btn-success" type="submit" [disabled]="!f.valid">Continue</button>
-    
+
         <div class="alert alert-danger small" [hidden]="f.valid" role="alert" style="margin-top:10px">
           <strong>You need to fill all the form to continue !</strong>
         </div>

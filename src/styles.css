@@ -29,4 +29,8 @@ body {
   right: 50%;
 }
 
+/* Angular Material Custom*/
+.mat-step-header .mat-step-icon{
+  background-color : #c2185b
+}
 

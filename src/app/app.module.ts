@@ -24,7 +24,7 @@ import { DataTableModule } from 'angular5-data-table'
 
 import { BsDropdownModule, CollapseModule, BsDatepickerModule, TabsModule  } from 'ngx-bootstrap';
 
-import { MatStepperModule, MatProgressSpinnerModule } from '@angular/material'
+import { MatStepperModule, MatProgressSpinnerModule, MatRadioModule } from '@angular/material'
 
 import { AppErrorHandler } from './common/app-error-handler';
 import { ErrorHandler } from '@angular/core';
@@ -45,6 +45,7 @@ import { ProductItemComponent } from './product-item/product-item.component';
 import { QuoteComponent } from './quote/quote.component';
 import { QuoteResultComponent } from './quote/quote-result/quote-result.component';
 import { TermLifeSimulatorService } from './services/termlife-simulator.service';
+import { CountrySelectComponent } from './utils/country-select/country-select.component';
 
 
 @NgModule({
@@ -68,13 +69,15 @@ import { TermLifeSimulatorService } from './services/termlife-simulator.service'
     ProductCardComponent,
     ProductItemComponent,
     QuoteComponent,
-    QuoteResultComponent
+    QuoteResultComponent,
+    CountrySelectComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,    
     MatStepperModule,
     MatProgressSpinnerModule,
+    MatRadioModule,
     BrowserAnimationsModule, 
     HttpModule,
     JwtModule.forRoot({

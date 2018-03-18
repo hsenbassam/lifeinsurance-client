@@ -37,7 +37,7 @@ export class QuoteComponent implements OnInit {
 
     form.value.birthday = this.datePipe.transform(form.value.birthday, 'yyyy-MM-dd');
     this.userQuote = form.value;
-
+    console.log(this.userQuote);
     this.termLifeService.post(form.value)
     .subscribe(
       rates => {
