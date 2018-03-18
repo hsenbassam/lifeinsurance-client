@@ -46,6 +46,7 @@ import { QuoteComponent } from './quote/quote.component';
 import { QuoteResultComponent } from './quote/quote-result/quote-result.component';
 import { TermLifeSimulatorService } from './services/termlife-simulator.service';
 import { CountrySelectComponent } from './utils/country-select/country-select.component';
+import { AboutComponent } from './about/about.component';
 
 
 @NgModule({
@@ -70,7 +71,8 @@ import { CountrySelectComponent } from './utils/country-select/country-select.co
     ProductItemComponent,
     QuoteComponent,
     QuoteResultComponent,
-    CountrySelectComponent
+    CountrySelectComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
@@ -95,6 +97,7 @@ import { CountrySelectComponent } from './utils/country-select/country-select.co
     TabsModule.forRoot(),
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
+      { path: 'about', component: AboutComponent },
       { path: 'products/:id', component: ProductItemComponent},
       { path: 'products', component: ProductsComponent },
       { 

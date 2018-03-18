@@ -1,6 +1,5 @@
-# Life Insurance
+# Part of the Life Insurance Project - Internship
 
--- Just the Client
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.1.
 

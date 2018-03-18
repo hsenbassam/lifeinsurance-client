@@ -114,11 +114,11 @@
           <div class="input-group">
             <mat-radio-group>
               <div class="form-check">
-                <mat-radio-button checked="checked" required value="true" name="health1" [ngModel]="userQuote.health1" #health1="ngModel"
+                <mat-radio-button checked="checked" required ngDefaultControl value="true" name="health1" [ngModel]="userQuote.health1" #health1="ngModel"
                   id="health1-1">Yes</mat-radio-button>
               </div>
               <div class="form-check">
-                <mat-radio-button value="false" name="health1" [ngModel]="userQuote.health1" #health1="ngModel" id="health1-2">No</mat-radio-button>
+                <mat-radio-button value="false" ngDefaultControl name="health1" [ngModel]="userQuote.health1" #health1="ngModel" id="health1-2">No</mat-radio-button>
               </div>
             </mat-radio-group>
           </div>
@@ -130,11 +130,11 @@
               <mat-radio-group >
                   <div class="form-check">
                     <mat-radio-button checked="checked" required  value="true" name="health2" [ngModel]="userQuote.health2"
-                    #health2="ngModel" id="health2-1" >Yes</mat-radio-button>
+                    #health2="ngModel" ngDefaultControl id="health2-1" >Yes</mat-radio-button>
                   </div>
                   <div class="form-check">
                     <mat-radio-button value="false" name="health2" [ngModel]="userQuote.health2" #health2="ngModel"
-                    id="health2-2">No</mat-radio-button>
+                    id="health2-2" ngDefaultControl>No</mat-radio-button>
                   </div>
                 </mat-radio-group>
     
@@ -146,11 +146,11 @@
           <div class="input-group">
               <mat-radio-group>
                   <div class="form-check">
-                    <mat-radio-button checked="checked" required value="true" name="health3" [ngModel]="userQuote.health3"
+                    <mat-radio-button checked="checked" ngDefaultControl required value="true" name="health3" [ngModel]="userQuote.health3"
                     #health3="ngModel" id="health3-1">Yes</mat-radio-button>
                   </div>
                   <div class="form-check">
-                    <mat-radio-button value="false" name="health3" [ngModel]="userQuote.health3" #health3="ngModel"
+                    <mat-radio-button value="false" ngDefaultControl name="health3" [ngModel]="userQuote.health3" #health3="ngModel"
                     id="health3-2">No</mat-radio-button>
                   </div>
                 </mat-radio-group>
