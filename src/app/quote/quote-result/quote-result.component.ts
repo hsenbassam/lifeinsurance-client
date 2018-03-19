@@ -1,5 +1,7 @@
 import { Component, OnInit, Input} from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Quote } from '../../models/quote';
+import { Rates } from '../../models/rates';
 
 @Component({
   selector: 'quote-result',
@@ -9,10 +11,12 @@ import { NgForm } from '@angular/forms';
 export class QuoteResultComponent implements OnInit {
 
   //quote: any;
-  @Input('quote') quote: {amount: number, coverage: number};
-  @Input('rates') rates: {basic_monthly: number, plus_monthly: number, ultra_monthly: number};
+  @Input('quote') quote: Quote;
+  @Input('rates') rates: Rates;
 
   constructor() { 
+
+    this.quote = new Quote();
 
   }
 

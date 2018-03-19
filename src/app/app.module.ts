@@ -47,6 +47,7 @@ import { QuoteResultComponent } from './quote/quote-result/quote-result.componen
 import { TermLifeSimulatorService } from './services/termlife-simulator.service';
 import { CountrySelectComponent } from './utils/country-select/country-select.component';
 import { AboutComponent } from './about/about.component';
+import { OccupationSelectComponent } from './utils/occupation-select/occupation-select.component';
 
 
 @NgModule({
@@ -72,7 +73,8 @@ import { AboutComponent } from './about/about.component';
     QuoteComponent,
     QuoteResultComponent,
     CountrySelectComponent,
-    AboutComponent
+    AboutComponent,
+    OccupationSelectComponent
   ],
   imports: [
     BrowserModule,

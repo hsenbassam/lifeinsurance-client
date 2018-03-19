@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'country-select',
@@ -7,11 +7,16 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class CountrySelectComponent implements OnInit {
 
+  @Output('countryChanged') countryChanged : EventEmitter<string> = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit() {
   }
+
+  onChange(countryValue) {
+    this.countryChanged.emit(countryValue)
+ }
 
 
 

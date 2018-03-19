@@ -28,11 +28,12 @@
 
             <div class="row">
               <div class="col-xs-12 col-6 col-md-7 form-group">
-                <input type="text" class="form-control" [maxDate]="maxDate" #dp="bsDatepicker" #birthday="ngModel" name="birthday" bsDatepicker
-                  [(ngModel)]="bsValue" [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD', containerClass: 'theme-blue'  }" required>
+                <input type="text" class="form-control" [maxDate]="maxDate" [minDate]="minDate" #dp="bsDatepicker" #birthday="ngModel" name="birthday" bsDatepicker
+                  [(ngModel)]="bsValue" [bsConfig]="{ containerClass: 'theme-dark-blue'}" required>
+                  <!-- dateInputFormat: 'YYYY-MM-DD',  -->
               </div>
               <div class="col-xs-12 col-6 col-md-3 form-group">
-                <button class="btn btn-default" type="button" (click)="dp.toggle()">Date Picker</button>
+                <button class="btn btn-default" type="button" (click)="dp.toggle()"><i class="icon-calendar"></i></button>
               </div>
             </div>
 
@@ -44,13 +45,7 @@
           <div class="col-md-6 mb-3">
             <label for="country">Country</label>
             <div class="input-group">
-
-              <select [ngModel]="userQuote.country" #country="ngModel" name="country" class="form-control" id="country" required>
-                <option disabled [ngValue]="undefined" hidden selected>Choose your Country</option>
-                <option value="LB">Lebanon</option>
-                <option value="FR">France</option>
-                <option value="US">The United States of America</option>
-              </select>
+              <country-select (countryChanged) = "this.countrySelected = $event"></country-select>
             </div>
           </div>
 
@@ -112,13 +107,12 @@
         <div class="mb-3">
           <label for="health">Do you take any prescription medications?</label>
           <div class="input-group">
-            <mat-radio-group>
+            <mat-radio-group [ngModel]="userQuote.health1" name="health1" #health1="ngModel">
               <div class="form-check">
-                <mat-radio-button checked="checked" required ngDefaultControl value="true" name="health1" [ngModel]="userQuote.health1" #health1="ngModel"
-                  id="health1-1">Yes</mat-radio-button>
+                <mat-radio-button  required ngDefaultControl value="true" id="health1-1">Yes</mat-radio-button>
               </div>
               <div class="form-check">
-                <mat-radio-button value="false" ngDefaultControl name="health1" [ngModel]="userQuote.health1" #health1="ngModel" id="health1-2">No</mat-radio-button>
+                <mat-radio-button value="false" ngDefaultControl id="health1-2">No</mat-radio-button>
               </div>
             </mat-radio-group>
           </div>
@@ -127,35 +121,29 @@
         <div class="mb-3">
           <label for="health">Have you ever had any health conditions such as diabetes, cardiovascular disease, cancer, depression, or surgeries?</label>
           <div class="input-group">
-              <mat-radio-group >
-                  <div class="form-check">
-                    <mat-radio-button checked="checked" required  value="true" name="health2" [ngModel]="userQuote.health2"
-                    #health2="ngModel" ngDefaultControl id="health2-1" >Yes</mat-radio-button>
-                  </div>
-                  <div class="form-check">
-                    <mat-radio-button value="false" name="health2" [ngModel]="userQuote.health2" #health2="ngModel"
-                    id="health2-2" ngDefaultControl>No</mat-radio-button>
-                  </div>
-                </mat-radio-group>
-    
+            <mat-radio-group name="health2" [ngModel]="userQuote.health2" #health2="ngModel">
+              <div class="form-check">
+                <mat-radio-button checked="checked" required value="true" ngDefaultControl id="health2-1">Yes</mat-radio-button>
+              </div>
+              <div class="form-check">
+                <mat-radio-button value="false" name="health2" id="health2-2" ngDefaultControl>No</mat-radio-button>
+              </div>
+            </mat-radio-group>
+
           </div>
         </div>
 
         <div class="mb-3">
           <label for="health">Do you use Nicotine/Tobacco</label>
           <div class="input-group">
-              <mat-radio-group>
-                  <div class="form-check">
-                    <mat-radio-button checked="checked" ngDefaultControl required value="true" name="health3" [ngModel]="userQuote.health3"
-                    #health3="ngModel" id="health3-1">Yes</mat-radio-button>
-                  </div>
-                  <div class="form-check">
-                    <mat-radio-button value="false" ngDefaultControl name="health3" [ngModel]="userQuote.health3" #health3="ngModel"
-                    id="health3-2">No</mat-radio-button>
-                  </div>
-                </mat-radio-group>
-    
-        
+            <mat-radio-group name="health3" [ngModel]="userQuote.health3" #health3="ngModel">
+              <div class="form-check">
+                <mat-radio-button checked="checked" required ngDefaultControl value="true" id="health3-1">Yes</mat-radio-button>
+              </div>
+              <div class="form-check">
+                <mat-radio-button value="false" ngDefaultControl id="health3-2">No</mat-radio-button>
+              </div>
+            </mat-radio-group>
           </div>
         </div>
 
@@ -168,8 +156,9 @@
         <h4>Step 3: Employement</h4>
         <div class="form-group">
           <label for="occupation">Occupation</label>
-          <input type="text" class="form-control" [ngModel]="userQuote.occupation" required #occupation="ngModel" name="occupation"
-            id="occupation" placeholder="Occupation">
+
+
+          <occupation-select (occupationChanged) = "this.occupationSelected = $event"></occupation-select>
         </div>
         <div class="form-group">
           <label for="income">Monthly Salary</label>

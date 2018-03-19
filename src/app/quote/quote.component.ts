@@ -5,6 +5,8 @@ import { Router, ActivatedRoute} from '@angular/router';
 import { TermLifeSimulatorService } from '../services/termlife-simulator.service';
 import { AppError } from '../common/app-error';
 import { DateFormatter } from 'ngx-bootstrap/datepicker/date-formatter';
+import { Quote } from '../models/quote';
+import { Rates } from '../models/rates';
 
 @Component({
   selector: 'app-quote',
@@ -14,11 +16,13 @@ import { DateFormatter } from 'ngx-bootstrap/datepicker/date-formatter';
 export class QuoteComponent implements OnInit {
   
   completed;
-  maxDate = new Date();
-  //minDate = new Date().setFullYear(this.maxDate.getFullYear() - 18);
-  bsValue: Date = new Date();
-  userQuote : {} = {};
-  rates: {} = {};
+  maxDate = new Date(new Date().setFullYear(new Date().getFullYear()-18));
+  minDate = new Date(new Date().setFullYear(new Date().getFullYear()-94));
+  bsValue: Date = this.maxDate;
+  userQuote : Quote;
+  rates: Rates;
+  countrySelected: string;
+  occupationSelected: string;
   
 
   constructor(
@@ -27,7 +31,9 @@ export class QuoteComponent implements OnInit {
     private termLifeService: TermLifeSimulatorService) {
 
     this._route.queryParams.subscribe(params => this.completed = params['completed']);
-
+    this.userQuote = new Quote();
+   
+   
   }
 
   ngOnInit() {}
@@ -36,6 +42,8 @@ export class QuoteComponent implements OnInit {
   getQuoteProcess(form: NgForm){
 
     form.value.birthday = this.datePipe.transform(form.value.birthday, 'yyyy-MM-dd');
+    form.value.country = this.countrySelected;
+    form.value.occupation = this.occupationSelected;
     this.userQuote = form.value;
     console.log(this.userQuote);
     this.termLifeService.post(form.value)
