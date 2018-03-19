@@ -6,7 +6,7 @@
 }
 
 .jumbotron {
-  background-image: url("/assets/term-life1.jpg");
+  *background-image: url("/assets/term-life1.jpg");
   background-size: cover;
   height: 50vh;
 }
