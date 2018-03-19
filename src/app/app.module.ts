@@ -48,6 +48,8 @@ import { TermLifeSimulatorService } from './services/termlife-simulator.service'
 import { CountrySelectComponent } from './utils/country-select/country-select.component';
 import { AboutComponent } from './about/about.component';
 import { OccupationSelectComponent } from './utils/occupation-select/occupation-select.component';
+import { TermLifeProductComponent } from './term-life-product/term-life-product.component';
+import { WholeLifeProductComponent } from './whole-life-product/whole-life-product.component';
 
 
 @NgModule({
@@ -74,7 +76,9 @@ import { OccupationSelectComponent } from './utils/occupation-select/occupation-
     QuoteResultComponent,
     CountrySelectComponent,
     AboutComponent,
-    OccupationSelectComponent
+    OccupationSelectComponent,
+    TermLifeProductComponent,
+    WholeLifeProductComponent
   ],
   imports: [
     BrowserModule,
@@ -100,7 +104,8 @@ import { OccupationSelectComponent } from './utils/occupation-select/occupation-
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'about', component: AboutComponent },
-      { path: 'products/:id', component: ProductItemComponent},
+      { path: 'products/term-life', component: TermLifeProductComponent},
+      { path: 'products/whole-life', component: WholeLifeProductComponent},
       { path: 'products', component: ProductsComponent },
       { 
         path: 'shopping-cart',

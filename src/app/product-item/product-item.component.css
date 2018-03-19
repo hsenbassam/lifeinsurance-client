@@ -5,21 +5,6 @@
   border-bottom: 1px solid #e5e5e5;
 }
 
-.jumbotron {
-  *background-image: url("/assets/term-life1.jpg");
-  background-size: cover;
-  height: 50vh;
-}
-
-.full-width {
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-}
-
 .top-buffer { margin-top:40px; }
 
 
