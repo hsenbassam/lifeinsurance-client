@@ -1,4 +1,4 @@
-<form class="col-md-10 quote" *ngIf="!completed" (ngSubmit)="getQuoteProcess(f)" #f="ngForm" ngNativeValidate>
+<form class="col-md-12 quote" *ngIf="!completed" (ngSubmit)="getQuoteProcess(f)" #f="ngForm" ngNativeValidate>
   <h2>Term Life Insurance Simulator</h2>
   <hr>
   <!-- <div class="progress">
@@ -27,12 +27,12 @@
             <label for="address">Date of Birth</label>
 
             <div class="row">
-              <div class="col-xs-12 col-6 col-md-7 form-group">
+              <div class="col-xs-12 col-6 col-md-8 form-group">
                 <input type="text" class="form-control" [maxDate]="maxDate" [minDate]="minDate" #dp="bsDatepicker" #birthday="ngModel" name="birthday" bsDatepicker
                   [(ngModel)]="bsValue" [bsConfig]="{ containerClass: 'theme-dark-blue'}" required>
                   <!-- dateInputFormat: 'YYYY-MM-DD',  -->
               </div>
-              <div class="col-xs-12 col-6 col-md-3 form-group">
+              <div class="col-xs-12 col-6 col-md-4 form-group">
                 <button class="btn btn-default" type="button" (click)="dp.toggle()"><i class="icon-calendar"></i></button>
               </div>
             </div>
@@ -69,6 +69,7 @@
             <label for="coverage">Coverage Type</label>
             <div class="input-group">
 
+              <div *ngIf="type =='term-life'; else whole">
               <select [ngModel]="userQuote.coverage" #coverage="ngModel" name="coverage" class="form-control" id="coverage" required>
                 <option disabled [ngValue]="undefined" hidden selected>Choose your Coverage Type</option>
                 <option [ngValue]="35">35-Year Guarenteed Level Term</option>
@@ -77,6 +78,11 @@
                 <option [ngValue]="20">20-Year Guarenteed Level Term</option>
                 <option [ngValue]="15">15-Year Guarenteed Level Term</option>
               </select>
+            </div>
+            <ng-template #whole >
+              <p class="form-control">Lifetime Coverage</p>
+            </ng-template>
+
             </div>
           </div>
           <div class="col-md-6 mb-3">
@@ -182,8 +188,4 @@
   </mat-horizontal-stepper>
 </form>
 
-
-
-
-
-<quote-result *ngIf="completed" [rates]="rates" [quote]="userQuote"></quote-result>
+<quote-result *ngIf="completed" [rates]="rates" [quote]="userQuote" [type]="type"></quote-result>

@@ -50,7 +50,7 @@ import { AboutComponent } from './about/about.component';
 import { OccupationSelectComponent } from './utils/occupation-select/occupation-select.component';
 import { TermLifeProductComponent } from './term-life-product/term-life-product.component';
 import { WholeLifeProductComponent } from './whole-life-product/whole-life-product.component';
-
+import { WholeLifeSimulatorService } from './services/wholelife-simulator.service';
 
 @NgModule({
   declarations: [
@@ -163,6 +163,7 @@ import { WholeLifeProductComponent } from './whole-life-product/whole-life-produ
     ProductService,
     CategoryService,
     TermLifeSimulatorService,
+    WholeLifeSimulatorService,
     DatePipe,
     { provide: ErrorHandler, useClass: AppErrorHandler }
   ],

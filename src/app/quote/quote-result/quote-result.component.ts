@@ -13,6 +13,7 @@ export class QuoteResultComponent implements OnInit {
   //quote: any;
   @Input('quote') quote: Quote;
   @Input('rates') rates: Rates;
+  @Input('type') type: string;
 
   constructor() { 
 

@@ -2,8 +2,10 @@
 <div *ngIf="quote.amount" class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
   <h1 class="display-4">Quote Results</h1>
   <p class="lead">Face Amount:{{quote.amount | currency:'USD':symbol }}</p>
-  <p class="lead">Coverage Length: {{quote.coverage }}-Year Guarenteed Level Term</p>
-
+  <p class="lead" *ngIf="type == 'term-life'; else whole">Coverage Length: {{quote.coverage }}-Year Guarenteed Level Term</p>
+  <ng-template #whole>
+    <p class="lead"> Lifetime Coverage</p>
+  </ng-template>
 </div>
 
 <div class="container" *ngIf="quote.amount">
@@ -17,7 +19,8 @@
             <div class="font-italic">per month</div>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">Natural or accidental death</li>
+            <li class="list-group-item" *ngIf="type =='term-life'">Natural or accidental death</li>
+            <li class="list-group-item" *ngIf="type =='whole-life'">Lifetime Coverage</li>
             
             <li class="list-group-item">
               <a href="#" class="btn btn-info">Sign Up!</a>
@@ -33,9 +36,14 @@
             <div class="font-italic">per month</div>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">Natural or accidental death</li>
-            <li class="list-group-item">Renewability</li>
-            <li class="list-group-item">Total Permanent Disablement (TPD)</li>
+            <li class="list-group-item"  *ngIf="type =='term-life'">Natural or accidental death</li>
+            <li class="list-group-item"  *ngIf="type =='term-life'">Renewability</li>
+            <li class="list-group-item"  *ngIf="type =='term-life'">Total Permanent Disablement (TPD)</li>
+
+            <li class="list-group-item"  *ngIf="type =='whole-life'">Lifetime Coverage</li>
+            <li class="list-group-item"  *ngIf="type =='whole-life'">Family Income Benefit</li>
+            <li class="list-group-item"  *ngIf="type =='whole-life'">Accidental Death Benefit</li>
+            <li class="list-group-item"  *ngIf="type =='whole-life'">Hospitalization Benefit</li>
             <li class="list-group-item">
               <a href="#" class="btn btn-info">Sign Up!</a>
             </li>
@@ -50,10 +58,16 @@
             <div class="font-italic">per month</div>
           </div>
           <ul class="list-group list-group-flush">
-              <li class="list-group-item">Natural or accidental death</li>
-              <li class="list-group-item">Renewability</li>
-              <li class="list-group-item">Total Permanent Disablement (TPD)</li>
-              <li class="list-group-item">Passive War Risk</li>
+            <li class="list-group-item"  *ngIf="type =='term-life'">Natural or accidental death</li>
+            <li class="list-group-item"  *ngIf="type =='term-life'">Renewability</li>
+            <li class="list-group-item"  *ngIf="type =='term-life'">Total Permanent Disablement (TPD)</li>
+            <li class="list-group-item" *ngIf="type =='term-life'">Passive War Risk</li>
+
+            <li class="list-group-item"  *ngIf="type =='whole-life'">Lifetime Coverage</li>
+            <li class="list-group-item"  *ngIf="type =='whole-life'">Family Income Benefit</li>
+            <li class="list-group-item"  *ngIf="type =='whole-life'">Accidental Death Benefit</li>
+            <li class="list-group-item"  *ngIf="type =='whole-life'">Hospitalization Benefit</li>
+            <li class="list-group-item"  *ngIf="type =='whole-life'">Passive War Risk</li>
             <li class="list-group-item">
               <a href="#" class="btn btn-info">Sign Up!</a>
             </li>
