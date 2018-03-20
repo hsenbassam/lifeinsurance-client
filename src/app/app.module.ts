@@ -23,8 +23,10 @@ import { DatePipe } from '@angular/common';
 import { DataTableModule } from 'angular5-data-table'
 
 import { BsDropdownModule, CollapseModule, BsDatepickerModule, TabsModule  } from 'ngx-bootstrap';
+import { LoadingBarHttpModule } from '@ngx-loading-bar/http';
+import { LoadingBarModule } from '@ngx-loading-bar/core';
 
-import { MatStepperModule, MatProgressSpinnerModule, MatRadioModule } from '@angular/material'
+import { MatStepperModule, MatProgressSpinnerModule, MatRadioModule, MatProgressBarModule } from '@angular/material'
 
 import { AppErrorHandler } from './common/app-error-handler';
 import { ErrorHandler } from '@angular/core';
@@ -85,8 +87,11 @@ import { WholeLifeSimulatorService } from './services/wholelife-simulator.servic
     FormsModule,    
     MatStepperModule,
     MatProgressSpinnerModule,
+    MatProgressBarModule,
     MatRadioModule,
+    LoadingBarHttpModule,
     BrowserAnimationsModule, 
+    LoadingBarModule.forRoot(),
     HttpModule,
     JwtModule.forRoot({
       config: {
