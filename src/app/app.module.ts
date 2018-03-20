@@ -53,6 +53,7 @@ import { OccupationSelectComponent } from './utils/occupation-select/occupation-
 import { TermLifeProductComponent } from './term-life-product/term-life-product.component';
 import { WholeLifeProductComponent } from './whole-life-product/whole-life-product.component';
 import { WholeLifeSimulatorService } from './services/wholelife-simulator.service';
+import { routes } from './app-routing.module'
 
 @NgModule({
   declarations: [
@@ -106,58 +107,7 @@ import { WholeLifeSimulatorService } from './services/wholelife-simulator.servic
     CollapseModule.forRoot(),
     BsDatepickerModule.forRoot(),
     TabsModule.forRoot(),
-    RouterModule.forRoot([
-      { path: '', component: HomeComponent },
-      { path: 'about', component: AboutComponent },
-      { path: 'products/term-life', component: TermLifeProductComponent},
-      { path: 'products/whole-life', component: WholeLifeProductComponent},
-      { path: 'products', component: ProductsComponent },
-      { 
-        path: 'shopping-cart',
-        component: ShoppingCartComponent,
-        canActivate: [AuthGuard] 
-      },
-      { path: 'quote/:type', component: QuoteComponent },
-      { 
-        path: 'checkout',
-        component: CheckoutComponent,
-        canActivate: [AuthGuard] 
-      },
-      { 
-        path: 'my-orders',
-        component: MyOrdersComponent,
-        canActivate: [AuthGuard] 
-      },
-      {
-        path: 'order-success',
-        component: OrderSuccessComponent,
-        canActivate: [AuthGuard] 
-      },
-
-      { path: 'login', component: LoginComponent },
-
-      { path: 'register', component: RegisterComponent },
-
-      { path: 'admin/products/new', 
-        component: ProductFormComponent,
-        canActivate: [AuthGuard] 
-      },
-      { path: 'admin/products/:id', 
-        component: ProductFormComponent,
-        canActivate: [AuthGuard, AdminAuthGuard] 
-      },
-      { path: 'admin/products',
-        component: AdminProductsComponent,
-        canActivate: [AuthGuard, AdminAuthGuard] 
-      },
-      { path: 'admin/orders',
-        component: AdminOrdersComponent,
-        canActivate: [AuthGuard, AdminAuthGuard] },
-
-      { path: 'no-access', component: NoAccessComponent },
-        
-      { path: '**', redirectTo: '' }
-    ])
+    RouterModule.forRoot(routes)
   ],
   providers: [
     RegisterService,
