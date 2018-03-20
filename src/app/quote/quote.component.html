@@ -1,5 +1,6 @@
 <form class="col-md-12 quote" *ngIf="!completed" (ngSubmit)="getQuoteProcess(f)" #f="ngForm" ngNativeValidate>
-  <h2>Term Life Insurance Simulator</h2>
+  <h2 *ngIf="type == 'term-life'" >Term Life Insurance Simulator</h2>
+  <h2 *ngIf="type == 'whole-life'" >Whole Life Insurance Simulator</h2>
   <hr>
   <!-- <div class="progress">
     <div class="progress-bar progress-bar-striped bg-success active progress-bar-animated" role="progressbar" aria-valuemin="0"
