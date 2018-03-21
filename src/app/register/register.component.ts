@@ -51,7 +51,6 @@ export class RegisterComponent implements OnInit {
 
 
   registerProcess(form: NgForm) {
-
     form.value.birthday = this.datePipe.transform(form.value.birthday, 'yyyy-MM-dd');
     form.value.datecreated = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
 
@@ -94,6 +93,22 @@ export class RegisterComponent implements OnInit {
   }
 
   delete() {
-    console.log("Hello")
+    if(!confirm("Are you sure you want to delete this user?")) return;
+      
+      this.userService.delete(this.id)
+      .subscribe(
+        response => {
+            console.log(response);
+            this._router.navigate(['/admin/users']);
+        },
+        (error: AppError) => {
+          if(error instanceof AppError) {
+            console.log("Deleting User is Failed");
+          }
+          else 
+            throw error;
+        }
+      )
+
   }
 }
