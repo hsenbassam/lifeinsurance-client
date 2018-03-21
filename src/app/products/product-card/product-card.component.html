@@ -1,11 +1,50 @@
-<div *ngIf="product.title" class="card">
+<!-- <div *ngIf="product.title" class="card">
   <div class="card-body">
     <h5 class="card-title">{{product.title}}</h5>
     <h6 class="card-subtitle mb-2 text-muted">{{ product.category }}</h6>
     <p class="card-text">{{product.description}}</p>
     <h6 class="card-subtitle mb-2 text-muted">{{ product.price | currency:'USD':symbol }}</h6>
   </div>
-  <!-- <div class="card-footer">
-      <a *ngIf="showActions" href="#" class="btn btn-success btn-block">Add to Cart</a>
-  </div> -->
-</div>
+</div> -->
+
+
+
+
+  <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+    <div class="mainflip">
+      <div class="frontside">
+        <div class="card">
+          <div class="card-body text-center">
+            <p>
+              <ng-content select=".card-image"></ng-content>
+            </p>
+            <h4 class="card-title">
+              <ng-content select=".title-front"></ng-content>
+            </h4>
+            <p class="card-text">
+              <ng-content select=".text-front"></ng-content>
+            </p>
+
+            <a href="#" class="btn btn-primary btn-sm">
+              <i class="fa fa-plus"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="backside">
+        <div class="card">
+          <div class="card-body text-center mt-4">
+            <h4 class="card-title">
+              <ng-content select=".title-back"></ng-content>
+            </h4>
+            <p class="card-text">
+              <ng-content select=".text-back"></ng-content>
+            </p>
+            <p class="social-icon text-xs-center">
+             <ng-content select=".link"></ng-content>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

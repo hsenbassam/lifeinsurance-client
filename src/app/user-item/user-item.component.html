@@ -1,0 +1,10 @@
+<div class="card" *ngIf="user.firstname">
+    <div class="card-body">
+      <h5 class="card-title">{{user.firstname}} {{user.lastname}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{user.email}}</h6>
+      <p class="card-text">{{user.username}}</p>
+      <p class="card-text" *ngIf="user.birthday">Date of Birth: {{user.birthday | date:'yyyy-MM-dd' }}</p>
+      <h6 class="card-subtitle mb-2 text-muted">{{user.address}}</h6>
+      <h6 class="card-subtitle mb-2 text-muted">{{user.phone}}</h6>
+    </div>
+  </div>

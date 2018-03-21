@@ -28,6 +28,7 @@ import { LoadingBarModule } from '@ngx-loading-bar/core';
 
 import { MatStepperModule, MatProgressSpinnerModule, MatRadioModule, MatProgressBarModule } from '@angular/material'
 
+
 import { AppErrorHandler } from './common/app-error-handler';
 import { ErrorHandler } from '@angular/core';
 import { RegisterService } from './services/register.service';
@@ -53,7 +54,8 @@ import { OccupationSelectComponent } from './utils/occupation-select/occupation-
 import { TermLifeProductComponent } from './term-life-product/term-life-product.component';
 import { WholeLifeProductComponent } from './whole-life-product/whole-life-product.component';
 import { WholeLifeSimulatorService } from './services/wholelife-simulator.service';
-import { routes } from './app-routing.module'
+import { routes } from './app-routing.module';
+import { UserItemComponent } from './user-item/user-item.component'
 
 @NgModule({
   declarations: [
@@ -81,7 +83,8 @@ import { routes } from './app-routing.module'
     AboutComponent,
     OccupationSelectComponent,
     TermLifeProductComponent,
-    WholeLifeProductComponent
+    WholeLifeProductComponent,
+    UserItemComponent
   ],
   imports: [
     BrowserModule,

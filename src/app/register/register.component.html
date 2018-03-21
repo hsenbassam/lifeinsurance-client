@@ -1,75 +1,84 @@
-<div class="col-md-8 order-md-1">
-  <h4 class="mb-3">Create an Account</h4>
-  <form class="needs-validation" (ngSubmit)="registerProcess(f)" #f="ngForm" ngNativeValidate >
-    <div class="row">
-      <div class="col-md-6 mb-3">
-        <label for="firstName">First name</label>
-        <input type="text" ngModel #firstname="ngModel" name="firstname" class="form-control" id="firstName" required>
- 
-      </div>
-      <div class="col-md-6 mb-3">
-        <label for="lastName">Last name</label>
-        <input type="text" ngModel #lastname="ngModel" class="form-control" id="lastName" name="lastname" required>
-      </div>
-    </div>
-
-    <div class="mb-3">
-      <label for="username">Email</label>
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text">@</span>
-        </div>
-        <input type="email" ngModel #email="ngModel" name="email" class="form-control" id="email" placeholder="you@example.com" required>
-      </div>
-    </div>
-
-    <div class="mb-3">
-      <label for="username">Username</label>
-      <input type="text" ngModel #username="ngModel" name="username"  class="form-control" id="username" placeholder="Username" required>
-    </div>
-  
-    <div class="mb-3">
-      <label for="password">Password</label>
-      <input type="password" ngModel #password="ngModel" name="password"  class="form-control" id="password" required>
-    </div>
-
-    <div class="mb-3">
-      <label for="address">Date of Birth</label>
-      
+<div class="row">
+  <div class="col-md-8">
+    <h1 class="mt-4 mb-3 title">Registration
+    </h1>
+    <h4 class="mb-3">Create an Account</h4>
+    <form class="needs-validation" (ngSubmit)="registerProcess(f)" #f="ngForm" ngNativeValidate>
       <div class="row">
-        <div class="col-xs-12 col-12 col-md-4 form-group">
-          <input type="text"
-                 class="form-control"
-                 [maxDate]="maxDate"
-                 #dp="bsDatepicker"
-                 #birthday="ngModel"
-                 name="birthday" 
-                 bsDatepicker
-                 [(ngModel)]="bsValue"
-                 [bsConfig]="{containerClass: 'theme-dark-blue' }"
-                 required>
+        <div class="col-md-6 mb-3">
+          <label for="firstName">First name</label>
+          <input type="text" [(ngModel)]="user.firstname" #firstname="ngModel" name="firstname" class="form-control" id="firstName" required>
+
         </div>
-        <div class="col-xs-12 col-12 col-md-3 form-group">
-          <button class="btn btn-default" type="button" (click)="dp.toggle()"><i class="icon-calendar"></i></button>
+        <div class="col-md-6 mb-3">
+          <label for="lastName">Last name</label>
+          <input type="text" [(ngModel)]="user.lastname"  #lastname="ngModel" class="form-control" id="lastName" name="lastname" required>
         </div>
       </div>
 
-    </div>
+      <div class="mb-3">
+        <label for="username">Email</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">@</span>
+          </div>
+          <input type="email" [(ngModel)]="user.email"  #email="ngModel" name="email" class="form-control" id="email" placeholder="you@example.com" required>
+        </div>
+      </div>
 
+      <div class="mb-3">
+        <label for="username">Username</label>
+        <input type="text" [(ngModel)]="user.username"  #username="ngModel" name="username" class="form-control" id="username" placeholder="Username"
+          required>
+      </div>
+
+      <div class="mb-3">
+        <label for="password">Password</label>
+        <input type="password" [(ngModel)]="user.password"  #password="ngModel" name="password" class="form-control" id="password" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="address">Date of Birth</label>
+
+        <div class="row">
+          <div class="col-xs-12 col-12 col-md-4 form-group">
+            <input type="text" class="form-control" [maxDate]="maxDate" #dp="bsDatepicker" #birthday="ngModel" name="birthday" bsDatepicker
+            [(ngModel)]="bsValue"(ngModelChange)="user.birthday=bsValue" [bsConfig]="{containerClass: 'theme-dark-blue' }" required>
+          </div>
+          <div class="col-xs-12 col-12 col-md-3 form-group">
+            <button class="btn btn-default" type="button" (click)="dp.toggle()">
+              <i class="icon-calendar"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+
+
+
+      <div class="mb-3">
+        <label for="address">Address</label>
+        <input type="text" [(ngModel)]="user.address"  #address="ngModel" name="address" class="form-control" id="address" placeholder="1234 Main St">
+      </div>
+
+
+      <div class="mb-3">
+        <label for="address">Phone Number</label>
+        <input type="string" [(ngModel)]="user.phone"  #phone="ngModel" name="phone" class="form-control" id="phone" placeholder="Phone Number">
+      </div>
+      <hr class="mb-4">
+      <button class="btn btn-info btn-block" [disabled]="!f.valid" type="submit">Register</button>
+    </form>
+    <div class="alert alert-danger" *ngIf="failedRegistration">
+        <strong>Failed!</strong> Email already exists
+    </div>
     
-
-
-    <div class="mb-3">
-      <label for="address">Address</label>
-      <input type="text" ngModel #address="ngModel" name="address" class="form-control" id="address" placeholder="1234 Main St">
-    </div>
-
-
-    <div class="mb-3">
-      <label for="address">Phone Number</label>
-      <input type="number" ngModel #phone="ngModel" name="phone" class="form-control" id="phone" placeholder="Phone Number" >
-    </div>
-    <hr class="mb-4">
-    <button class="btn btn-info btn-block" type="submit">Register</button>
-  </form>
+  </div>
+  <div class="col-md-4 mt-4 mb-3">
+    <user-item [user]="user"></user-item>
+  </div>
+  
 </div>
+
+
