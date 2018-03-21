@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-8">
-    <h1 class="mt-4 mb-3 title">Registration
-    </h1>
+    <h1 class="mt-4 mb-3 title" *ngIf="url =='/register'">Registration</h1>
+    <h1 class="mt-4 mb-3 title" *ngIf="authService.isAuthenticated() && (url =='/profile' || id)">Edit User Profile</h1>
     <h4 class="mb-3">Create an Account</h4>
     <form class="needs-validation" (ngSubmit)="registerProcess(f)" #f="ngForm" ngNativeValidate>
       <div class="row">
@@ -68,10 +68,15 @@
         <input type="string" [(ngModel)]="user.phone"  #phone="ngModel" name="phone" class="form-control" id="phone" placeholder="Phone Number">
       </div>
       <hr class="mb-4">
-      <button class="btn btn-info btn-block" [disabled]="!f.valid" type="submit">Register</button>
+      <button class="btn btn-info" [disabled]="!f.valid" *ngIf="url =='/register'">Register</button>
+      <button class="btn btn-info" [disabled]="!f.valid" *ngIf="authService.isAuthenticated() && (url =='/profile' || id)">Save</button>
+      <button class="btn btn-danger" type="button" (click)="delete()" *ngIf="id && authService.isAuthenticated() && authService.currentUser.role.includes('ROLE_ADMIN')">Delete</button>
     </form>
     <div class="alert alert-danger" *ngIf="failedRegistration">
-        <strong>Failed!</strong> Email already exists
+        <strong>Failed!</strong> Email already exists !
+    </div>
+    <div class="alert alert-danger" *ngIf="failedUpdate">
+        <strong>Failed!</strong> Update Request Failed !
     </div>
     
   </div>

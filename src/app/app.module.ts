@@ -55,7 +55,9 @@ import { TermLifeProductComponent } from './term-life-product/term-life-product.
 import { WholeLifeProductComponent } from './whole-life-product/whole-life-product.component';
 import { WholeLifeSimulatorService } from './services/wholelife-simulator.service';
 import { routes } from './app-routing.module';
-import { UserItemComponent } from './user-item/user-item.component'
+import { UserItemComponent } from './user-item/user-item.component';
+import { AdminUsersComponent } from './admin/admin-users/admin-users.component'
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -84,7 +86,8 @@ import { UserItemComponent } from './user-item/user-item.component'
     OccupationSelectComponent,
     TermLifeProductComponent,
     WholeLifeProductComponent,
-    UserItemComponent
+    UserItemComponent,
+    AdminUsersComponent
   ],
   imports: [
     BrowserModule,
@@ -119,6 +122,7 @@ import { UserItemComponent } from './user-item/user-item.component'
     AdminAuthGuard,
     JwtHelperService,
     ProductService,
+    UserService,
     CategoryService,
     TermLifeSimulatorService,
     WholeLifeSimulatorService,

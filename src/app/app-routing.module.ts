@@ -19,6 +19,7 @@ import { AdminAuthGuard } from './services/admin-auth-guard.service';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { NoAccessComponent } from './no-access/no-access.component';
+import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -49,6 +50,12 @@ export const routes: Routes = [
     },
 
     { path: 'login', component: LoginComponent },
+    {
+        path: 'profile',
+        component: RegisterComponent,
+        canActivate: [AuthGuard]
+    },
+
 
     { path: 'register', component: RegisterComponent },
 
@@ -65,6 +72,16 @@ export const routes: Routes = [
     {
         path: 'admin/products',
         component: AdminProductsComponent,
+        canActivate: [AuthGuard, AdminAuthGuard]
+    },
+    {
+        path: 'admin/users/:id',
+        component: RegisterComponent,
+        canActivate: [AuthGuard, AdminAuthGuard]
+    },
+    {
+        path: 'admin/users',
+        component: AdminUsersComponent,
         canActivate: [AuthGuard, AdminAuthGuard]
     },
     {
