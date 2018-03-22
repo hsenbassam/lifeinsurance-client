@@ -9,11 +9,11 @@ import { UserService } from '../services/user.service';
 import { AuthService } from '../services/auth.service';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'user-form',
+  templateUrl: './user-form.component.html',
+  styleUrls: ['./user-form.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class UserFormComponent implements OnInit {
 
   maxDate = new Date();
   bsValue: Date = new Date();

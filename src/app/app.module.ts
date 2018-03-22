@@ -17,7 +17,6 @@ import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
 import { FooterComponent } from './footer/footer.component';
 import { DatePipe } from '@angular/common';
 import { DataTableModule } from 'angular5-data-table'
@@ -58,6 +57,8 @@ import { routes } from './app-routing.module';
 import { UserItemComponent } from './user-item/user-item.component';
 import { AdminUsersComponent } from './admin/admin-users/admin-users.component'
 import { UserService } from './services/user.service';
+import { UserFormComponent } from './user-form/user-form.component';
+import { RoleService } from './services/role.service';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,6 @@ import { UserService } from './services/user.service';
     AdminProductsComponent,
     AdminOrdersComponent,
     LoginComponent,
-    RegisterComponent,
     FooterComponent,
     ProductFormComponent,
     NoAccessComponent,
@@ -87,7 +87,8 @@ import { UserService } from './services/user.service';
     TermLifeProductComponent,
     WholeLifeProductComponent,
     UserItemComponent,
-    AdminUsersComponent
+    AdminUsersComponent,
+    UserFormComponent
   ],
   imports: [
     BrowserModule,
@@ -126,6 +127,7 @@ import { UserService } from './services/user.service';
     CategoryService,
     TermLifeSimulatorService,
     WholeLifeSimulatorService,
+    RoleService,
     DatePipe,
     { provide: ErrorHandler, useClass: AppErrorHandler }
   ],

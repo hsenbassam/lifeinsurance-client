@@ -13,13 +13,13 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { OrderSuccessComponent } from './order-success/order-success.component';
 import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
 import { AdminAuthGuard } from './services/admin-auth-guard.service';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { NoAccessComponent } from './no-access/no-access.component';
 import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
+import { UserFormComponent } from './user-form/user-form.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -52,12 +52,12 @@ export const routes: Routes = [
     { path: 'login', component: LoginComponent },
     {
         path: 'profile',
-        component: RegisterComponent,
+        component: UserFormComponent,
         canActivate: [AuthGuard]
     },
 
 
-    { path: 'register', component: RegisterComponent },
+    { path: 'register', component: UserFormComponent },
 
     {
         path: 'admin/products/new',
@@ -76,7 +76,7 @@ export const routes: Routes = [
     },
     {
         path: 'admin/users/:id',
-        component: RegisterComponent,
+        component: UserFormComponent,
         canActivate: [AuthGuard, AdminAuthGuard]
     },
     {
