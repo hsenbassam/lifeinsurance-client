@@ -50,7 +50,7 @@ export class UserFormComponent implements OnInit {
   ngOnInit() { }
 
 
-  registerProcess(form: NgForm) {
+  userProcess(form: NgForm) {
     form.value.birthday = this.datePipe.transform(form.value.birthday, 'yyyy-MM-dd');
     form.value.datecreated = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
 

@@ -20,6 +20,7 @@ import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.componen
 import { NoAccessComponent } from './no-access/no-access.component';
 import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
 import { UserFormComponent } from './user-form/user-form.component';
+import { PasswordRecoveryComponent } from './password-recovery/password-recovery.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -50,6 +51,11 @@ export const routes: Routes = [
     },
 
     { path: 'login', component: LoginComponent },
+    {
+        path: 'profile/passwordRecovery',
+        component: PasswordRecoveryComponent,
+        canActivate: [AuthGuard]
+    },
     {
         path: 'profile',
         component: UserFormComponent,

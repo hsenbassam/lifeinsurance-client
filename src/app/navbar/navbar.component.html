@@ -13,7 +13,7 @@
           <div class="dropdown-menu" *dropdownMenu>
             <ul>
               <li>
-                <a class="dropdown-item" routerLinkActive="active" routerLink="/products">All Products</a>
+                <a class="dropdown-item" routerLink="/products">All Products</a>
               </li>
               <li class="divider dropdown-divider"></li>
               <li>
@@ -40,10 +40,20 @@
           <a class="nav-link" routerLinkActive="active" routerLink="/login">Login</a>
         </div>
         <div class="nav-item dropdown" dropdown *ngIf="authService.isAuthenticated()">
-          <a class="nav-link dropdown-toggle " dropdownToggle id="dropdown01">{{authService.userInfo.firstname}} {{authService.userInfo.lastname}}</a>
-          <div class="dropdown-menu" *dropdownMenu aria-labelledby="dropdown01">
+          <a class="nav-link dropdown-toggle " dropdownToggle>{{authService.userInfo.firstname}} {{authService.userInfo.lastname}}</a>
+          <div class="dropdown-menu" *dropdownMenu>
             <a class="dropdown-item" routerLinkActive="active" routerLink="/my-orders">My Orders</a>
-            <a class="dropdown-item" routerLinkActive="active" routerLink="/profile">My Profile</a>
+
+            <div role="menuitem" dropdown triggers="mouseover" placement="right" container="body">
+              <a dropdownToggle class="dropdown-item dropdown-toggle" (click)="false">My Account
+                <span class="caret"></span>
+              </a>
+              <div *dropdownMenu class="dropdown-menu" role="menu">
+                <a class="dropdown-item" routerLinkActive="active" routerLink="/profile">My Profile</a>
+                <a class="dropdown-item" routerLinkActive="active" routerLink="/profile/passwordRecovery">Change Password</a>
+              </div>
+            </div>
+
             <a class="dropdown-item" *ngIf="authService.currentUser.role.includes('ROLE_ADMIN')" routerLinkActive="active" routerLink="/admin/orders">Manage Orders</a>
             <a class="dropdown-item" *ngIf="authService.currentUser.role.includes('ROLE_ADMIN')" routerLinkActive="active" routerLink="/admin/products">Manage Products</a>
             <a class="dropdown-item" *ngIf="authService.currentUser.role.includes('ROLE_ADMIN')" routerLinkActive="active" routerLink="/admin/users">Manage Users</a>

@@ -59,6 +59,7 @@ import { AdminUsersComponent } from './admin/admin-users/admin-users.component'
 import { UserService } from './services/user.service';
 import { UserFormComponent } from './user-form/user-form.component';
 import { RoleService } from './services/role.service';
+import { PasswordRecoveryComponent } from './password-recovery/password-recovery.component';
 
 @NgModule({
   declarations: [
@@ -88,7 +89,8 @@ import { RoleService } from './services/role.service';
     WholeLifeProductComponent,
     UserItemComponent,
     AdminUsersComponent,
-    UserFormComponent
+    UserFormComponent,
+    PasswordRecoveryComponent
   ],
   imports: [
     BrowserModule,
