@@ -14,51 +14,47 @@ export class DataService {
     private options: RequestOptions;
 
     constructor(private url: string, private http: Http) {
+    }
+
+    private addHeaders() {
 
         this.headers = new Headers({
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
         });
-
         this.options = new RequestOptions({ headers: this.headers });
     }
 
-    private checkAuthorizationHeader() {
-        if (!this.headers.get('Authorization')) {
-            this.headers.append('Authorization', 'Bearer ' + localStorage.getItem('token'));
-            this.options = new RequestOptions({ headers: this.headers });
-        }
-    }
-
     getAll() {
-        this.checkAuthorizationHeader();
+        this.addHeaders();
         return this.http.get(this.url, this.options)
             .map(response => response.json())
             .catch(this.handleError)
     }
 
     get(key) {
-        this.checkAuthorizationHeader();
+        this.addHeaders();
         return this.http.get(this.url + '/' + key, this.options)
             .map(response => response.json())
             .catch(this.handleError)
     }
 
     post(resource) {
-        this.checkAuthorizationHeader();
+        this.addHeaders();
         return this.http.post(this.url, resource, this.options)
             .map(response => response.json())
             .catch(this.handleError);
     }
 
     update(resource) {
-        this.checkAuthorizationHeader();
+        this.addHeaders();
         return this.http.put(this.url + '/' + resource.id, resource, this.options)
             .map(response => response.json())
             .catch(this.handleError);
     }
 
     delete(id) {
-        this.checkAuthorizationHeader();
+        this.addHeaders();
         return this.http.delete(this.url + '/' + id, this.options)
             .map(response => (response.status === 200))
             .catch(this.handleError);
