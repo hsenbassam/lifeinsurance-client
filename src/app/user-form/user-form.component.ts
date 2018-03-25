@@ -34,20 +34,17 @@ export class UserFormComponent implements OnInit {
     this.user = new User();
     this.id = this._route.snapshot.paramMap.get('id');
     this.url = _router.url;
+  }
+
+  ngOnInit() {
+    if(this._router.url == "/profile"){
+      this.userService.get(this.authService.userInfo.id).take(1).subscribe(u => this.user = u);
+    }  
 
     if (this.id) {
       this.userService.get(this.id).take(1).subscribe(u => this.user = u);
     }
-    else {
-      if(_router.url == "/profile"){
-        this.userService.get(authService.userInfo.id).take(1).subscribe(u => this.user = u);
-      }
-    }
-
-
-  }
-
-  ngOnInit() { }
+   }
 
 
   userProcess(form: NgForm) {

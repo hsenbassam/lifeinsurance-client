@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Http, Headers,RequestOptions} from "@angular/http";
+import { Http, Headers, RequestOptions} from "@angular/http";
 import { DataService } from "./data.service";
 import { Observable } from "rxjs/Observable";
 import { AppError } from "../common/app-error";
@@ -22,7 +22,7 @@ export class AuthService {
     login(resource) {
         return this.http.post(this.url + "loginProcess", resource, this.options)
             .map(response => {
-                let token = response.headers.get('Token');
+                let token = response.headers.get('Token');      
                 if(response && token) {
                 let payload = response.json();
                 console.log(payload);
@@ -46,8 +46,6 @@ export class AuthService {
         const token = localStorage.getItem('token');
 
         if(!token) return false;
-
-        //let expirationDate = this.jwtHelper.getTokenExpirationDate(token);
         let isExpired = this.jwtHelper.isTokenExpired(token);
         return !isExpired;
     }

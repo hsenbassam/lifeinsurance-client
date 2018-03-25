@@ -11,5 +11,10 @@ ul {
 .dropdown-item:focus, .dropdown-item:active, .dropdown-item.active{
     background-color: #17a2b8 !important;
 }
+
+.icon-logout {
+    font-weight: 1000;
+}
+
   
   

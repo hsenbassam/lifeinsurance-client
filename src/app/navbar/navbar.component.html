@@ -57,7 +57,8 @@
             <a class="dropdown-item" *ngIf="authService.currentUser.role.includes('ROLE_ADMIN')" routerLinkActive="active" routerLink="/admin/orders">Manage Orders</a>
             <a class="dropdown-item" *ngIf="authService.currentUser.role.includes('ROLE_ADMIN')" routerLinkActive="active" routerLink="/admin/products">Manage Products</a>
             <a class="dropdown-item" *ngIf="authService.currentUser.role.includes('ROLE_ADMIN')" routerLinkActive="active" routerLink="/admin/users">Manage Users</a>
-            <a class="dropdown-item" style="cursor:pointer" (click)="logout()">Logout</a>
+            <li class="divider dropdown-divider"></li>
+            <a class="dropdown-item" style="cursor:pointer" (click)="logout()"><i class="icon-logout"></i> Logout</a>
           </div>
         </div>
         <a class="btn btn-outline-light active" routerLink="/register">Register</a>

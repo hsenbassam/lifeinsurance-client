@@ -175,7 +175,7 @@
         </div>
         <div class="form-group">
           <label for="income">Monthly Salary</label>
-          <input type="number" class="form-control" name="income" [ngModel]="userQuote.income" required #income="ngModel" name="income"
+          <input type="number" class="form-control" min="0" name="income" [ngModel]="userQuote.income" required #income="ngModel" name="income"
             placeholder="Monthly Income" />
         </div>
         <button type="button" name="previous" mat-button matStepperPrevious class="previous btn btn-default">Previous</button>

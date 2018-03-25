@@ -3,9 +3,8 @@ export class User {
     firstname: string;
     lastname: string;
     email: string;
-    username: string;
     password: string;
-    birthday: string;
+    birthday: Date;
     address: string;
     phone: string;
 

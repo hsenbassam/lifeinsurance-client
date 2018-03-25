@@ -7,34 +7,48 @@
       <div class="row">
         <div class="col-md-6 mb-3">
           <label for="firstName">First name</label>
-          <input type="text" [(ngModel)]="user.firstname" #firstname="ngModel" name="firstname" class="form-control" id="firstName" placeholder="Firstname" required>
+          <input type="text" [(ngModel)]="user.firstname" #firstname="ngModel" name="firstname" class="form-control" id="firstName"
+            placeholder="Firstname" required>
 
         </div>
         <div class="col-md-6 mb-3">
           <label for="lastName">Last name</label>
-          <input type="text" [(ngModel)]="user.lastname"  #lastname="ngModel" class="form-control" id="lastName" name="lastname" placeholder="Lastname" required>
+          <input type="text" [(ngModel)]="user.lastname" #lastname="ngModel" class="form-control" id="lastName" name="lastname" placeholder="Lastname"
+            required>
         </div>
       </div>
 
       <div class="mb-3">
-        <label for="username">Email</label>
+        <label for="email">Email</label>
         <div class="input-group">
           <div class="input-group-prepend">
             <span class="input-group-text">@</span>
           </div>
-          <input type="email" [(ngModel)]="user.email"  #email="ngModel" name="email" class="form-control" id="email" placeholder="you@example.com" required>
+          <input type="email" [(ngModel)]="user.email" #email="ngModel" name="email" class="form-control" id="email" placeholder="you@example.com"
+            required>
         </div>
-      </div>
-
-      <div class="mb-3">
-        <label for="username">Username</label>
-        <input type="text" [(ngModel)]="user.username"  #username="ngModel" name="username" class="form-control" id="username" placeholder="Username"
-          required>
       </div>
 
       <div class="mb-3" *ngIf="url =='/register'">
         <label for="password">Password</label>
-        <input type="password" [(ngModel)]="user.password"  #password="ngModel" name="password" class="form-control" id="password" placeholder="Password" required>
+        <input type="password" required [(ngModel)]="user.password" #password="ngModel" name="password" class="form-control" id="password"
+          placeholder="Password" 
+          minlength="8" maxlength="30" 
+          [pattern]="'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$'">
+          <!-- This regex will enforce these rules:
+                    At least one upper case English letter, (?=.*?[A-Z])
+                    At least one lower case English letter, (?=.*?[a-z])
+                    At least one digit, (?=.*?[0-9])
+                    At least one special character, (?=.*?[#?!@$%^&*-])
+                    Minimum eight in length .{8,} (with the anchors) 
+          -->
+
+        <div class="alert alert-danger" *ngIf="password.touched && !password.valid">
+          <div *ngIf="password.errors.minlength">Password should be minimum {{password.errors.minlength.requiredLength}} characters.</div>
+          <div *ngIf="password.errors.maxlength">Password should be maximum 30 characters.</div>
+          <div *ngIf="password.errors.pattern">Password is weak</div>
+          <div *ngIf="!password.value">Password is invalid</div>
+        </div>
       </div>
 
       <div class="mb-3">
@@ -43,7 +57,8 @@
         <div class="row">
           <div class="col-xs-12 col-12 col-md-4 form-group">
             <input type="text" class="form-control" [maxDate]="maxDate" #dp="bsDatepicker" #birthday="ngModel" name="birthday" bsDatepicker
-            [(ngModel)]="bsValue"(ngModelChange)="user.birthday=bsValue" [bsConfig]="{containerClass: 'theme-dark-blue' }" required>
+              [(ngModel)]="bsValue" (ngModelChange)="user.birthday=bsValue" [bsConfig]="{containerClass: 'theme-dark-blue' }"
+              required>
           </div>
           <div class="col-xs-12 col-12 col-md-3 form-group">
             <button class="btn btn-default" type="button" (click)="dp.toggle()">
@@ -59,16 +74,16 @@
 
       <div class="mb-3">
         <label for="address">Address</label>
-        <input type="text" [(ngModel)]="user.address"  #address="ngModel" name="address" class="form-control" id="address" placeholder="1234 Main St">
+        <input type="text" [(ngModel)]="user.address" #address="ngModel" name="address" class="form-control" id="address" placeholder="1234 Main St">
       </div>
 
 
       <div class="mb-3">
         <label for="address">Phone Number</label>
-        <input type="string" [(ngModel)]="user.phone"  #phone="ngModel" name="phone" class="form-control" id="phone" placeholder="Phone Number">
+        <input type="string" [(ngModel)]="user.phone" #phone="ngModel" name="phone" class="form-control" id="phone" placeholder="Phone Number">
       </div>
 
-    
+
 
       <hr class="mb-4">
       <button class="btn btn-info" [disabled]="!f.valid" *ngIf="url =='/register'">Register</button>
@@ -76,12 +91,12 @@
       <button class="btn btn-danger" type="button" (click)="delete()" *ngIf="id && authService.isAuthenticated() && authService.currentUser.role.includes('ROLE_ADMIN')">Delete</button>
     </form>
     <div class="alert alert-danger" *ngIf="failedRegistration">
-        <strong>Failed!</strong> Email already exists !
+      <strong>Failed!</strong> Email already exists !
     </div>
     <div class="alert alert-danger" *ngIf="failedUpdate">
-        <strong>Failed!</strong> Update Request Failed !
+      <strong>Failed!</strong> Update Request Failed !
     </div>
-    
+
   </div>
   <div class="col-md-4 mt-4 mb-3">
     <user-item [user]="user"></user-item>
@@ -89,7 +104,5 @@
       <a routerLink="/profile/passwordRecovery" class="password btn btn-danger">Change Password</a>
     </div>
   </div>
-  
+
 </div>
-
-

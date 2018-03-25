@@ -11,14 +11,15 @@ import { UserService } from '../../services/user.service';
 })
 export class AdminUsersComponent implements OnInit {
 
-  users : User[];
+  users: User[];
 
   tableResource: DataTableResource<User>;
   items: User[] = [];
   itemCount: number;
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService) {}
 
+  ngOnInit() {
     this.userService.getAll()
     .subscribe(
       users => {
@@ -27,15 +28,13 @@ export class AdminUsersComponent implements OnInit {
         this.initializeTable(this.users);
       },
       (error: AppError) => {
-        if(error instanceof AppError) {
+        if (error instanceof AppError) {
           console.log("Cannot Fetch The Users");
         }
-        else 
+        else
           throw error;
-    });
+      });
   }
-
-  ngOnInit() { }
 
 
   filter(query: string) {

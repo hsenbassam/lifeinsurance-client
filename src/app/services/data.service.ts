@@ -10,40 +10,55 @@ import 'rxjs/add/observable/throw';
 
 export class DataService {
 
-    private headers = new Headers({ 
-        'Content-Type': 'application/json',
-        'Authorization' : 'Bearer ' + localStorage.getItem('token')
-    });
-    private options = new RequestOptions({ headers: this.headers });
+    private headers: Headers;
+    private options: RequestOptions;
 
-    constructor(private url: string, private http: Http) {}
+    constructor(private url: string, private http: Http) {
+
+        this.headers = new Headers({
+            'Content-Type': 'application/json'
+        });
+
+        this.options = new RequestOptions({ headers: this.headers });
+    }
+
+    private checkAuthorizationHeader() {
+        if (!this.headers.get('Authorization')) {
+            this.headers.append('Authorization', 'Bearer ' + localStorage.getItem('token'));
+            this.options = new RequestOptions({ headers: this.headers });
+        }
+    }
 
     getAll() {
+        this.checkAuthorizationHeader();
         return this.http.get(this.url, this.options)
             .map(response => response.json())
             .catch(this.handleError)
     }
 
     get(key) {
+        this.checkAuthorizationHeader();
         return this.http.get(this.url + '/' + key, this.options)
             .map(response => response.json())
             .catch(this.handleError)
     }
 
     post(resource) {
-        
+        this.checkAuthorizationHeader();
         return this.http.post(this.url, resource, this.options)
             .map(response => response.json())
             .catch(this.handleError);
     }
 
     update(resource) {
-        return this.http.put(this.url + '/' + resource.id , resource, this.options)
+        this.checkAuthorizationHeader();
+        return this.http.put(this.url + '/' + resource.id, resource, this.options)
             .map(response => response.json())
             .catch(this.handleError);
     }
 
-    delete(id){
+    delete(id) {
+        this.checkAuthorizationHeader();
         return this.http.delete(this.url + '/' + id, this.options)
             .map(response => (response.status === 200))
             .catch(this.handleError);
@@ -52,11 +67,11 @@ export class DataService {
 
     private handleError(error: Response) {
 
-        if(error.status === 404)
+        if (error.status === 404)
             return Observable.throw(new NotFoundError(error))
-        if(error.status === 400)
+        if (error.status === 400)
             return Observable.throw(new BadInput(error))
         return Observable.throw(new AppError(error));
-            
+
     }
 }
