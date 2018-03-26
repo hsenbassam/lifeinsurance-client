@@ -7,9 +7,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CheckoutComponent implements OnInit {
 
-  constructor() { }
+  checkout: {} = {};
+  cartProducts;
+  totalPremium: number;
+
+
+  constructor() {
+    this.cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
+    this.getTotalPremium();
+   }
 
   ngOnInit() {
+    console.log(JSON.parse(localStorage.getItem("cartProducts")))
+  }
+
+  getTotalPremium() {
+    this.totalPremium = 0;
+    this.cartProducts.forEach(item => {
+      this.totalPremium += item.premium;
+    });
   }
 
 }
