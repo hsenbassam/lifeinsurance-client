@@ -22,11 +22,12 @@
           <li class="list-group-item" *ngIf="type =='whole-life'">Lifetime Coverage</li>
 
           <li class="list-group-item">
-            <a routerLink="/register" *ngIf="!authService.isAuthenticated()" class="btn btn-info">Sign Up!</a>
             <button 
-            (click)="addToCart('basic')"
-            *ngIf="authService.isAuthenticated()" 
-            class="btn btn-danger">Add to Cart</button>
+            (click)="register('basic')" 
+            *ngIf="!authService.isAuthenticated()" 
+            class="btn btn-info">Sign Up!
+          </button>
+            <button (click)="addToCart('basic')" *ngIf="authService.isAuthenticated()" class="btn btn-danger">Add to Cart</button>
           </li>
         </ul>
       </div>
@@ -48,11 +49,12 @@
           <li class="list-group-item" *ngIf="type =='whole-life'">Accidental Death Benefit</li>
           <li class="list-group-item" *ngIf="type =='whole-life'">Hospitalization Benefit</li>
           <li class="list-group-item">
-            <a routerLink="/register" *ngIf="!authService.isAuthenticated()" class="btn btn-info">Sign Up!</a>
             <button 
-            (click)="addToCart('plus')"
-            *ngIf="authService.isAuthenticated()" 
-            class="btn btn-danger">Add to Cart</button>
+            (click)="register('plus')" 
+            *ngIf="!authService.isAuthenticated()" 
+            class="btn btn-info">Sign Up!
+          </button>
+            <button (click)="addToCart('plus')" *ngIf="authService.isAuthenticated()" class="btn btn-danger">Add to Cart</button>
           </li>
         </ul>
       </div>
@@ -76,11 +78,16 @@
           <li class="list-group-item" *ngIf="type =='whole-life'">Hospitalization Benefit</li>
           <li class="list-group-item" *ngIf="type =='whole-life'">Passive War Risk</li>
           <li class="list-group-item">
-            <a routerLink="/register" *ngIf="!authService.isAuthenticated()" class="btn btn-info">Sign Up!</a>
             <button 
-            (click)="addToCart('ultra')"
+            (click)="register('ultra')" 
+            *ngIf="!authService.isAuthenticated()" 
+            class="btn btn-info">Sign Up!
+          </button>
+            <button 
+            (click)="addToCart('ultra')" 
             *ngIf="authService.isAuthenticated()" 
-            class="btn btn-danger">Add to Cart</button>
+            class="btn btn-danger">Add to Cart
+          </button>
           </li>
         </ul>
       </div>

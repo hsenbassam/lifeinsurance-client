@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-8">
-    <h1 class="mt-4 mb-3 title" *ngIf="url =='/register'">Registration</h1>
+    <h1 class="mt-4 mb-3 title" *ngIf="url.includes('/register')">Registration</h1>
     <h1 class="mt-4 mb-3 title" *ngIf="authService.isAuthenticated() && (url =='/profile' || id)">Edit User Profile</h1>
     <h4 class="mb-3">Create an Account</h4>
     <form class="needs-validation" (ngSubmit)="userProcess(f)" #f="ngForm" ngNativeValidate>
@@ -29,7 +29,7 @@
         </div>
       </div>
 
-      <div class="mb-3" *ngIf="url =='/register'">
+      <div class="mb-3" *ngIf="url.includes('/register')">
         <label for="password">Password</label>
         <input type="password" required [(ngModel)]="user.password" #password="ngModel" name="password" class="form-control" id="password"
           placeholder="Password" 
@@ -86,7 +86,7 @@
 
 
       <hr class="mb-4">
-      <button class="btn btn-info" [disabled]="!f.valid" *ngIf="url =='/register'">Register</button>
+      <button class="btn btn-info" [disabled]="!f.valid" *ngIf="url.includes('/register')">Register</button>
       <button class="btn btn-info" [disabled]="!f.valid" *ngIf="authService.isAuthenticated() && (url =='/profile' || id)">Save</button>
       <button class="btn btn-danger" type="button" (click)="delete()" *ngIf="id && authService.isAuthenticated() && authService.currentUser.role.includes('ROLE_ADMIN')">Delete</button>
     </form>

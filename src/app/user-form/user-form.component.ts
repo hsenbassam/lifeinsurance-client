@@ -51,12 +51,13 @@ export class UserFormComponent implements OnInit {
     form.value.birthday = this.datePipe.transform(form.value.birthday, 'yyyy-MM-dd');
     form.value.datecreated = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
 
-    if (this.url == "/register") {
+    if (this.url.includes('/register')) {
       this.registerService.post(form.value)
         .subscribe(
           response => {
             console.log(response);
-            this._router.navigate(['/login'])
+            let returnUrl = this._route.snapshot.queryParamMap.get('returnUrl');
+            this._router.navigate([returnUrl || '/login'])
           },
           (error: AppError) => {
             if (error instanceof AppError) {

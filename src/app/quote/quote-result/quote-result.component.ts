@@ -29,8 +29,21 @@ export class QuoteResultComponent implements OnInit {
 
   ngOnInit() { }
 
+  register(package_type) {
+
+    this.addProductToLocalStorage(package_type);
+    console.log(JSON.parse(localStorage.getItem("cartProducts")))
+    this._router.navigate(['/register'], { queryParams: { returnUrl: "shopping-cart" } });
+  }
+
   addToCart(package_type) {
 
+    this.addProductToLocalStorage(package_type)
+    console.log(JSON.parse(localStorage.getItem("cartProducts")))
+    this._router.navigate(['/shopping-cart'])
+  }
+
+  private addProductToLocalStorage(package_type) {
     let p_type;
     let premium;
 
@@ -58,15 +71,12 @@ export class QuoteResultComponent implements OnInit {
     }
     this.cartProducts.push(cartProduct);
     localStorage.setItem("cartProducts", JSON.stringify(this.cartProducts));
-
-    console.log(JSON.parse(localStorage.getItem("cartProducts")))
-
-    this._router.navigate(['/shopping-cart'])
   }
 
   private typeFormat(type) {
     let str = type.split("-").join(" ");
     return str.replace(/\w\S*/g, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); }) + " Insurance";
   }
+
 
 }
