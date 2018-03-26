@@ -19,13 +19,13 @@
                       </tr>
                   </thead>
                   <tbody>
-                      <tr *ngFor="let item of cartProducts">
+                      <tr *ngFor="let item of cartProducts; let i = index">
                           <td>{{item.type}}</td>
                           <td>{{item.package}}</td>
                           <td>{{item.coverage}}</td>
                           <td>{{item.amount | currency:'USD':symbol}}</td>
                           <td class="text-right">{{item.premium | currency:'USD':symbol}}</td>
-                          <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
+                          <td class="text-right"><button type="button" (click)="delete(i)" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
                       </tr>
                       <tr>
                           <td></td>
@@ -42,10 +42,10 @@
       <div class="col mb-2">
           <div class="row">
               <div class="col-sm-12  col-md-6">
-                  <button class="btn btn-lg btn-block btn-light">Add to WishList</button>
+                  <button type="button" class="btn btn-lg btn-block btn-light">Add to WishList</button>
               </div>
               <div class="col-sm-12 col-md-6 text-right">
-                  <button class="btn btn-lg btn-block btn-success text-uppercase">Checkout</button>
+                  <button type="submit" class="btn btn-lg btn-block btn-success text-uppercase">Checkout</button>
               </div>
           </div>
       </div>

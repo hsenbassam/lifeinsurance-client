@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ShoppingCartComponent implements OnInit {
 
   cartProducts;
-  total = 0;
+  total;
 
   constructor() {
     this.cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
@@ -19,9 +19,16 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   getTotalPremium() {
+    this.total = 0;
     this.cartProducts.forEach(item => {
       this.total += item.premium;
     });
+  }
+
+  delete(index){
+    this.cartProducts.splice(index, 1);
+    localStorage.setItem("cartProducts", JSON.stringify(this.cartProducts));
+    this.getTotalPremium();
   }
 
 }
