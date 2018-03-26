@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm, FormGroup, FormControl } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { AppError } from '../common/app-error';
-import { RegisterService } from '../services/register.service';
-import { User } from '../models/user';
+import { RegisterService } from '../_services/register.service';
+import { User } from '../_models/user';
 import { Router, ActivatedRoute } from '@angular/router';
-import { UserService } from '../services/user.service';
-import { AuthService } from '../services/auth.service';
+import { UserService } from '../_services/user.service';
+import { AuthService } from '../_services/auth.service';
 
 @Component({
   selector: 'user-form',

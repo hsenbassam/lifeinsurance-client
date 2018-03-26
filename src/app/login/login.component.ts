@@ -4,7 +4,7 @@ import { AppError } from '../common/app-error';
 import { NotFoundError } from '../common/not-found-error';
 import { BadInput } from '../common/bad-input';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../_services/auth.service';
 
 @Component({
   selector: 'app-login',

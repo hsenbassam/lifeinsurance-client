@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ShoppingCartComponent implements OnInit {
 
   cartProducts;
-  total;
+  totalPremium: number;
 
   constructor() {
     this.cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
@@ -19,13 +19,15 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   getTotalPremium() {
-    this.total = 0;
+    this.totalPremium = 0;
     this.cartProducts.forEach(item => {
-      this.total += item.premium;
+      this.totalPremium += item.premium;
     });
   }
 
   delete(index){
+    if(!confirm("Are you sure you want to delete this insurance product?")) return;
+    
     this.cartProducts.splice(index, 1);
     localStorage.setItem("cartProducts", JSON.stringify(this.cartProducts));
     this.getTotalPremium();

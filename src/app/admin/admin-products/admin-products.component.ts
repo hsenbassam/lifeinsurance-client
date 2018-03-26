@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataTableResource } from 'angular5-data-table';
-import { ProductService } from '../../services/product.service';
+import { ProductService } from '../../_services/product.service';
 import { AppError } from '../../common/app-error';
-import { Product } from '../../models/product'
+import { Product } from '../../_models/product'
 
 @Component({
   selector: 'app-admin-products',

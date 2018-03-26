@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ProductService } from '../../services/product.service';
+import { ProductService } from '../../_services/product.service';
 import { AppError } from '../../common/app-error';
-import { CategoryService } from '../../services/category.service';
+import { CategoryService } from '../../_services/category.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/take';
-import { Product } from '../../models/product';
+import { Product } from '../../_models/product';
 
 @Component({
   selector: 'app-product-form',

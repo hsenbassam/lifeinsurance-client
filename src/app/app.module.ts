@@ -30,35 +30,35 @@ import { MatStepperModule, MatProgressSpinnerModule, MatRadioModule, MatProgress
 
 import { AppErrorHandler } from './common/app-error-handler';
 import { ErrorHandler } from '@angular/core';
-import { RegisterService } from './services/register.service';
+import { RegisterService } from './_services/register.service';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
-import { ProductService } from './services/product.service';
-import { CategoryService } from './services/category.service';
-import { AuthService } from './services/auth.service';
+import { ProductService } from './_services/product.service';
+import { CategoryService } from './_services/category.service';
+import { AuthService } from './_services/auth.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { JwtModule } from '@auth0/angular-jwt';
 import { HttpClientModule } from '@angular/common/http';
-import { AuthGuardService as AuthGuard  } from './services/auth-guard.service';
+import { AuthGuardService as AuthGuard  } from './_services/auth-guard.service';
 import { NoAccessComponent } from './no-access/no-access.component';
-import { AdminAuthGuard } from './services/admin-auth-guard.service';
+import { AdminAuthGuard } from './_services/admin-auth-guard.service';
 import { ProductFilterComponent } from './products/product-filter/product-filter.component';
 import { ProductCardComponent } from './products/product-card/product-card.component';
 import { ProductItemComponent } from './product-item/product-item.component';
 import { QuoteComponent } from './quote/quote.component';
 import { QuoteResultComponent } from './quote/quote-result/quote-result.component';
-import { TermLifeSimulatorService } from './services/termlife-simulator.service';
+import { TermLifeSimulatorService } from './_services/termlife-simulator.service';
 import { CountrySelectComponent } from './utils/country-select/country-select.component';
 import { AboutComponent } from './about/about.component';
 import { OccupationSelectComponent } from './utils/occupation-select/occupation-select.component';
 import { TermLifeProductComponent } from './term-life-product/term-life-product.component';
 import { WholeLifeProductComponent } from './whole-life-product/whole-life-product.component';
-import { WholeLifeSimulatorService } from './services/wholelife-simulator.service';
+import { WholeLifeSimulatorService } from './_services/wholelife-simulator.service';
 import { routes } from './app-routing.module';
 import { UserItemComponent } from './user-item/user-item.component';
 import { AdminUsersComponent } from './admin/admin-users/admin-users.component'
-import { UserService } from './services/user.service';
+import { UserService } from './_services/user.service';
 import { UserFormComponent } from './user-form/user-form.component';
-import { RoleService } from './services/role.service';
+import { RoleService } from './_services/role.service';
 import { PasswordRecoveryComponent } from './password-recovery/password-recovery.component';
 
 @NgModule({

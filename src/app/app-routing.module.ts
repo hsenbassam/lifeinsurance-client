@@ -7,14 +7,14 @@ import { TermLifeProductComponent } from './term-life-product/term-life-product.
 import { WholeLifeProductComponent } from './whole-life-product/whole-life-product.component';
 import { ProductsComponent } from './products/products.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
-import { AuthGuardService as AuthGuard } from './services/auth-guard.service';
+import { AuthGuardService as AuthGuard } from './_services/auth-guard.service';
 import { QuoteComponent } from './quote/quote.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { OrderSuccessComponent } from './order-success/order-success.component';
 import { LoginComponent } from './login/login.component';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
-import { AdminAuthGuard } from './services/admin-auth-guard.service';
+import { AdminAuthGuard } from './_services/admin-auth-guard.service';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { NoAccessComponent } from './no-access/no-access.component';

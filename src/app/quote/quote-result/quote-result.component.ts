@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Quote } from '../../models/quote';
-import { Rates } from '../../models/rates';
-import { AuthService } from '../../services/auth.service';
+import { Quote } from '../../_models/quote';
+import { Rates } from '../../_models/rates';
+import { AuthService } from '../../_services/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({

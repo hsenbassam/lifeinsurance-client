@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
-import { TermLifeSimulatorService } from '../services/termlife-simulator.service';
+import { TermLifeSimulatorService } from '../_services/termlife-simulator.service';
 import { AppError } from '../common/app-error';
 import { DateFormatter } from 'ngx-bootstrap/datepicker/date-formatter';
-import { Quote } from '../models/quote';
-import { Rates } from '../models/rates';
-import { WholeLifeSimulatorService } from '../services/wholelife-simulator.service';
+import { Quote } from '../_models/quote';
+import { Rates } from '../_models/rates';
+import { WholeLifeSimulatorService } from '../_services/wholelife-simulator.service';
 import { Observable } from 'rxjs';
 
 @Component({

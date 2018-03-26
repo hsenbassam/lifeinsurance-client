@@ -23,8 +23,8 @@
                           <td>{{item.type}}</td>
                           <td>{{item.package}}</td>
                           <td>{{item.coverage}}</td>
-                          <td>{{item.amount | currency:'USD':symbol}}</td>
-                          <td class="text-right">{{item.premium | currency:'USD':symbol}}</td>
+                          <td>{{item.amount | currency:'USD':'symbol'}}</td>
+                          <td class="text-right">{{item.premium | currency:'USD':'symbol'}}</td>
                           <td class="text-right"><button type="button" (click)="delete(i)" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
                       </tr>
                       <tr>
@@ -33,7 +33,7 @@
                           <td></td>
                           <td></td>
                           <td><strong>Total</strong></td>
-                          <td class="text-right"><strong>{{total | currency:'USD':symbol}}</strong></td>
+                          <td class="text-right"><strong>{{totalPremium | currency:'USD':'symbol'}}</strong></td>
                       </tr>
                   </tbody>
               </table>
