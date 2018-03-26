@@ -72,7 +72,7 @@ export class UserFormComponent implements OnInit {
       this.userService.update(form.value)
         .subscribe(
           response => {
-            this._router.navigate(['/'])
+            this._router.navigate(['/admin/users']);
             console.log(response);
           },
           (error: AppError) => {

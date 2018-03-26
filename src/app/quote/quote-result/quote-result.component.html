@@ -1,4 +1,3 @@
-
 <div *ngIf="quote.amount" class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
   <h1 class="display-4">Quote Results</h1>
   <p class="lead">Face Amount:{{quote.amount | currency:'USD':symbol }}</p>
@@ -9,72 +8,84 @@
 </div>
 
 <div class="container" *ngIf="quote.amount">
-   <!-- Content Row -->
-   <div class="row">
-      <div class="col-lg-4 mb-4">
-        <div class="card h-100">
-          <h3 class="card-header">Basic</h3>
-          <div class="card-body">
-            <div class="display-4">{{rates.basic_monthly | currency:'USD':symbol}}</div>
-            <div class="font-italic">per month</div>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item" *ngIf="type =='term-life'">Natural or accidental death</li>
-            <li class="list-group-item" *ngIf="type =='whole-life'">Lifetime Coverage</li>
-            
-            <li class="list-group-item">
-              <a href="#" class="btn btn-info">Sign Up!</a>
-            </li>
-          </ul>
+  <!-- Content Row -->
+  <div class="row">
+    <div class="col-lg-4 mb-4">
+      <div class="card h-100">
+        <h3 class="card-header">Basic</h3>
+        <div class="card-body">
+          <div class="display-4">{{rates.basic_monthly | currency:'USD':symbol}}</div>
+          <div class="font-italic">per month</div>
         </div>
-      </div>
-      <div class="col-lg-4 mb-4">
-        <div class="card card-outline-info h-100">
-          <h3 class="card-header bg-info text-white">Plus</h3>
-          <div class="card-body">
-            <div class="display-4">{{rates.plus_monthly | currency:'USD':symbol}}</div>
-            <div class="font-italic">per month</div>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item"  *ngIf="type =='term-life'">Natural or accidental death</li>
-            <li class="list-group-item"  *ngIf="type =='term-life'">Renewability</li>
-            <li class="list-group-item"  *ngIf="type =='term-life'">Total Permanent Disablement (TPD)</li>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item" *ngIf="type =='term-life'">Natural or accidental death</li>
+          <li class="list-group-item" *ngIf="type =='whole-life'">Lifetime Coverage</li>
 
-            <li class="list-group-item"  *ngIf="type =='whole-life'">Lifetime Coverage</li>
-            <li class="list-group-item"  *ngIf="type =='whole-life'">Family Income Benefit</li>
-            <li class="list-group-item"  *ngIf="type =='whole-life'">Accidental Death Benefit</li>
-            <li class="list-group-item"  *ngIf="type =='whole-life'">Hospitalization Benefit</li>
-            <li class="list-group-item">
-              <a href="#" class="btn btn-info">Sign Up!</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-lg-4 mb-4">
-        <div class="card h-100">
-          <h3 class="card-header">Ultra</h3>
-          <div class="card-body">
-            <div class="display-4">{{rates.ultra_monthly | currency:'USD':symbol}}</div>
-            <div class="font-italic">per month</div>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item"  *ngIf="type =='term-life'">Natural or accidental death</li>
-            <li class="list-group-item"  *ngIf="type =='term-life'">Renewability</li>
-            <li class="list-group-item"  *ngIf="type =='term-life'">Total Permanent Disablement (TPD)</li>
-            <li class="list-group-item" *ngIf="type =='term-life'">Passive War Risk</li>
-
-            <li class="list-group-item"  *ngIf="type =='whole-life'">Lifetime Coverage</li>
-            <li class="list-group-item"  *ngIf="type =='whole-life'">Family Income Benefit</li>
-            <li class="list-group-item"  *ngIf="type =='whole-life'">Accidental Death Benefit</li>
-            <li class="list-group-item"  *ngIf="type =='whole-life'">Hospitalization Benefit</li>
-            <li class="list-group-item"  *ngIf="type =='whole-life'">Passive War Risk</li>
-            <li class="list-group-item">
-              <a href="#" class="btn btn-info">Sign Up!</a>
-            </li>
-          </ul>
-        </div>
+          <li class="list-group-item">
+            <a routerLink="/register" *ngIf="!authService.isAuthenticated()" class="btn btn-info">Sign Up!</a>
+            <button 
+            (click)="addToCart('basic')"
+            *ngIf="authService.isAuthenticated()" 
+            class="btn btn-danger">Add to Cart</button>
+          </li>
+        </ul>
       </div>
     </div>
-    <!-- /.row -->
+    <div class="col-lg-4 mb-4">
+      <div class="card card-outline-info h-100">
+        <h3 class="card-header bg-info text-white">Plus</h3>
+        <div class="card-body">
+          <div class="display-4">{{rates.plus_monthly | currency:'USD':symbol}}</div>
+          <div class="font-italic">per month</div>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item" *ngIf="type =='term-life'">Natural or accidental death</li>
+          <li class="list-group-item" *ngIf="type =='term-life'">Renewability</li>
+          <li class="list-group-item" *ngIf="type =='term-life'">Total Permanent Disablement (TPD)</li>
+
+          <li class="list-group-item" *ngIf="type =='whole-life'">Lifetime Coverage</li>
+          <li class="list-group-item" *ngIf="type =='whole-life'">Family Income Benefit</li>
+          <li class="list-group-item" *ngIf="type =='whole-life'">Accidental Death Benefit</li>
+          <li class="list-group-item" *ngIf="type =='whole-life'">Hospitalization Benefit</li>
+          <li class="list-group-item">
+            <a routerLink="/register" *ngIf="!authService.isAuthenticated()" class="btn btn-info">Sign Up!</a>
+            <button 
+            (click)="addToCart('plus')"
+            *ngIf="authService.isAuthenticated()" 
+            class="btn btn-danger">Add to Cart</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-lg-4 mb-4">
+      <div class="card h-100">
+        <h3 class="card-header">Ultra</h3>
+        <div class="card-body">
+          <div class="display-4">{{rates.ultra_monthly | currency:'USD':symbol}}</div>
+          <div class="font-italic">per month</div>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item" *ngIf="type =='term-life'">Natural or accidental death</li>
+          <li class="list-group-item" *ngIf="type =='term-life'">Renewability</li>
+          <li class="list-group-item" *ngIf="type =='term-life'">Total Permanent Disablement (TPD)</li>
+          <li class="list-group-item" *ngIf="type =='term-life'">Passive War Risk</li>
+
+          <li class="list-group-item" *ngIf="type =='whole-life'">Lifetime Coverage</li>
+          <li class="list-group-item" *ngIf="type =='whole-life'">Family Income Benefit</li>
+          <li class="list-group-item" *ngIf="type =='whole-life'">Accidental Death Benefit</li>
+          <li class="list-group-item" *ngIf="type =='whole-life'">Hospitalization Benefit</li>
+          <li class="list-group-item" *ngIf="type =='whole-life'">Passive War Risk</li>
+          <li class="list-group-item">
+            <a routerLink="/register" *ngIf="!authService.isAuthenticated()" class="btn btn-info">Sign Up!</a>
+            <button 
+            (click)="addToCart('ultra')"
+            *ngIf="authService.isAuthenticated()" 
+            class="btn btn-danger">Add to Cart</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- /.row -->
 </div>
 <a routerLink="/quote/term-life" *ngIf="!quote.amount">Back to The Quote Form</a>

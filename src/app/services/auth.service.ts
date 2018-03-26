@@ -36,9 +36,7 @@ export class AuthService {
         }
 
     logout() {
-        localStorage.removeItem("token");
-        localStorage.removeItem("user");
-        console.log(this.isAuthenticated())
+        localStorage.clear();
     }
 
     isAuthenticated(): boolean {
