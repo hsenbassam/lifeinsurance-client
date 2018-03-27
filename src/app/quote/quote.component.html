@@ -43,17 +43,22 @@
 
         </div>
         <div class="row">
+
+
           <div class="col-md-6 mb-3">
             <label for="country">Country</label>
+
             <div class="input-group">
+              <div style="width:100%">
               <country-select (countryChanged) = "this.countrySelected = $event"></country-select>
+              </div>
             </div>
           </div>
 
           <div class="col-md-6 mb-3">
             <label for="marial">Marial Status</label>
             <div class="input-group">
-
+              
               <select [ngModel]="userQuote.marial" #marial="ngModel" name="marial" class="form-control" id="marial" required>
                 <option disabled [ngValue]="undefined" hidden selected>Choose your Marial Status</option>
                 <option value="s">Single</option>
@@ -61,6 +66,7 @@
                 <option value="mc">Married - Have Children</option>
                 <option value="d">Divorced</option>
               </select>
+              
             </div>
           </div>
         </div>
@@ -70,7 +76,7 @@
             <label for="coverage">Coverage Type</label>
             <div class="input-group">
 
-              <div *ngIf="type =='term-life'; else whole">
+              <div *ngIf="type =='term-life'; else whole" style="width:100%">
               <select [ngModel]="userQuote.coverage" #coverage="ngModel" name="coverage" class="form-control" id="coverage" required>
                 <option disabled [ngValue]="undefined" hidden selected>Choose your Coverage Type</option>
                 <option [ngValue]="35">35-Year Guarenteed Level Term</option>

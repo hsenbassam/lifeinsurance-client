@@ -10,6 +10,7 @@ export class CheckoutComponent implements OnInit {
   checkout: {} = {};
   cartProducts;
   totalPremium: number;
+  countrySelected: string;
 
 
   constructor() {
