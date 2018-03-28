@@ -40,9 +40,9 @@
     </form>
   </div>
   <div class="col-md-8 order-md-1 ">
-    <h4 class="mb-3">Billing address</h4>
+    <h4 class="mb-3">Invoice Information</h4>
 
-      <form class="needs-validation" (ngSubmit)="checkoutProcess(f)" #f="ngForm" novalidate>
+      <form class="needs-validation" (ngSubmit)="checkoutProcess(f.value)" #f="ngForm" novalidate>
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="firstname">First name</label>
@@ -80,15 +80,19 @@
 
 
         <div class="mb-3">
-          <label for="address">Address </label>
-          <input type="text" [(ngModel)]="checkout.address" #address="ngModel" name="address" class="form-control" id="address" placeholder="1234 Main St"
-            required [ngClass]="{'is-invalid': !address.valid && address.touched}">
-          <div class="invalid-feedback">
-            Your address is required.
+            <label for="paypalemail">PayPal Email</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">@</span>
+              </div>
+              <input type="email" [(ngModel)]="checkout.paypalemail" #paypalemail="ngModel" name="paypalemail" class="form-control" id="paypalemail" placeholder="youpaypal@example.com"
+                required [ngClass]="{'is-invalid': !paypalemail.valid && paypalemail.touched}">
+              <div class="invalid-feedback">
+                Your email is required and should be well formated.
+              </div>
+            </div>
           </div>
-        </div>
-
-
+  
         <div class="mb-3">
           <label for="phone">Phone Number</label>
           <input type="string" [(ngModel)]="checkout.phone" #phone="ngModel" name="phone" class="form-control" id="phone" placeholder="Phone Number"
@@ -98,42 +102,18 @@
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-md-5 mb-3">
-            <label for="country">Country</label>
-            <country-select (countryChanged) = "this.countrySelected = $event"></country-select>
-            <div class="invalid-feedback">
-              Please select a valid country.
-            </div>
-            
-          </div>
-          <div class="col-md-4 mb-3">
-            <label for="state">State</label>
-            <select class="custom-select d-block w-100" id="state" required>
-              <option value="">Choose...</option>
-              <option>California</option>
-            </select>
-            <div class="invalid-feedback">
-              Please provide a valid state.
-            </div>
-          </div>
-          <div class="col-md-3 mb-3">
-            <label for="zip">Zip</label>
-            <input type="text" class="form-control" id="zip" placeholder="" required>
-            <div class="invalid-feedback">
-              Zip code required.
-            </div>
-          </div>
-        </div>
+       
 
         <hr class="mb-4">
 
         <h4 class="mb-3">Payment</h4>
         
-        <div class="display-td">
-          <img class="img-responsive pull-right" style="width:50%" src="http://www.prepbootstrap.com/Content/images/shared/misc/creditcardicons.png">
+        <div class="display-td"> 
+          <strong>PayPal</strong>: Payment Method.
+          <img class="img-responsive " style="width:50%; vertical-align:middle" src="http://www.prepbootstrap.com/Content/images/shared/misc/creditcardicons.png">
         </div>
-        <div class="d-block my-3">
+        <!-- <div class="d-block my-3">
+          
           <div class="custom-control custom-radio">
             <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
             <label class="custom-control-label" for="credit">Credit card</label>
@@ -146,8 +126,8 @@
             <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
             <label class="custom-control-label" for="paypal">Paypal</label>
           </div>
-        </div>
-        <div class="row">
+        </div> -->
+        <!-- <div class="row">
           <div class="col-md-6 mb-3">
             <label for="cc-name">Name on card</label>
             <input type="text" class="form-control" id="cc-name"
@@ -191,10 +171,11 @@
             <small class="text-muted">* CVV or CVC is the card security code, unique three digits number on the back of your card separate from its
               number.</small>
           </div>
-        </div>
+        </div> -->
         <hr class="mb-4">
         <button class="btn btn-info btn-lg btn-block" [disabled]="!f.valid" type="submit">Continue to Checkout &nbsp; <i class="fa fa-lock fa-lg"></i></button>
       </form>
+  
   </div>
 
-  
+ 

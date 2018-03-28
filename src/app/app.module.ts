@@ -12,7 +12,6 @@ import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
-import { OrderSuccessComponent } from './order-success/order-success.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
@@ -60,6 +59,10 @@ import { UserService } from './_services/user.service';
 import { UserFormComponent } from './user-form/user-form.component';
 import { RoleService } from './_services/role.service';
 import { PasswordRecoveryComponent } from './password-recovery/password-recovery.component';
+import { PaymentProcessComponent } from './payment-process/payment-process.component';
+import { PaymentSuccessComponent } from './payment-success/payment-success.component';
+import { PaymentConfirmationComponent } from './payment-confirmation/payment-confirmation.component';
+import { PaypalPaymentService } from './_services/paypal.payment.service';
 
 @NgModule({
   declarations: [
@@ -69,7 +72,7 @@ import { PasswordRecoveryComponent } from './password-recovery/password-recovery
     ProductsComponent,
     ShoppingCartComponent,
     CheckoutComponent,
-    OrderSuccessComponent,
+    PaymentSuccessComponent,
     MyOrdersComponent,
     AdminProductsComponent,
     AdminOrdersComponent,
@@ -90,7 +93,9 @@ import { PasswordRecoveryComponent } from './password-recovery/password-recovery
     UserItemComponent,
     AdminUsersComponent,
     UserFormComponent,
-    PasswordRecoveryComponent
+    PasswordRecoveryComponent,
+    PaymentProcessComponent,
+    PaymentConfirmationComponent
   ],
   imports: [
     BrowserModule,
@@ -124,6 +129,7 @@ import { PasswordRecoveryComponent } from './password-recovery/password-recovery
     AuthGuard,
     AdminAuthGuard,
     JwtHelperService,
+    PaypalPaymentService,
     ProductService,
     UserService,
     CategoryService,

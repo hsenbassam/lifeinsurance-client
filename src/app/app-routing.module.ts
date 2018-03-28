@@ -11,7 +11,6 @@ import { AuthGuardService as AuthGuard } from './_services/auth-guard.service';
 import { QuoteComponent } from './quote/quote.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
-import { OrderSuccessComponent } from './order-success/order-success.component';
 import { LoginComponent } from './login/login.component';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
 import { AdminAuthGuard } from './_services/admin-auth-guard.service';
@@ -21,6 +20,9 @@ import { NoAccessComponent } from './no-access/no-access.component';
 import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
 import { UserFormComponent } from './user-form/user-form.component';
 import { PasswordRecoveryComponent } from './password-recovery/password-recovery.component';
+import { PaymentProcessComponent } from './payment-process/payment-process.component';
+import { PaymentSuccessComponent } from './payment-success/payment-success.component';
+import { PaymentConfirmationComponent } from './payment-confirmation/payment-confirmation.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -40,16 +42,25 @@ export const routes: Routes = [
         canActivate: [AuthGuard]
     },
     {
+        path: 'payment/confirm',
+        component: PaymentConfirmationComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'payment/process',
+        component: PaymentProcessComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'payment/success',
+        component: PaymentSuccessComponent,
+        canActivate: [AuthGuard]
+    },
+    {
         path: 'my-orders',
         component: MyOrdersComponent,
         canActivate: [AuthGuard]
     },
-    {
-        path: 'order-success',
-        component: OrderSuccessComponent,
-        canActivate: [AuthGuard]
-    },
-
     { path: 'login', component: LoginComponent },
     {
         path: 'profile/passwordRecovery',

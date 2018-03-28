@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-checkout',
@@ -11,9 +12,9 @@ export class CheckoutComponent implements OnInit {
   cartProducts;
   totalPremium: number;
   countrySelected: string;
+  
 
-
-  constructor() {
+  constructor(private _route: Router) {
     this.cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
     this.getTotalPremium();
    }
@@ -27,6 +28,16 @@ export class CheckoutComponent implements OnInit {
     this.cartProducts.forEach(item => {
       this.totalPremium += item.premium;
     });
+  }
+
+  checkoutProcess(form) {
+    form.payment_method = "PayPal";
+    localStorage.setItem('invoice-header', JSON.stringify(form));
+    this.route.navigate(['payment/confirm'])
+  }
+
+  get route(){
+    return this._route;
   }
 
 }
