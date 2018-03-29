@@ -14,7 +14,7 @@ export class PaymentConfirmationComponent implements OnInit {
   invoiceHeaders;
   currentDate: string;
   cartProducts;
-  totalPremium:number;
+  totalPremium: number;
   redeem = 0;
 
   constructor(private paypalService: PaypalPaymentService, private _router: Router) {
@@ -55,6 +55,10 @@ export class PaymentConfirmationComponent implements OnInit {
     this.cartProducts.forEach(item => {
       this.totalPremium += item.premium;
     });
+  }
+
+  print() {
+    window.print();
   }
 
   get router() {

@@ -14,3 +14,24 @@
     border-top: 2px solid;
 }
 
+.print button {
+    display: inline-block;
+    border: 1px solid #17a2b8;
+    padding: 13px 13px;
+    border-radius: 5px;
+    color: #17a2b8;
+    font-size: 17px;
+    background:none!important;
+    cursor: pointer;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -ms-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+  }
+  
+  .print button:hover {
+    text-decoration: none;
+    border-color: #333;
+    color: #333;
+  }

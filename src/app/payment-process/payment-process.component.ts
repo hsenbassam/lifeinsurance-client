@@ -18,28 +18,36 @@ export class PaymentProcessComponent implements OnInit {
   constructor(private _route: ActivatedRoute, 
               private paypalService: PaypalPaymentService,
               private _router: Router) {
-    this.redirectUrl = localStorage.getItem("redirect_url");
+    this.redirectUrl = localStorage.getItem("redirect_url") || "";
     console.log(this.redirectUrl)
   }
 
   ngOnInit() {
-
     this.route.queryParams.subscribe(params => this.paymentId = params['paymentId']);
     this.route.queryParams.subscribe(params => this.payerId = params['PayerID']);
   }
 
   paypalPay() {
+    if(this.redirectUrl == "") {
+      alert("Redirect URL is not valid");
+      return;
+    }
     if(!confirm("You are redirecting to payment. Would you like to continue?")) return;
     this.redirect = true;
     window.location.href = this.redirectUrl;
   }
   paypalComplete() {
-    if(!confirm("You are completing to payment. Would you like to continue?")) return;
+    if(!confirm("You are completing the payment. Would you like to continue?")) return;
     this.paypalService.completePayment(this.paymentId, this.payerId)
     .subscribe(
       response => {
-        console.log(response);
-        this.router.navigate(['payment/success']);
+        localStorage.setItem("paymentResponse",JSON.stringify(response));
+        if(response.status == "success") {
+          this.router.navigate(['payment/success']);
+        }
+        else
+        this.router.navigate(['payment/failure']);
+      
       },
       (error: AppError) => {
         if (error instanceof AppError) {

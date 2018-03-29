@@ -1,3 +1,113 @@
-<h2 class="mt-4 mb-3">
-  Your Payment has been successfully done !
-</h2>
+<h4 class="mt-4 mb-3 d-print-none">
+  <div class="row">
+    <div class="col-sm-12 col-md-12">
+      <div class="alert-message alert-message-success">
+        <h4>
+          Success</h4>
+        <p>
+          <strong>
+            Thank you {{authService.userInfo.firstname}}, Your Payment has been successfully done.
+          </strong>
+          <a routerLink="/"> Go Back to the Home Page </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</h4>
+<div class="receipt-content">
+  <div class="container bootstrap snippet">
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="invoice-wrapper" id="print-section">
+          <div class="intro">
+            Hi
+            <strong>{{paymentResponse.payment.payer.payerInfo.firstName}} {{paymentResponse.payment.payer.payerInfo.lastName}}</strong>,
+            <br> This is the receipt for a payment of
+            <strong>{{paymentResponse.payment.transactions[0].amount.total | currency:'USD':'symbol'}}</strong> (USD) for your works
+            <div class="text-right">
+              <img src="./assets/paypal.png" class="paypallogo" alt="PayPal" >
+            </div>
+          </div>
+
+          <div class="payment-info">
+            <div class="row">
+              <div class="col-sm-6">
+                <span>Payment ID</span>
+                <strong>{{paymentResponse.payment.id}}</strong>
+              </div>
+              <div class="col-sm-6 text-right">
+                <span>Payment Date</span>
+                <strong>{{paymentResponse.payment.createTime | date}}</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="payment-details">
+            <div class="row">
+              <div class="col-sm-6">
+                <span>Buyer Info</span>
+                <strong>
+                  {{paymentResponse.payment.payer.payerInfo.firstName}} {{paymentResponse.payment.payer.payerInfo.lastName}}
+                </strong>
+                <p>
+                  {{paymentResponse.payment.payer.payerInfo.shippingAddress.line1}}
+                  <br> {{paymentResponse.payment.payer.payerInfo.shippingAddress.city}}
+                  <br> {{paymentResponse.payment.payer.payerInfo.shippingAddress.postalCode}} - {{paymentResponse.payment.payer.payerInfo.shippingAddress.countryCode}}
+                  <br>
+                  <a href="#">
+                    {{paymentResponse.payment.payer.payerInfo.email}}
+                  </a>
+                </p>
+              </div>
+              <div class="col-sm-6 text-right">
+                <span>Seller Info</span>
+                <strong>
+                  Life Insurance's Test Store
+                </strong>
+                <p>
+                  <a href="#">
+                    payment@lifeinsurance.com
+                  </a>
+                </p>
+                <span>Paid With</span>
+                <strong>
+                  PayPal Balance
+                </strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="line-items">
+
+
+            <div class="total text-right">
+
+              <!-- <div class="field">
+              Subtotal <span>$379.00</span>
+            </div>
+            <div class="field">
+              Shipping <span>$0.00</span>
+            </div>
+            <div class="field">
+              Discount <span>4.5%</span>
+            </div> -->
+              <div class="field grand-total">
+                Total
+                <span>{{paymentResponse.payment.transactions[0].amount.total | currency:'USD':'symbol'}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-invoice d-print-none">
+          <div class="print">
+            <button (click)="print()">
+              <i class="fa fa-print"></i>
+              Print this receipt
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -23,6 +23,7 @@ import { PasswordRecoveryComponent } from './password-recovery/password-recovery
 import { PaymentProcessComponent } from './payment-process/payment-process.component';
 import { PaymentSuccessComponent } from './payment-success/payment-success.component';
 import { PaymentConfirmationComponent } from './payment-confirmation/payment-confirmation.component';
+import { PaymentFailureComponent } from './payment-failure/payment-failure.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -54,6 +55,11 @@ export const routes: Routes = [
     {
         path: 'payment/success',
         component: PaymentSuccessComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'payment/failure',
+        component: PaymentFailureComponent,
         canActivate: [AuthGuard]
     },
     {

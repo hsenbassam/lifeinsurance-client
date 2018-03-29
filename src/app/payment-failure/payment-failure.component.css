@@ -1,0 +1,30 @@
+.alert-message
+{
+    margin: 20px 0;
+    padding: 20px;
+    border-left: 3px solid #eee;
+}
+.alert-message h4
+{
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+.alert-message p:last-child
+{
+    margin-bottom: 0;
+}
+.alert-message code
+{
+    background-color: #fff;
+    border-radius: 3px;
+}
+
+.alert-message-danger
+{
+    background-color: #fdf7f7;
+    border-color: #d9534f;
+}
+.alert-message-danger h4
+{
+    color: #d9534f;
+}

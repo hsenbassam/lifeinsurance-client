@@ -14,13 +14,13 @@ export class CheckoutComponent implements OnInit {
   countrySelected: string;
   
 
-  constructor(private _route: Router) {
+  constructor(private _router: Router) {
     this.cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
     this.getTotalPremium();
    }
 
   ngOnInit() {
-    console.log(JSON.parse(localStorage.getItem("cartProducts")))
+    console.log(this.cartProducts)
   }
 
   getTotalPremium() {
@@ -33,11 +33,11 @@ export class CheckoutComponent implements OnInit {
   checkoutProcess(form) {
     form.payment_method = "PayPal";
     localStorage.setItem('invoice-header', JSON.stringify(form));
-    this.route.navigate(['payment/confirm'])
+    this.router.navigate(['payment/confirm'])
   }
 
-  get route(){
-    return this._route;
+  get router(){
+    return this._router;
   }
 
 }

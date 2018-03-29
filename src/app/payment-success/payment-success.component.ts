@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../_services/auth.service';
 
 @Component({
   selector: 'app-order-success',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaymentSuccessComponent implements OnInit {
 
-  constructor() { }
+  paymentResponse;
+
+  constructor(private authService: AuthService) {
+    this.paymentResponse = JSON.parse(localStorage.getItem("paymentResponse")) || {};
+    console.log(this.paymentResponse)
+    localStorage.removeItem("redirect_url");
+    localStorage.removeItem("invoice-header");
+    localStorage.removeItem("cartProducts");
+   }
 
   ngOnInit() {
+  }
+
+  print() {
+    window.print();
   }
 
 }

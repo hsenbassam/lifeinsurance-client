@@ -63,6 +63,7 @@ import { PaymentProcessComponent } from './payment-process/payment-process.compo
 import { PaymentSuccessComponent } from './payment-success/payment-success.component';
 import { PaymentConfirmationComponent } from './payment-confirmation/payment-confirmation.component';
 import { PaypalPaymentService } from './_services/paypal.payment.service';
+import { PaymentFailureComponent } from './payment-failure/payment-failure.component';
 
 @NgModule({
   declarations: [
@@ -95,7 +96,8 @@ import { PaypalPaymentService } from './_services/paypal.payment.service';
     UserFormComponent,
     PasswordRecoveryComponent,
     PaymentProcessComponent,
-    PaymentConfirmationComponent
+    PaymentConfirmationComponent,
+    PaymentFailureComponent
   ],
   imports: [
     BrowserModule,
