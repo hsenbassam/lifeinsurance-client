@@ -3,7 +3,9 @@
 }
 
 .navbar-fixed-top { position: absolute!important;}
-
+/* .bg-info {
+    background-color: #009688 !important;
+} */
 ul {
     list-style-type: none;
     padding-left: 0;
@@ -16,5 +18,28 @@ ul {
     font-weight: 1000;
 }
 
-  
+.shop {
+    font-size: 20px
+}
+
+.register {
+    max-height: 37px;
+    margin-left:10px
+    
+}
+
+.shop[data-count]:after{
+    position:absolute;
+    right:10%;
+    top:8%;
+    content: attr(data-count);
+    font-size:40%;
+    padding:.2em;
+    border-radius:50%;
+    line-height:1em;
+    color: white;
+    background:#e74c3c!important;
+    text-align:center;
+    min-width: 1.3em;
+  }
   

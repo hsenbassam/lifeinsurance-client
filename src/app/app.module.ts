@@ -64,6 +64,7 @@ import { PaymentSuccessComponent } from './payment-success/payment-success.compo
 import { PaymentConfirmationComponent } from './payment-confirmation/payment-confirmation.component';
 import { PaypalPaymentService } from './_services/paypal.payment.service';
 import { PaymentFailureComponent } from './payment-failure/payment-failure.component';
+import { ScrollToTopDirective } from './_directives/scroll-to-top.directive';
 
 @NgModule({
   declarations: [
@@ -97,7 +98,8 @@ import { PaymentFailureComponent } from './payment-failure/payment-failure.compo
     PasswordRecoveryComponent,
     PaymentProcessComponent,
     PaymentConfirmationComponent,
-    PaymentFailureComponent
+    PaymentFailureComponent,
+    ScrollToTopDirective
   ],
   imports: [
     BrowserModule,

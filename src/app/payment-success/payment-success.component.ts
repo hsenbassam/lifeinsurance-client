@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { AuthService } from '../_services/auth.service';
   templateUrl: './payment-success.component.html',
   styleUrls: ['./payment-success.component.css']
 })
-export class PaymentSuccessComponent implements OnInit {
+export class PaymentSuccessComponent implements OnInit, OnDestroy {
 
   paymentResponse;
 
@@ -19,6 +19,9 @@ export class PaymentSuccessComponent implements OnInit {
    }
 
   ngOnInit() {
+  }
+  ngOnDestroy() {
+    localStorage.removeItem("paymentResponse");
   }
 
   print() {

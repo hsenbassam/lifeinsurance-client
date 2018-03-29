@@ -10,10 +10,14 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
 
   isCollapsed = true;
+  cartProducts;
 
-  constructor(public authService: AuthService, private router: Router) { }
+  constructor(public authService: AuthService, private router: Router) {
+   
+   }
 
-  ngOnInit() {
+    ngOnInit() {
+    this.cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
   }
 
   logout() {
