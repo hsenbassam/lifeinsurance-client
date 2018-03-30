@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Checkout } from '../_models/checkout';
 
 @Component({
   selector: 'app-checkout',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class CheckoutComponent implements OnInit {
 
-  checkout: {} = {};
+  checkout: Checkout;
   cartProducts;
   totalPremium: number;
   countrySelected: string;

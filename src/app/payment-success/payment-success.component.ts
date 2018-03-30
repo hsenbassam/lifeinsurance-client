@@ -10,7 +10,7 @@ export class PaymentSuccessComponent implements OnInit, OnDestroy {
 
   paymentResponse;
 
-  constructor(private authService: AuthService) {
+  constructor(public authService: AuthService) {
     this.paymentResponse = JSON.parse(localStorage.getItem("paymentResponse")) || {};
     console.log(this.paymentResponse)
     localStorage.removeItem("redirect_url");

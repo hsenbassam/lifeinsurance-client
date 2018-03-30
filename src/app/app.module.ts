@@ -24,7 +24,7 @@ import { BsDropdownModule, CollapseModule, BsDatepickerModule, TabsModule  } fro
 import { LoadingBarHttpModule } from '@ngx-loading-bar/http';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
 
-import { MatStepperModule, MatProgressSpinnerModule, MatRadioModule, MatProgressBarModule } from '@angular/material'
+import { MatStepperModule, MatProgressSpinnerModule, MatRadioModule, MatProgressBarModule, MatSnackBarModule } from '@angular/material'
 
 
 import { AppErrorHandler } from './common/app-error-handler';
@@ -65,6 +65,7 @@ import { PaymentConfirmationComponent } from './payment-confirmation/payment-con
 import { PaypalPaymentService } from './_services/paypal.payment.service';
 import { PaymentFailureComponent } from './payment-failure/payment-failure.component';
 import { ScrollToTopDirective } from './_directives/scroll-to-top.directive';
+import { ShoppingCartService } from './_services/shopping-cart.service';
 
 @NgModule({
   declarations: [
@@ -107,6 +108,7 @@ import { ScrollToTopDirective } from './_directives/scroll-to-top.directive';
     MatStepperModule,
     MatProgressSpinnerModule,
     MatProgressBarModule,
+    MatSnackBarModule,
     MatRadioModule,
     LoadingBarHttpModule,
     BrowserAnimationsModule, 
@@ -135,6 +137,7 @@ import { ScrollToTopDirective } from './_directives/scroll-to-top.directive';
     JwtHelperService,
     PaypalPaymentService,
     ProductService,
+    ShoppingCartService,
     UserService,
     CategoryService,
     TermLifeSimulatorService,

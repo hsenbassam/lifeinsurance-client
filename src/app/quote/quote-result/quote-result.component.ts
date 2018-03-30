@@ -4,6 +4,10 @@ import { Quote } from '../../_models/quote';
 import { Rates } from '../../_models/rates';
 import { AuthService } from '../../_services/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ShoppingCartService } from '../../_services/shopping-cart.service';
+import { AppError } from '../../common/app-error';
+import { MatSnackBar } from '@angular/material';
+
 
 @Component({
   selector: 'quote-result',
@@ -21,7 +25,12 @@ export class QuoteResultComponent implements OnInit {
 
 
 
-  constructor(public authService: AuthService, private _router: Router, private _route: ActivatedRoute) {
+  constructor(
+    public authService: AuthService, 
+    private cartService: ShoppingCartService,
+    private _router: Router, 
+    private _route: ActivatedRoute,
+    public snackBar: MatSnackBar) {
 
     this.quote = new Quote();
     this.cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
@@ -37,13 +46,36 @@ export class QuoteResultComponent implements OnInit {
   }
 
   addToCart(package_type) {
-
-    this.addProductToLocalStorage(package_type)
-    console.log(JSON.parse(localStorage.getItem("cartProducts")))
-    this._router.navigate(['/shopping-cart'])
+    let cartProduct = this.generateProduct(package_type);
+    let userId = this.authService.userInfo.id;
+    this.cartService.post(cartProduct, userId)
+        .subscribe(response => {
+          console.log(response);
+         this.openSnackBar("You are added new product to the Cart", "Dismiss")
+        },
+        (error: AppError) => {
+          if (error instanceof AppError) {
+            console.log("Adding Product to a Cart is Failed");
+          }
+          else
+            throw error;
+        });
   }
 
   private addProductToLocalStorage(package_type) {
+    let cartProduct = this.generateProduct(package_type);
+    this.cartProducts.push(cartProduct);
+    localStorage.setItem("cartProducts", JSON.stringify(this.cartProducts)); 
+  }
+
+  private openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 2000
+    });
+  }
+
+  private generateProduct(package_type) {
+
     let p_type;
     let premium;
 
@@ -69,8 +101,8 @@ export class QuoteResultComponent implements OnInit {
       "coverage": this.quote.coverage ? this.quote.coverage + "-Year Guarenteed Level Term" : "Lifetime Insurance",
       "premium": premium
     }
-    this.cartProducts.push(cartProduct);
-    localStorage.setItem("cartProducts", JSON.stringify(this.cartProducts));
+    return cartProduct;
+
   }
 
   private typeFormat(type) {
