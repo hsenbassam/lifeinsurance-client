@@ -12,7 +12,6 @@ import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
-import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { LoginComponent } from './login/login.component';
 import { FooterComponent } from './footer/footer.component';
@@ -76,7 +75,6 @@ import { PasswordChangeComponent } from './profile/password-change/password-chan
     ShoppingCartComponent,
     CheckoutComponent,
     PaymentSuccessComponent,
-    MyOrdersComponent,
     AdminOrdersComponent,
     LoginComponent,
     FooterComponent,
