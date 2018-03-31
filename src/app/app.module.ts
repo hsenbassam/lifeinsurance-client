@@ -66,6 +66,7 @@ import { PaypalPaymentService } from './_services/paypal.payment.service';
 import { PaymentFailureComponent } from './payment-failure/payment-failure.component';
 import { ScrollToTopDirective } from './_directives/scroll-to-top.directive';
 import { ShoppingCartService } from './_services/shopping-cart.service';
+import { OrderService } from './_services/order.service';
 
 @NgModule({
   declarations: [
@@ -142,6 +143,7 @@ import { ShoppingCartService } from './_services/shopping-cart.service';
     CategoryService,
     TermLifeSimulatorService,
     WholeLifeSimulatorService,
+    OrderService,
     RoleService,
     DatePipe,
     { provide: ErrorHandler, useClass: AppErrorHandler }

@@ -33,8 +33,7 @@ export const routes: Routes = [
     { path: 'products', component: ProductsComponent },
     {
         path: 'shopping-cart',
-        component: ShoppingCartComponent,
-        canActivate: [AuthGuard]
+        component: ShoppingCartComponent
     },
     { path: 'quote/:type', component: QuoteComponent },
     {

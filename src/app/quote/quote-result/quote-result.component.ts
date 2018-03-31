@@ -21,7 +21,7 @@ export class QuoteResultComponent implements OnInit {
   @Input('rates') rates: Rates;
   @Input('type') type: string;
 
-  cartProducts;
+  cartProducts;;
 
 
 
@@ -30,7 +30,7 @@ export class QuoteResultComponent implements OnInit {
     private cartService: ShoppingCartService,
     private _router: Router, 
     private _route: ActivatedRoute,
-    public snackBar: MatSnackBar) {
+    private snackBar: MatSnackBar) {
 
     this.quote = new Quote();
     this.cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
@@ -38,19 +38,20 @@ export class QuoteResultComponent implements OnInit {
 
   ngOnInit() { }
 
-  register(package_type) {
-
-    this.addProductToLocalStorage(package_type);
-    console.log(JSON.parse(localStorage.getItem("cartProducts")))
-    this._router.navigate(['/register'], { queryParams: { returnUrl: "shopping-cart" } });
-  }
 
   addToCart(package_type) {
+
+    if(!this.authService.isAuthenticated()) {
+      this.addProductToLocalStorage(package_type);
+      this.openSnackBar("You are added new product to the Cart", "Dismiss")
+      return;
+    }
     let cartProduct = this.generateProduct(package_type);
     let userId = this.authService.userInfo.id;
     this.cartService.post(cartProduct, userId)
         .subscribe(response => {
-          console.log(response);
+         console.log(response);
+        
          this.openSnackBar("You are added new product to the Cart", "Dismiss")
         },
         (error: AppError) => {

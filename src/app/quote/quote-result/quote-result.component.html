@@ -22,12 +22,8 @@
           <li class="list-group-item" *ngIf="type =='whole-life'">Lifetime Coverage</li>
 
           <li class="list-group-item">
-            <button 
-            (click)="register('basic')" 
-            *ngIf="!authService.isAuthenticated()" 
-            class="btn btn-info">Sign Up!
-          </button>
-            <button (click)="addToCart('basic')" *ngIf="authService.isAuthenticated()" class="btn btn-danger">Add to Cart</button>
+       
+            <button (click)="addToCart('basic')" class="btn btn-danger">Add to Cart</button>
           </li>
         </ul>
       </div>
@@ -49,12 +45,8 @@
           <li class="list-group-item" *ngIf="type =='whole-life'">Accidental Death Benefit</li>
           <li class="list-group-item" *ngIf="type =='whole-life'">Hospitalization Benefit</li>
           <li class="list-group-item">
-            <button 
-            (click)="register('plus')" 
-            *ngIf="!authService.isAuthenticated()" 
-            class="btn btn-info">Sign Up!
-          </button>
-            <button (click)="addToCart('plus')" *ngIf="authService.isAuthenticated()" class="btn btn-danger">Add to Cart</button>
+          
+            <button (click)="addToCart('plus')" class="btn btn-danger">Add to Cart</button>
           </li>
         </ul>
       </div>
@@ -79,13 +71,7 @@
           <li class="list-group-item" *ngIf="type =='whole-life'">Passive War Risk</li>
           <li class="list-group-item">
             <button 
-            (click)="register('ultra')" 
-            *ngIf="!authService.isAuthenticated()" 
-            class="btn btn-info">Sign Up!
-          </button>
-            <button 
             (click)="addToCart('ultra')" 
-            *ngIf="authService.isAuthenticated()" 
             class="btn btn-danger">Add to Cart
           </button>
           </li>

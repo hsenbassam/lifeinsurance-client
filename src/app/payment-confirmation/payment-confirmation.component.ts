@@ -3,6 +3,8 @@ import { DateFormat } from '../utils/date-format';
 import { PaypalPaymentService } from '../_services/paypal.payment.service';
 import { AppError } from '../common/app-error';
 import { Router } from '@angular/router';
+import { ShoppingCartService } from '../_services/shopping-cart.service';
+import { AuthService } from '../_services/auth.service';
 
 @Component({
   selector: 'payment-confirmation',
@@ -13,13 +15,16 @@ export class PaymentConfirmationComponent implements OnInit {
 
   invoiceHeaders;
   currentDate: string;
-  cartProducts;
+  cartProducts = [];
   totalPremium: number;
   redeem = 0;
 
-  constructor(private paypalService: PaypalPaymentService, private _router: Router) {
+  constructor(
+    private paypalService: PaypalPaymentService, 
+    private _router: Router, 
+    private cartService: ShoppingCartService,
+    private authService: AuthService ) {
     this.invoiceHeaders = JSON.parse(localStorage.getItem("invoice-header")) || {};
-    this.cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
     this.currentDate = DateFormat.formatDate(new Date());
     this.getTotalPremium()
   }
@@ -27,6 +32,19 @@ export class PaymentConfirmationComponent implements OnInit {
   ngOnInit() {
     console.log(this.invoiceHeaders)
     console.log(this.cartProducts)
+
+    this.cartService.getAll(this.authService.userInfo.id)
+    .subscribe(cartProducts => {
+      this.cartProducts = cartProducts;
+      this.getTotalPremium();
+    },
+      (error: AppError) => {
+        if (error instanceof AppError) {
+          console.log("Fetching Shopping Cart Items is Failed/No Items");
+        }
+        else
+          throw error;
+      });
   }
 
   paypalCheckout() {

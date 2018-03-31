@@ -56,8 +56,7 @@ export class UserFormComponent implements OnInit {
         .subscribe(
           response => {
             console.log(response);
-            let returnUrl = this._route.snapshot.queryParamMap.get('returnUrl');
-            this._router.navigate([returnUrl || '/login'])
+            this._router.navigate(['/login'])
           },
           (error: AppError) => {
             if (error instanceof AppError) {

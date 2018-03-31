@@ -10,15 +10,14 @@ import 'rxjs/add/observable/throw';
 
 
 @Injectable()
-export class ShoppingCartService {
+export class OrderService {
 
     private headers = new Headers;
     private options = new RequestOptions;
-    private url = 'http://localhost:8080/lifeinsurance/api/shopping-cart';
+    private url = 'http://localhost:8080/lifeinsurance/api/orders';
 
     constructor(private http: Http) {
     }
-
 
     private addHeaders() {
 
@@ -29,27 +28,12 @@ export class ShoppingCartService {
         this.options = new RequestOptions({ headers: this.headers });
     }
 
-    getAll(userId) {
+    add(userId) {
         this.addHeaders();
-        return this.http.get(this.url + "?userId=" + userId, this.options)
-            .map(response => response.json())
-            .catch(this.handleError)
-    }
-
-    post(cartProduct, userId) {
-        this.addHeaders();
-        return this.http.post(this.url + "?userId=" + userId, cartProduct, this.options)
+        return this.http.post(this.url + "?userId=" + userId, null, this.options)
             .map(response => response.json())
             .catch(this.handleError);
     }
-
-    delete(id) {
-        this.addHeaders();
-        return this.http.delete(this.url + '/' + id, this.options)
-            .map(response => (response.status === 200))
-            .catch(this.handleError);
-    }
-
 
     private handleError(error: Response) {
 
@@ -60,7 +44,6 @@ export class ShoppingCartService {
         return Observable.throw(new AppError(error));
 
     }
-
 
 
 }

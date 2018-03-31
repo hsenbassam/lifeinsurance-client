@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Checkout } from '../_models/checkout';
+import { ShoppingCartService } from '../_services/shopping-cart.service';
+import { AuthService } from '../_services/auth.service';
+import { AppError } from '../common/app-error';
 
 @Component({
   selector: 'app-checkout',
@@ -10,18 +13,33 @@ import { Checkout } from '../_models/checkout';
 export class CheckoutComponent implements OnInit {
 
   checkout: Checkout;
-  cartProducts;
+  cartProducts = [];
   totalPremium: number;
   countrySelected: string;
   
 
-  constructor(private _router: Router) {
-    this.cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
-    this.getTotalPremium();
+  constructor(
+    private _router: Router,  
+    private cartService: ShoppingCartService,
+    private authService: AuthService ) {
+
+      this.checkout = new Checkout();
+
    }
 
   ngOnInit() {
-    console.log(this.cartProducts)
+    this.cartService.getAll(this.authService.userInfo.id)
+    .subscribe(cartProducts => {
+      this.cartProducts = cartProducts;
+      this.getTotalPremium();
+    },
+      (error: AppError) => {
+        if (error instanceof AppError) {
+          console.log("Fetching Shopping Cart Items is Failed/No Items");
+        }
+        else
+          throw error;
+      });
   }
 
   getTotalPremium() {
