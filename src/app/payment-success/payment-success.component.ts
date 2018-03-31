@@ -37,7 +37,7 @@ export class PaymentSuccessComponent implements OnInit, OnDestroy {
     localStorage.removeItem("paymentResponse");
   }
 
-  private print() {
+  print() {
     window.print();
   }
 
