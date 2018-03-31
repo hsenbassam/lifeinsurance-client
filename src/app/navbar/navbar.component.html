@@ -27,17 +27,12 @@
         </div>
         <a class="nav-link" routerLink="/about">About</a>
 
-
-
       </div>
       <div class="navbar-nav">
         <div class="nav-item">
           <a class="nav-link" routerLinkActive="active" routerLink="/shopping-cart">
             <i class="fa fa-shopping-cart shop"></i>
-
-          <!-- <span class="shop fa-stack has-badge" [attr.data-count]="cartProducts.length > 0 ? cartProducts.length : null">
-              <i class="fa fa-shopping-cart fa-stack-1x xfa-inverse" ></i>
-            </span> -->
+            <span class="badge" *ngIf="cartProducts.length > 0"> Cart {{cartProducts.length}}</span>
 
           </a>
         </div>
@@ -55,7 +50,7 @@
               </a>
               <div *dropdownMenu class="dropdown-menu" role="menu">
                 <a class="dropdown-item" routerLinkActive="active" routerLink="/profile">My Profile</a>
-                <a class="dropdown-item" routerLinkActive="active" routerLink="/profile/passwordRecovery">Change Password</a>
+                <a class="dropdown-item" routerLink="/profile/passwordRecovery">Change Password</a>
               </div>
             </div>
 

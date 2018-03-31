@@ -14,7 +14,10 @@ export class ShoppingCartComponent implements OnInit {
   cartProducts = [];
   totalPremium: number;
 
-  constructor(private cartService: ShoppingCartService, public authService: AuthService, private snackBar: MatSnackBar) {
+  constructor(
+    private cartService: ShoppingCartService, 
+    public authService: AuthService, 
+    private snackBar: MatSnackBar) {
   }
 
   ngOnInit() {

@@ -7,6 +7,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ShoppingCartService } from '../../_services/shopping-cart.service';
 import { AppError } from '../../common/app-error';
 import { MatSnackBar } from '@angular/material';
+import { NavbarComponent } from '../../navbar/navbar.component';
 
 
 @Component({
@@ -51,7 +52,6 @@ export class QuoteResultComponent implements OnInit {
     this.cartService.post(cartProduct, userId)
         .subscribe(response => {
          console.log(response);
-        
          this.openSnackBar("You are added new product to the Cart", "Dismiss")
         },
         (error: AppError) => {
