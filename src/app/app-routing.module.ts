@@ -12,9 +12,7 @@ import { QuoteComponent } from './quote/quote.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { LoginComponent } from './login/login.component';
-import { ProductFormComponent } from './admin/product-form/product-form.component';
 import { AdminAuthGuard } from './_services/admin-auth-guard.service';
-import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { NoAccessComponent } from './no-access/no-access.component';
 import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
@@ -24,6 +22,7 @@ import { PaymentProcessComponent } from './payment-process/payment-process.compo
 import { PaymentSuccessComponent } from './payment-success/payment-success.component';
 import { PaymentConfirmationComponent } from './payment-confirmation/payment-confirmation.component';
 import { PaymentFailureComponent } from './payment-failure/payment-failure.component';
+import { PasswordChangeComponent } from './profile/password-change/password-change.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -69,7 +68,11 @@ export const routes: Routes = [
     { path: 'login', component: LoginComponent },
     {
         path: 'profile/passwordRecovery',
-        component: PasswordRecoveryComponent,
+        component: PasswordRecoveryComponent
+    },
+    {
+        path: 'profile/passwordChange',
+        component: PasswordChangeComponent,
         canActivate: [AuthGuard]
     },
     {
@@ -81,21 +84,6 @@ export const routes: Routes = [
 
     { path: 'register', component: UserFormComponent },
 
-    {
-        path: 'admin/products/new',
-        component: ProductFormComponent,
-        canActivate: [AuthGuard]
-    },
-    {
-        path: 'admin/products/:id',
-        component: ProductFormComponent,
-        canActivate: [AuthGuard, AdminAuthGuard]
-    },
-    {
-        path: 'admin/products',
-        component: AdminProductsComponent,
-        canActivate: [AuthGuard, AdminAuthGuard]
-    },
     {
         path: 'admin/users/:id',
         component: UserFormComponent,

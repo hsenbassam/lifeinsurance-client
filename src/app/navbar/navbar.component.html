@@ -50,12 +50,11 @@
               </a>
               <div *dropdownMenu class="dropdown-menu" role="menu">
                 <a class="dropdown-item" routerLinkActive="active" routerLink="/profile">My Profile</a>
-                <a class="dropdown-item" routerLink="/profile/passwordRecovery">Change Password</a>
+                <a class="dropdown-item" routerLink="/profile/passwordChange">Change Password</a>
               </div>
             </div>
 
             <a class="dropdown-item" *ngIf="authService.currentUser.role.includes('ROLE_ADMIN')" routerLinkActive="active" routerLink="/admin/orders">Manage Orders</a>
-            <a class="dropdown-item" *ngIf="authService.currentUser.role.includes('ROLE_ADMIN')" routerLinkActive="active" routerLink="/admin/products">Manage Products</a>
             <a class="dropdown-item" *ngIf="authService.currentUser.role.includes('ROLE_ADMIN')" routerLinkActive="active" routerLink="/admin/users">Manage Users</a>
             <li class="divider dropdown-divider"></li>
             <a class="dropdown-item" style="cursor:pointer" (click)="logout()">

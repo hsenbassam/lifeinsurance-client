@@ -7,6 +7,7 @@ import { User } from '../_models/user';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from '../_services/user.service';
 import { AuthService } from '../_services/auth.service';
+import 'rxjs/add/operator/take';
 
 @Component({
   selector: 'user-form',

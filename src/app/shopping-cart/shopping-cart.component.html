@@ -7,7 +7,7 @@
 
   <div class="row">
     <div class="col-12">
-      <h4 *ngIf="!authService.isAuthenticated()" style="color:#e74c3c">
+      <h4 *ngIf="!authService.isAuthenticated() && cartProducts.length > 0" style="color:#e74c3c">
         <small>Once you are logged in, the items are going to be added to your cart</small>
       </h4> 
       <div class="table-responsive">
@@ -55,7 +55,7 @@
     <div class="col mb-2">
       <div class="row">
         <div class="col-sm-12  col-md-6">
-          <p class="alert alert-warning" *ngIf="!authService.isAuthenticated()">
+          <p class="alert alert-warning" *ngIf="!authService.isAuthenticated() && cartProducts.length > 0">
             <strong>Warning !</strong>
             You need to be logged in to checkout
             <a class="pull-right" [routerLink]="['/login']" [queryParams]="{returnUrl: 'shopping-cart'}">Login</a>

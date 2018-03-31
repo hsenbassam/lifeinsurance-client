@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { Product } from '../../_models/product';
 
 @Component({
   selector: 'product-card',
@@ -8,8 +7,6 @@ import { Product } from '../../_models/product';
 })
 export class ProductCardComponent {
 
-  @Input('product') product: Product;
-  @Input('show-actions') showActions: boolean;
 
   constructor() { }
 

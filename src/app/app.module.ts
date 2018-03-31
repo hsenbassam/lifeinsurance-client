@@ -13,7 +13,6 @@ import { ProductsComponent } from './products/products.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
-import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { LoginComponent } from './login/login.component';
 import { FooterComponent } from './footer/footer.component';
@@ -30,7 +29,6 @@ import { MatStepperModule, MatProgressSpinnerModule, MatRadioModule, MatProgress
 import { AppErrorHandler } from './common/app-error-handler';
 import { ErrorHandler } from '@angular/core';
 import { RegisterService } from './_services/register.service';
-import { ProductFormComponent } from './admin/product-form/product-form.component';
 import { ProductService } from './_services/product.service';
 import { CategoryService } from './_services/category.service';
 import { AuthService } from './_services/auth.service';
@@ -67,6 +65,7 @@ import { PaymentFailureComponent } from './payment-failure/payment-failure.compo
 import { ScrollToTopDirective } from './_directives/scroll-to-top.directive';
 import { ShoppingCartService } from './_services/shopping-cart.service';
 import { OrderService } from './_services/order.service';
+import { PasswordChangeComponent } from './profile/password-change/password-change.component';
 
 @NgModule({
   declarations: [
@@ -78,11 +77,9 @@ import { OrderService } from './_services/order.service';
     CheckoutComponent,
     PaymentSuccessComponent,
     MyOrdersComponent,
-    AdminProductsComponent,
     AdminOrdersComponent,
     LoginComponent,
     FooterComponent,
-    ProductFormComponent,
     NoAccessComponent,
     ProductFilterComponent,
     ProductCardComponent,
@@ -101,7 +98,8 @@ import { OrderService } from './_services/order.service';
     PaymentProcessComponent,
     PaymentConfirmationComponent,
     PaymentFailureComponent,
-    ScrollToTopDirective
+    ScrollToTopDirective,
+    PasswordChangeComponent
   ],
   imports: [
     BrowserModule,
