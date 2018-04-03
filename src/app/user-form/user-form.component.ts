@@ -22,6 +22,8 @@ export class UserFormComponent implements OnInit {
   failedRegistration = false;
   failedUpdate = false;
   id;
+  isAdmin;
+  roles;
   url;
 
   constructor(
@@ -43,7 +45,11 @@ export class UserFormComponent implements OnInit {
     }  
 
     if (this.id) {
-      this.userService.get(this.id).take(1).subscribe(u => this.user = u);
+      this.userService.get(this.id).take(1).subscribe(u => {
+        this.isAdmin = u.roles.includes('ROLE_ADMIN');
+        this.roles = u.roles;
+        this.user = u
+      });
     }
 
    }
@@ -52,7 +58,20 @@ export class UserFormComponent implements OnInit {
   userProcess(form: NgForm) {
     form.value.birthday = this.datePipe.transform(form.value.birthday, 'yyyy-MM-dd');
     form.value.datecreated = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
+    if(this.isAdmin) {
+      if(!this.roles.includes('ROLE_ADMIN')) {
+        this.roles.push("ROLE_ADMIN");
+      }
+    }
+    else {
+      if(this.roles.includes('ROLE_ADMIN')) {
+        this.roles.splice(this.roles.indexOf('ROLE_ADMIN', 0), 1);
+      }
+    }
+    console.log(this.roles)
 
+    form.value.roles = this.roles;
+    console.log(form.value)
     if (this.url.includes('/register')) {
       this.registerService.post(form.value)
         .subscribe(
