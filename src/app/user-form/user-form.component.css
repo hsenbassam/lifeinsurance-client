@@ -5,3 +5,8 @@
 .alert-danger {
     margin-top: 10px;
 }
+
+:host /deep/ .mat-slide-toggle-content {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+}

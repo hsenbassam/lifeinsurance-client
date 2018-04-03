@@ -8,6 +8,7 @@ export class User {
     datecreated: Date;
     address: string;
     phone: string;
+    isenabled: boolean;
 
     constructor(){}
 }

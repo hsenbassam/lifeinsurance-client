@@ -10,3 +10,9 @@
 .simulator {
   background-color:#f8f9fa
 }
+
+
+:host /deep/ .mat-horizontal-stepper-content, :host /deep/ .mat-radio-label-content, :host /deep/ .mat-step-text-label{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+}

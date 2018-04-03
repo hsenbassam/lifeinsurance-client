@@ -5,20 +5,38 @@
   
   <data-table [items]="items" [itemCount]="itemCount" (reload)="reloadItems($event)">
   
-    <data-table-column [property]="'firstname'" [header]="'Firstname'" [sortable]="true" [resizable]="true">
+    <data-table-column [property]="'firstname'" [header]="'Firstname'" [sortable]="true" [resizable]="true" >
     </data-table-column>
-    <data-table-column [property]="'lastname'" [header]="'Lastname'" [sortable]="true" [resizable]="true">
+    <data-table-column [property]="'lastname'" [header]="'Lastname'" [sortable]="true" [resizable]="true" >
     </data-table-column>
-    <data-table-column [property]="'email'" [header]="'Email'" [sortable]="true" [resizable]="true">
+    <data-table-column [property]="'email'" [header]="'Email'" [sortable]="true" [resizable]="true" width="270px">
     </data-table-column>
-    <data-table-column [property]="'datecreated'" [header]="'Registration Date'" [sortable]="true" [resizable]="true">
+    <data-table-column [property]="'datecreated'" [header]="'Registration Date'" [sortable]="true" [resizable]="true" width="200px">
     </data-table-column>
+
   
-    <data-table-column [property]="'$key'">
-      <ng-template #dataTableCell let-item="item">
-        <a [routerLink]="['/admin/users/', item.id]">Edit</a>
-      </ng-template>
-    </data-table-column>
+    <data-table-column
+    [property]="'active'"
+    [header]="'Active'"
+    [sortable]="true"
+    [resizable]="true">
+    <ng-template #dataTableHeader let-item="item">
+        <span style="color: rgb(232, 0, 0)">Active</span>
+    </ng-template>
+    <ng-template #dataTableCell let-item="item">
+        <span style="color: grey">
+        <i class="fa fa-check" *ngIf="item.enabled"></i>
+        <i class="fa fa-remove" *ngIf="!item.enabled"></i>
+        </span>
+    </ng-template>
+</data-table-column>
+
+  
+<data-table-column [property]="'$key'" >
+    <ng-template #dataTableCell let-item="item">
+      <a [routerLink]="['/admin/users/', item.id]">Edit</a>
+    </ng-template>
+  </data-table-column>
   
   </data-table>
   

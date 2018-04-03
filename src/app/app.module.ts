@@ -22,7 +22,13 @@ import { BsDropdownModule, CollapseModule, BsDatepickerModule, TabsModule  } fro
 import { LoadingBarHttpModule } from '@ngx-loading-bar/http';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
 
-import { MatStepperModule, MatProgressSpinnerModule, MatRadioModule, MatProgressBarModule, MatSnackBarModule } from '@angular/material'
+import { 
+  MatStepperModule, 
+  MatProgressSpinnerModule, 
+  MatRadioModule, 
+  MatProgressBarModule, 
+  MatSnackBarModule,
+  MatSlideToggleModule } from '@angular/material'
 
 
 import { AppErrorHandler } from './common/app-error-handler';
@@ -106,6 +112,7 @@ import { PasswordChangeComponent } from './profile/password-change/password-chan
     MatProgressSpinnerModule,
     MatProgressBarModule,
     MatSnackBarModule,
+    MatSlideToggleModule,
     MatRadioModule,
     LoadingBarHttpModule,
     BrowserAnimationsModule, 
