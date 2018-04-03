@@ -58,20 +58,7 @@ export class UserFormComponent implements OnInit {
   userProcess(form: NgForm) {
     form.value.birthday = this.datePipe.transform(form.value.birthday, 'yyyy-MM-dd');
     form.value.datecreated = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
-    if(this.isAdmin) {
-      if(!this.roles.includes('ROLE_ADMIN')) {
-        this.roles.push("ROLE_ADMIN");
-      }
-    }
-    else {
-      if(this.roles.includes('ROLE_ADMIN')) {
-        this.roles.splice(this.roles.indexOf('ROLE_ADMIN', 0), 1);
-      }
-    }
-    console.log(this.roles)
-
-    form.value.roles = this.roles;
-    console.log(form.value)
+   
     if (this.url.includes('/register')) {
       this.registerService.post(form.value)
         .subscribe(
@@ -89,11 +76,27 @@ export class UserFormComponent implements OnInit {
           });
     }
     else {
-      form.value.id = this.id? this.id : this.authService.userInfo.id
+      form.value.id = this.id? this.id : this.authService.userInfo.id;
+      if(this.id) {
+        if(this.isAdmin) {
+          if(!this.roles.includes('ROLE_ADMIN')) {
+            this.roles.push("ROLE_ADMIN");
+          }
+        }
+        else {
+          if(this.roles.includes('ROLE_ADMIN')) {
+            this.roles.splice(this.roles.indexOf('ROLE_ADMIN', 0), 1);
+          }
+        }
+        form.value.roles = this.roles;
+      }
+      console.log(form.value)
+      form.value.enabled = this.user.enabled
       this.userService.update(form.value)
         .subscribe(
           response => {
-            this._router.navigate(['/admin/users']);
+            console.log(form.value)
+            this.id? this._router.navigate(['/admin/users']): this._router.navigate(['/']);
             console.log(response);
           },
           (error: AppError) => {
