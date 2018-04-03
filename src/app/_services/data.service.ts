@@ -10,13 +10,13 @@ import 'rxjs/add/observable/throw';
 
 export class DataService {
 
-    private headers: Headers;
-    private options: RequestOptions;
+    protected headers: Headers;
+    protected options: RequestOptions;
 
-    constructor(private url: string, private http: Http) {
+    constructor(protected url: string, protected http: Http) {
     }
 
-    private addHeaders() {
+    protected addHeaders() {
 
         this.headers = new Headers({
             'Content-Type': 'application/json',
@@ -61,7 +61,7 @@ export class DataService {
     }
 
 
-    private handleError(error: Response) {
+    protected handleError(error: Response) {
 
         if (error.status === 404)
             return Observable.throw(new NotFoundError(error))
