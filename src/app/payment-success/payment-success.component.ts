@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 import { OrderService } from '../_services/order.service';
-import { AppError } from '../common/app-error';
+import { AppError } from '../_errors/app-error';
 import { MatSnackBar } from '@angular/material';
 
 @Component({

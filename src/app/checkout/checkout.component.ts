@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Checkout } from '../_models/checkout';
 import { ShoppingCartService } from '../_services/shopping-cart.service';
 import { AuthService } from '../_services/auth.service';
-import { AppError } from '../common/app-error';
+import { AppError } from '../_errors/app-error';
 
 @Component({
   selector: 'app-checkout',

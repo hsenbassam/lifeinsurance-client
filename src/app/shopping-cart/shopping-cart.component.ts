@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ShoppingCartService } from '../_services/shopping-cart.service';
 import { AuthService } from '../_services/auth.service';
-import { AppError } from '../common/app-error';
+import { AppError } from '../_errors/app-error';
 import { MatSnackBar } from '@angular/material';
 
 @Component({

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 import { Router } from '@angular/router';
 import { ShoppingCartService } from '../_services/shopping-cart.service';
-import { AppError } from '../common/app-error';
+import { AppError } from '../_errors/app-error';
 
 @Component({
   selector: 'navbar',

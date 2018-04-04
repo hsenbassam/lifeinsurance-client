@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DateFormat } from '../utils/date-format';
 import { PaypalPaymentService } from '../_services/paypal.payment.service';
-import { AppError } from '../common/app-error';
+import { AppError } from '../_errors/app-error';
 import { Router } from '@angular/router';
 import { ShoppingCartService } from '../_services/shopping-cart.service';
 import { AuthService } from '../_services/auth.service';

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AppError } from '../common/app-error';
-import { NotFoundError } from '../common/not-found-error';
-import { BadInput } from '../common/bad-input';
+import { AppError } from '../_errors/app-error';
+import { NotFoundError } from '../_errors/not-found-error';
+import { BadInput } from '../_errors/bad-input';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from '../_services/auth.service';
 import { ShoppingCartService } from '../_services/shopping-cart.service';

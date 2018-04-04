@@ -1,9 +1,9 @@
 import { Injectable } from "@angular/core";
 import { Http, RequestOptions, Headers } from "@angular/http";
 import { Observable } from "rxjs/Observable"
-import { AppError } from "../common/app-error";
-import { NotFoundError } from "../common/not-found-error";
-import { BadInput } from "../common/bad-input";
+import { AppError } from "../_errors/app-error";
+import { NotFoundError } from "../_errors/not-found-error";
+import { BadInput } from "../_errors/bad-input";
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';

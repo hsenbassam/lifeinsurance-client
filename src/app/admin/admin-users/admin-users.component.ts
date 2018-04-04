@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataTableResource } from 'angular5-data-table';
-import { AppError } from '../../common/app-error';
+import { AppError } from '../../_errors/app-error';
 import { User } from '../../_models/user';
 import { UserService } from '../../_services/user.service';
 

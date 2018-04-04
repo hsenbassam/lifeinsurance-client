@@ -31,7 +31,7 @@ import {
   MatSlideToggleModule } from '@angular/material'
 
 
-import { AppErrorHandler } from './common/app-error-handler';
+import { AppErrorHandler } from './_errors/app-error-handler';
 import { ErrorHandler } from '@angular/core';
 import { RegisterService } from './_services/register.service';
 import { ProductService } from './_services/product.service';
@@ -43,7 +43,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthGuardService as AuthGuard  } from './_services/auth-guard.service';
 import { NoAccessComponent } from './no-access/no-access.component';
 import { AdminAuthGuard } from './_services/admin-auth-guard.service';
-import { ProductFilterComponent } from './products/product-filter/product-filter.component';
 import { ProductCardComponent } from './products/product-card/product-card.component';
 import { ProductItemComponent } from './product-item/product-item.component';
 import { QuoteComponent } from './quote/quote.component';
@@ -85,7 +84,6 @@ import { PasswordChangeComponent } from './profile/password-change/password-chan
     LoginComponent,
     FooterComponent,
     NoAccessComponent,
-    ProductFilterComponent,
     ProductCardComponent,
     ProductItemComponent,
     QuoteComponent,

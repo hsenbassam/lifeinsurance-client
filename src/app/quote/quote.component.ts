@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { TermLifeSimulatorService } from '../_services/termlife-simulator.service';
-import { AppError } from '../common/app-error';
+import { AppError } from '../_errors/app-error';
 import { DateFormatter } from 'ngx-bootstrap/datepicker/date-formatter';
 import { Quote } from '../_models/quote';
 import { Rates } from '../_models/rates';

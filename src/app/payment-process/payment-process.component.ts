@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PaypalPaymentService } from '../_services/paypal.payment.service';
-import { AppError } from '../common/app-error';
+import { AppError } from '../_errors/app-error';
 
 @Component({
   selector: 'payment-process',

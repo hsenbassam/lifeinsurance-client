@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm, FormGroup, FormControl } from '@angular/forms';
 import { DatePipe } from '@angular/common';
-import { AppError } from '../common/app-error';
+import { AppError } from '../_errors/app-error';
 import { RegisterService } from '../_services/register.service';
 import { User } from '../_models/user';
 import { Router, ActivatedRoute } from '@angular/router';
