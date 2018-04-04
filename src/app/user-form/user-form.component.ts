@@ -8,6 +8,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from '../_services/user.service';
 import { AuthService } from '../_services/auth.service';
 import 'rxjs/add/operator/take';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'user-form',
@@ -27,6 +28,7 @@ export class UserFormComponent implements OnInit {
   url;
 
   constructor(
+    private titleService: Title,
     private registerService: RegisterService,
     private userService: UserService,
     private datePipe: DatePipe,
@@ -41,10 +43,15 @@ export class UserFormComponent implements OnInit {
 
   ngOnInit() {
     if(this._router.url == "/profile"){
+      this.titleService.setTitle("Life Insurance | Profile");
       this.userService.get(this.authService.userInfo.id).take(1).subscribe(u => this.user = u);
+    }  
+    if(this._router.url == "/register"){
+      this.titleService.setTitle("Life Insurance | Register");
     }  
 
     if (this.id) {
+      this.titleService.setTitle("Life Insurance | Administration Mode");
       this.userService.get(this.id).take(1).subscribe(u => {
         this.isAdmin = u.roles.includes('ROLE_ADMIN');
         this.roles = u.roles;

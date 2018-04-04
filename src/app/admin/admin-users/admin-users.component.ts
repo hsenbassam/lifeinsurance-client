@@ -3,6 +3,7 @@ import { DataTableResource } from 'angular5-data-table';
 import { AppError } from '../../_errors/app-error';
 import { User } from '../../_models/user';
 import { UserService } from '../../_services/user.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-admin-users',
@@ -17,7 +18,9 @@ export class AdminUsersComponent implements OnInit {
   items: User[] = [];
   itemCount: number;
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private titleService: Title) {
+    this.titleService.setTitle("Life Insurance | Administration Mode");
+  }
 
   ngOnInit() {
     this.userService.getAll()

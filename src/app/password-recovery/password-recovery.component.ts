@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-password-recovery',
@@ -9,7 +10,8 @@ import { Router } from '@angular/router';
 export class PasswordRecoveryComponent implements OnInit {
 
 
-  constructor() {
+  constructor( private titleService: Title) {
+    this.titleService.setTitle("Life Insurance | Password Recovery");
    }
 
   ngOnInit() {

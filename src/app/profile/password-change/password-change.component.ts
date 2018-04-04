@@ -4,6 +4,7 @@ import { AuthService } from '../../_services/auth.service';
 import { AppError } from '../../_errors/app-error';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-password-change',
@@ -14,7 +15,14 @@ export class PasswordChangeComponent implements OnInit {
 
   invalidChangingPassword = false;
 
-  constructor(private authService: AuthService, private userService: UserService, private _router: Router, private snackBar: MatSnackBar) { }
+  constructor(
+    private titleService: Title,
+    private authService: AuthService, 
+    private userService: UserService, 
+    private _router: Router, 
+    private snackBar: MatSnackBar) {
+      this.titleService.setTitle("Life Insurance | Password Change");
+     }
 
   ngOnInit() {
   }

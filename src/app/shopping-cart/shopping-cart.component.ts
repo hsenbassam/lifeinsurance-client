@@ -3,6 +3,7 @@ import { ShoppingCartService } from '../_services/shopping-cart.service';
 import { AuthService } from '../_services/auth.service';
 import { AppError } from '../_errors/app-error';
 import { MatSnackBar } from '@angular/material';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -15,9 +16,11 @@ export class ShoppingCartComponent implements OnInit {
   totalPremium: number;
 
   constructor(
+    private titleService:Title,
     private cartService: ShoppingCartService, 
     public authService: AuthService, 
     private snackBar: MatSnackBar) {
+      this.titleService.setTitle("Life Insurance | Shopping Cart");
   }
 
   ngOnInit() {

@@ -9,6 +9,7 @@ import { Quote } from '../_models/quote';
 import { Rates } from '../_models/rates';
 import { WholeLifeSimulatorService } from '../_services/wholelife-simulator.service';
 import { Observable } from 'rxjs';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'quote',
@@ -30,11 +31,14 @@ export class QuoteComponent implements OnInit {
 
 
   constructor(
+    private titleService: Title,
     private datePipe: DatePipe,
     private _router: Router,
     private _route: ActivatedRoute,
     private termLifeService: TermLifeSimulatorService,
     private wholeLifeService: WholeLifeSimulatorService) {
+
+    this.titleService.setTitle("Life Insurance | Quote");
 
     this._route.queryParams.subscribe(params => this.completed = params['completed']);
     this._route.params.subscribe(params => this.type = params['type']);

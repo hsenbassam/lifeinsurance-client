@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-payment-failure',
@@ -8,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class PaymentFailureComponent implements OnInit {
 
   paymentFailure; 
-  constructor() {
+  constructor(private titleService: Title) {
+
+    this.titleService.setTitle("Life Insurance | Payment Failure");
     this.paymentFailure = JSON.parse(localStorage.getItem("paymentResponse")).issue.message || "";
   }
 

@@ -29,10 +29,7 @@ export const routes: Routes = [
     { path: 'products/term-life', component: TermLifeProductComponent },
     { path: 'products/whole-life', component: WholeLifeProductComponent },
     { path: 'products', component: ProductsComponent },
-    {
-        path: 'shopping-cart',
-        component: ShoppingCartComponent
-    },
+    { path: 'shopping-cart', component: ShoppingCartComponent},
     { path: 'quote/:type', component: QuoteComponent },
     {
         path: 'checkout',

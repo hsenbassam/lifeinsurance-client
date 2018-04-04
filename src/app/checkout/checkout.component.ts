@@ -4,6 +4,7 @@ import { Checkout } from '../_models/checkout';
 import { ShoppingCartService } from '../_services/shopping-cart.service';
 import { AuthService } from '../_services/auth.service';
 import { AppError } from '../_errors/app-error';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-checkout',
@@ -19,9 +20,12 @@ export class CheckoutComponent implements OnInit {
   
 
   constructor(
+    private titleService:Title,
     private _router: Router,  
     private cartService: ShoppingCartService,
     private authService: AuthService ) {
+
+      this.titleService.setTitle("Life Insurance | Checkout");
 
       this.checkout = new Checkout();
 

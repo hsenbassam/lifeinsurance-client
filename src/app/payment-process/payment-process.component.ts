@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PaypalPaymentService } from '../_services/paypal.payment.service';
 import { AppError } from '../_errors/app-error';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'payment-process',
@@ -10,14 +11,18 @@ import { AppError } from '../_errors/app-error';
 })
 export class PaymentProcessComponent implements OnInit {
 
-  redirectUrl:string;
+  redirectUrl: string;
   redirect = false;
   paymentId;
   payerId;
 
-  constructor(private _route: ActivatedRoute, 
-              private paypalService: PaypalPaymentService,
-              private _router: Router) {
+  constructor(
+    private titleService: Title,
+    private _route: ActivatedRoute,
+    private paypalService: PaypalPaymentService,
+    private _router: Router) {
+
+    this.titleService.setTitle("Life Insurance | Payment Process");
     this.redirectUrl = localStorage.getItem("redirect_url") || "";
     console.log(this.redirectUrl)
   }
@@ -28,35 +33,35 @@ export class PaymentProcessComponent implements OnInit {
   }
 
   paypalPay() {
-    if(this.redirectUrl == "") {
+    if (this.redirectUrl == "") {
       alert("Redirect URL is not valid");
       return;
     }
-    if(!confirm("You are redirecting to payment. Would you like to continue?")) return;
+    if (!confirm("You are redirecting to payment. Would you like to continue?")) return;
     this.redirect = true;
     window.location.href = this.redirectUrl;
   }
   paypalComplete() {
-    if(!confirm("You are completing the payment. Would you like to continue?")) return;
+    if (!confirm("You are completing the payment. Would you like to continue?")) return;
     this.paypalService.completePayment(this.paymentId, this.payerId)
-    .subscribe(
-      response => {
-        localStorage.setItem("paymentResponse",JSON.stringify(response));
-        if(response.status == "success") {
-          this.router.navigate(['payment/success']);
+      .subscribe(
+        response => {
+          localStorage.setItem("paymentResponse", JSON.stringify(response));
+          if (response.status == "success") {
+            this.router.navigate(['payment/success']);
+          }
+          else
+            this.router.navigate(['payment/failure']);
+
+        },
+        (error: AppError) => {
+          if (error instanceof AppError) {
+            console.log("Payment is Failed");
+          }
+          else
+            throw error;
         }
-        else
-        this.router.navigate(['payment/failure']);
-      
-      },
-      (error: AppError) => {
-        if (error instanceof AppError) {
-          console.log("Payment is Failed");
-        }
-        else
-          throw error;
-      }
-    )
+      )
 
   }
 

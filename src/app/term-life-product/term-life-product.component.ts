@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'term-life-product',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TermLifeProductComponent implements OnInit {
 
-  constructor() { }
+  constructor(private titleService:Title) {
+    this.titleService.setTitle("Life Insurance | Term Life Product");
+   }
 
   ngOnInit() {
   }

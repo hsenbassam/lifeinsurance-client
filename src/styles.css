@@ -23,12 +23,13 @@ body {
 }
 
 .preloader {
+  bottom: 50%;
+  right: 50%; 
   width: 100px;
   height: 100px;
   position: absolute;
   display: block;
-  bottom: 50%;
-  right: 50%;
+
 }
 
 .full-width {
