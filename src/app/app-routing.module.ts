@@ -22,6 +22,7 @@ import { PaymentSuccessComponent } from './payment-success/payment-success.compo
 import { PaymentConfirmationComponent } from './payment-confirmation/payment-confirmation.component';
 import { PaymentFailureComponent } from './payment-failure/payment-failure.component';
 import { PasswordChangeComponent } from './profile/password-change/password-change.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -92,8 +93,8 @@ export const routes: Routes = [
     },
 
     { path: 'no-access', component: NoAccessComponent },
-
-    { path: '**', redirectTo: '' }
+    { path: 'not-found', component: NotFoundComponent },
+    { path: '**', redirectTo: 'not-found' }
 ]
 
 export class AppRoutingModule { }

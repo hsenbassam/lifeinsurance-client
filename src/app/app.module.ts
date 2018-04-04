@@ -70,6 +70,7 @@ import { ScrollToTopDirective } from './_directives/scroll-to-top.directive';
 import { ShoppingCartService } from './_services/shopping-cart.service';
 import { OrderService } from './_services/order.service';
 import { PasswordChangeComponent } from './profile/password-change/password-change.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -101,7 +102,8 @@ import { PasswordChangeComponent } from './profile/password-change/password-chan
     PaymentConfirmationComponent,
     PaymentFailureComponent,
     ScrollToTopDirective,
-    PasswordChangeComponent
+    PasswordChangeComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
