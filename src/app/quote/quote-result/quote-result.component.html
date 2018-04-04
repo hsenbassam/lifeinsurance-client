@@ -22,7 +22,7 @@
           <li class="list-group-item" *ngIf="type =='whole-life'">Lifetime Coverage</li>
 
           <li class="list-group-item">
-       
+
             <button (click)="addToCart('basic')" class="btn btn-danger">Add to Cart</button>
           </li>
         </ul>
@@ -45,7 +45,7 @@
           <li class="list-group-item" *ngIf="type =='whole-life'">Accidental Death Benefit</li>
           <li class="list-group-item" *ngIf="type =='whole-life'">Hospitalization Benefit</li>
           <li class="list-group-item">
-          
+
             <button (click)="addToCart('plus')" class="btn btn-danger">Add to Cart</button>
           </li>
         </ul>
@@ -70,10 +70,8 @@
           <li class="list-group-item" *ngIf="type =='whole-life'">Hospitalization Benefit</li>
           <li class="list-group-item" *ngIf="type =='whole-life'">Passive War Risk</li>
           <li class="list-group-item">
-            <button 
-            (click)="addToCart('ultra')" 
-            class="btn btn-danger">Add to Cart
-          </button>
+            <button (click)="addToCart('ultra')" class="btn btn-danger">Add to Cart
+            </button>
           </li>
         </ul>
       </div>
@@ -81,4 +79,8 @@
   </div>
   <!-- /.row -->
 </div>
-<a routerLink="/quote/term-life" *ngIf="!quote.amount">Back to The Quote Form</a>
+
+<div class="alert alert-warning" *ngIf="!quote.amount">
+  <strong>Warning ! </strong>
+  <a routerLink="/quote/term-life"> Back to The Quote Form</a>
+</div>
