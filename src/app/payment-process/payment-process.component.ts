@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PaypalPaymentService } from '../_services/paypal.payment.service';
-import { AppError } from '../_errors/app-error';
 import { Title } from '@angular/platform-browser';
 
 @Component({
@@ -24,12 +23,11 @@ export class PaymentProcessComponent implements OnInit {
 
     this.titleService.setTitle("Life Insurance | Payment Process");
     this.redirectUrl = localStorage.getItem("redirect_url") || "";
-    console.log(this.redirectUrl)
   }
 
   ngOnInit() {
-    this.route.queryParams.subscribe(params => this.paymentId = params['paymentId']);
-    this.route.queryParams.subscribe(params => this.payerId = params['PayerID']);
+    this._route.queryParams.subscribe(params => this.paymentId = params['paymentId']);
+    this._route.queryParams.subscribe(params => this.payerId = params['PayerID']);
   }
 
   paypalPay() {
@@ -47,30 +45,8 @@ export class PaymentProcessComponent implements OnInit {
       .subscribe(
         response => {
           localStorage.setItem("paymentResponse", JSON.stringify(response));
-          if (response.status == "success") {
-            this.router.navigate(['payment/success']);
-          }
-          else
-            this.router.navigate(['payment/failure']);
-
-        },
-        (error: AppError) => {
-          if (error instanceof AppError) {
-            console.log("Payment is Failed");
-          }
-          else
-            throw error;
-        }
-      )
-
-  }
-
-  get route() {
-    return this._route;
-  }
-
-  get router() {
-    return this._router;
+          response.status == "success" ? this._router.navigate(['payment/success']) : this._router.navigate(['payment/failure']);
+        })
   }
 
 }

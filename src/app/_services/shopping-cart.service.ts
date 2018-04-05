@@ -1,9 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Http, RequestOptions, Headers } from "@angular/http";
 import { Observable } from "rxjs/Observable"
-import { AppError } from "../_errors/app-error";
-import { NotFoundError } from "../_errors/not-found-error";
-import { BadInput } from "../_errors/bad-input";
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
@@ -32,33 +29,19 @@ export class ShoppingCartService {
     getAll(userId) {
         this.addHeaders();
         return this.http.get(this.url + "?userId=" + userId, this.options)
-            .map(response => response.json())
-            .catch(this.handleError)
+            .map(response => !response.json().errorCode ? response.json() : null);
     }
 
     post(cartProduct, userId) {
         this.addHeaders();
         return this.http.post(this.url + "?userId=" + userId, cartProduct, this.options)
-            .map(response => response.json())
-            .catch(this.handleError);
+            .map(response => !response.json().errorCode ? response.json() : null);
     }
 
     delete(id) {
         this.addHeaders();
         return this.http.delete(this.url + '/' + id, this.options)
-            .map(response => (response.status === 200))
-            .catch(this.handleError);
-    }
-
-
-    private handleError(error: Response) {
-
-        if (error.status === 404)
-            return Observable.throw(new NotFoundError(error))
-        if (error.status === 400)
-            return Observable.throw(new BadInput(error))
-        return Observable.throw(new AppError(error));
-
+            .map(response => response.arrayBuffer().byteLength === 0);     
     }
 
 

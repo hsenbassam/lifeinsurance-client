@@ -12,8 +12,7 @@ export class UserService extends DataService {
     changePassword(userId, oldPass, newPass) {
         this.addHeaders();
         let passObject = { 'oldpass': oldPass, 'newpass': newPass };
-        return this.http.put(this.url + "/changePassword/" + userId, passObject , this.options)
-            .map(response => response.json())
-            .catch(this.handleError)
+        return this.http.put(this.url + "/changePassword/" + userId, passObject, this.options)
+            .map(response => response.json());
     }
 }

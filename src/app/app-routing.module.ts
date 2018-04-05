@@ -21,7 +21,7 @@ import { PaymentProcessComponent } from './payment-process/payment-process.compo
 import { PaymentSuccessComponent } from './payment-success/payment-success.component';
 import { PaymentConfirmationComponent } from './payment-confirmation/payment-confirmation.component';
 import { PaymentFailureComponent } from './payment-failure/payment-failure.component';
-import { PasswordChangeComponent } from './profile/password-change/password-change.component';
+import { PasswordChangeComponent } from './password-change/password-change.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 export const routes: Routes = [

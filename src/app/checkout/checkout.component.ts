@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { Checkout } from '../_models/checkout';
 import { ShoppingCartService } from '../_services/shopping-cart.service';
 import { AuthService } from '../_services/auth.service';
-import { AppError } from '../_errors/app-error';
 import { Title } from '@angular/platform-browser';
 
 @Component({
@@ -17,32 +16,25 @@ export class CheckoutComponent implements OnInit {
   cartProducts = [];
   totalPremium: number;
   countrySelected: string;
-  
+
 
   constructor(
-    private titleService:Title,
-    private _router: Router,  
+    private titleService: Title,
+    private _router: Router,
     private cartService: ShoppingCartService,
-    private authService: AuthService ) {
+    private authService: AuthService) {
 
-      this.titleService.setTitle("Life Insurance | Checkout");
+    this.titleService.setTitle("Life Insurance | Checkout");
 
-      this.checkout = new Checkout();
+    this.checkout = new Checkout();
 
-   }
+  }
 
   ngOnInit() {
     this.cartService.getAll(this.authService.userInfo.id)
-    .subscribe(cartProducts => {
-      this.cartProducts = cartProducts;
-      this.getTotalPremium();
-    },
-      (error: AppError) => {
-        if (error instanceof AppError) {
-          console.log("Fetching Shopping Cart Items is Failed/No Items");
-        }
-        else
-          throw error;
+      .subscribe(cartProducts => {
+        this.cartProducts = cartProducts;
+        cartProducts ? this.getTotalPremium() : this._router.navigate(['shopping-cart'])
       });
   }
 
@@ -56,11 +48,7 @@ export class CheckoutComponent implements OnInit {
   checkoutProcess(form) {
     form.payment_method = "PayPal";
     localStorage.setItem('invoice-header', JSON.stringify(form));
-    this.router.navigate(['payment/confirm'])
-  }
-
-  get router(){
-    return this._router;
+    this._router.navigate(['payment/confirm'])
   }
 
 }

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm, FormGroup, FormControl } from '@angular/forms';
 import { DatePipe } from '@angular/common';
-import { AppError } from '../_errors/app-error';
 import { RegisterService } from '../_services/register.service';
 import { User } from '../_models/user';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -22,6 +21,7 @@ export class UserFormComponent implements OnInit {
   user: User;
   failedRegistration = false;
   failedUpdate = false;
+  failedDelete = false;
   id;
   isAdmin;
   roles;
@@ -42,101 +42,55 @@ export class UserFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    if(this._router.url == "/profile"){
+    if (this._router.url == "/profile") {
       this.titleService.setTitle("Life Insurance | Profile");
       this.userService.get(this.authService.userInfo.id).take(1).subscribe(u => this.user = u);
-    }  
-    if(this._router.url == "/register"){
+    }
+    if (this._router.url == "/register")
       this.titleService.setTitle("Life Insurance | Register");
-    }  
 
     if (this.id) {
       this.titleService.setTitle("Life Insurance | Administration Mode");
-      this.userService.get(this.id).take(1).subscribe(u => {
-        this.isAdmin = u.roles.includes('ROLE_ADMIN');
-        this.roles = u.roles;
-        this.user = u
+      this.userService.get(this.id).take(1).subscribe(user => {
+        if (user) {
+          this.user = user
+          this.isAdmin = user.roles.includes('ROLE_ADMIN');
+          this.roles = user.roles;
+        }
+        else
+          this._router.navigate(['/not-found'])
       });
     }
 
-   }
+  }
 
 
   userProcess(form: NgForm) {
-    form.value.birthday = this.datePipe.transform(form.value.birthday, 'yyyy-MM-dd');
-    form.value.datecreated = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
-   
+
     if (this.url.includes('/register')) {
       this.registerService.post(form.value)
-        .subscribe(
-          response => {
-            console.log(response);
-            this._router.navigate(['/login'])
-          },
-          (error: AppError) => {
-            if (error instanceof AppError) {
-              console.log("Registration Failed");
-              this.failedRegistration = true;
-            }
-            else
-              throw error;
-          });
+        .subscribe(response => response ? this._router.navigate(['/login']) : this.failedRegistration = true);
     }
     else {
-      form.value.id = this.id? this.id : this.authService.userInfo.id;
-      if(this.id) {
-        if(this.isAdmin) {
-          if(!this.roles.includes('ROLE_ADMIN')) {
-            this.roles.push("ROLE_ADMIN");
-          }
-        }
-        else {
-          if(this.roles.includes('ROLE_ADMIN')) {
-            this.roles.splice(this.roles.indexOf('ROLE_ADMIN', 0), 1);
-          }
-        }
+      if (this.id) {
+        if (this.isAdmin && !this.roles.includes('ROLE_ADMIN'))
+          this.roles.push("ROLE_ADMIN");
+        if (!this.isAdmin && this.roles.includes('ROLE_ADMIN'))
+          this.roles.splice(this.roles.indexOf('ROLE_ADMIN', 0), 1);
         form.value.roles = this.roles;
       }
-      console.log(form.value)
-      form.value.enabled = this.user.enabled
+      form.value.id = this.id ? this.id : this.authService.userInfo.id;
+      form.value.enabled = this.user.enabled;
+      form.value.birthday = this.datePipe.transform(form.value.birthday, 'yyyy-MM-dd');
       this.userService.update(form.value)
-        .subscribe(
-          response => {
-            console.log(form.value)
-            this.id? this._router.navigate(['/admin/users']): this._router.navigate(['/']);
-            console.log(response);
-          },
-          (error: AppError) => {
-            if (error instanceof AppError) {
-              console.log("Editing Profile is Failed");
-              this.failedUpdate = true;
-            }
-            else
-              throw error;
-          }
-        )
-
-
+        .subscribe(response => response ? this.id ? this._router.navigate(['/admin/users']) : this._router.navigate(['/']) : this.failedUpdate = true)
     }
   }
 
   delete() {
-    if(!confirm("Are you sure you want to delete this user?")) return;
-      
-      this.userService.delete(this.id)
-      .subscribe(
-        response => {
-            console.log(response);
-            this._router.navigate(['/admin/users']);
-        },
-        (error: AppError) => {
-          if(error instanceof AppError) {
-            console.log("Deleting User is Failed");
-          }
-          else 
-            throw error;
-        }
-      )
+    if (!confirm("Are you sure you want to delete this user?")) return;
 
+    this.userService.delete(this.id)
+      .subscribe(response => response ? this._router.navigate(['/admin/users']) : this.failedDelete = true)
   }
 }

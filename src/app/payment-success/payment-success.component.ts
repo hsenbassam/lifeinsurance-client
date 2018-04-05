@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 import { OrderService } from '../_services/order.service';
-import { AppError } from '../_errors/app-error';
 import { MatSnackBar } from '@angular/material';
 import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-order-success',
@@ -18,6 +18,7 @@ export class PaymentSuccessComponent implements OnInit, OnDestroy {
     private titleService: Title,
     public authService: AuthService,
     public orderService: OrderService,
+    private _router: Router,
     private snackBar: MatSnackBar) {
 
     this.titleService.setTitle("Life Insurance | Payment Success");
@@ -28,18 +29,11 @@ export class PaymentSuccessComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    if (!this.paymentResponse.payment)
+      this._router.navigate(['shopping-cart'])
 
     this.orderService.add(this.authService.userInfo.id)
-      .subscribe(ordersCount => {
-        this.openSnackBar("You have now " + ordersCount + " Life Insurance products, Enjoy your Life :)", "Dismiss")
-      },
-        (error: AppError) => {
-          if (error instanceof AppError) {
-            console.log("Problem in Adding Orders");
-          }
-          else
-            throw error;
-        });
+      .subscribe(ordersCount => this.openSnackBar("You have now " + ordersCount + " Life Insurance products, Enjoy your Life :)", "Dismiss"));
   }
   ngOnDestroy() {
     localStorage.removeItem("paymentResponse");

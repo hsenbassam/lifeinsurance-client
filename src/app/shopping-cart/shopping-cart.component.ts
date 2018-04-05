@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ShoppingCartService } from '../_services/shopping-cart.service';
 import { AuthService } from '../_services/auth.service';
-import { AppError } from '../_errors/app-error';
 import { MatSnackBar } from '@angular/material';
 import { Title } from '@angular/platform-browser';
 
@@ -16,36 +15,26 @@ export class ShoppingCartComponent implements OnInit {
   totalPremium: number;
 
   constructor(
-    private titleService:Title,
-    private cartService: ShoppingCartService, 
-    public authService: AuthService, 
+    private titleService: Title,
+    private cartService: ShoppingCartService,
+    public authService: AuthService,
     private snackBar: MatSnackBar) {
-      this.titleService.setTitle("Life Insurance | Shopping Cart");
+    this.titleService.setTitle("Life Insurance | Shopping Cart");
   }
 
   ngOnInit() {
     if (this.authService.isAuthenticated()) {
       this.cartService.getAll(this.authService.userInfo.id)
         .subscribe(cartProducts => {
-          this.cartProducts = cartProducts;
+          this.cartProducts = cartProducts ? cartProducts : [];
           this.getTotalPremium();
-        },
-          (error: AppError) => {
-            if (error instanceof AppError) {
-              console.log("Fetching Shopping Cart Items is Failed/No Items");
-            }
-            else
-              throw error;
-          });
+        });
     }
     else {
       this.cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || []
       this.getTotalPremium();
     }
-
-
   }
-
 
   getTotalPremium() {
     this.totalPremium = 0;
@@ -63,15 +52,7 @@ export class ShoppingCartComponent implements OnInit {
       this.cartService.delete(product.id)
         .subscribe(
           response => {
-            console.log(response);
-            this.openSnackBar("You have deleted a product from the cart", "Dismiss")
-          },
-          (error: AppError) => {
-            if (error instanceof AppError) {
-              console.log("Deleting Product from Cart is Failed");
-            }
-            else
-              throw error;
+            if (response) this.openSnackBar("You have deleted a product from the cart", "Dismiss")
           }
         )
     }

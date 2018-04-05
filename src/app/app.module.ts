@@ -31,11 +31,8 @@ import {
   MatSlideToggleModule } from '@angular/material'
 
 
-import { AppErrorHandler } from './_errors/app-error-handler';
 import { ErrorHandler } from '@angular/core';
 import { RegisterService } from './_services/register.service';
-import { ProductService } from './_services/product.service';
-import { CategoryService } from './_services/category.service';
 import { AuthService } from './_services/auth.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { JwtModule } from '@auth0/angular-jwt';
@@ -69,8 +66,8 @@ import { PaymentFailureComponent } from './payment-failure/payment-failure.compo
 import { ScrollToTopDirective } from './_directives/scroll-to-top.directive';
 import { ShoppingCartService } from './_services/shopping-cart.service';
 import { OrderService } from './_services/order.service';
-import { PasswordChangeComponent } from './profile/password-change/password-change.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { PasswordChangeComponent } from './password-change/password-change.component';
 
 @NgModule({
   declarations: [
@@ -98,11 +95,11 @@ import { NotFoundComponent } from './not-found/not-found.component';
     AdminUsersComponent,
     UserFormComponent,
     PasswordRecoveryComponent,
+    PasswordChangeComponent,
     PaymentProcessComponent,
     PaymentConfirmationComponent,
     PaymentFailureComponent,
     ScrollToTopDirective,
-    PasswordChangeComponent,
     NotFoundComponent
   ],
   imports: [
@@ -140,16 +137,13 @@ import { NotFoundComponent } from './not-found/not-found.component';
     AdminAuthGuard,
     JwtHelperService,
     PaypalPaymentService,
-    ProductService,
     ShoppingCartService,
     UserService,
-    CategoryService,
     TermLifeSimulatorService,
     WholeLifeSimulatorService,
     OrderService,
     RoleService,
-    DatePipe,
-    { provide: ErrorHandler, useClass: AppErrorHandler }
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

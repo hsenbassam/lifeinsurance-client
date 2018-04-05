@@ -3,7 +3,6 @@ import { NgForm } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { TermLifeSimulatorService } from '../_services/termlife-simulator.service';
-import { AppError } from '../_errors/app-error';
 import { DateFormatter } from 'ngx-bootstrap/datepicker/date-formatter';
 import { Quote } from '../_models/quote';
 import { Rates } from '../_models/rates';
@@ -57,8 +56,7 @@ export class QuoteComponent implements OnInit {
     form.value.country = this.countrySelected;
     form.value.occupation = this.occupationSelected;
     this.userQuote = form.value;
-    console.log(this.userQuote);
-
+    
     if (this.type == "term-life")
       this.service = this.termLifeService.post(form.value);
     if (this.type == "whole-life")
@@ -66,24 +64,15 @@ export class QuoteComponent implements OnInit {
 
     this.service.subscribe(
       rates => {
-        this.rates = rates;
-        this._router.navigate([], {
-          relativeTo: this._route,
-          queryParams: {
-            completed: 'true'
-          }
-        });
-      },
-      (error: AppError) => {
-        if (error instanceof AppError) {
-          console.log("Simulating Quote is Failed");
+        if (rates) {
+          this.rates = rates;
+          this._router.navigate([], {
+            relativeTo: this._route,
+            queryParams: {
+              completed: 'true'
+            }
+          });
         }
-        else
-          throw error;
-      }
-    )
-
-
+      })
   }
-
 }

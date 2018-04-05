@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DataTableResource } from 'angular5-data-table';
-import { AppError } from '../../_errors/app-error';
 import { User } from '../../_models/user';
 import { UserService } from '../../_services/user.service';
 import { Title } from '@angular/platform-browser';
@@ -24,19 +23,13 @@ export class AdminUsersComponent implements OnInit {
 
   ngOnInit() {
     this.userService.getAll()
-    .subscribe(
-      users => {
-        this.users = users;
-        console.log(this.users);
-        this.initializeTable(this.users);
-      },
-      (error: AppError) => {
-        if (error instanceof AppError) {
-          console.log("Cannot Fetch The Users");
-        }
-        else
-          throw error;
-      });
+      .subscribe(
+        users => {
+          if (users) {
+            this.users = users;
+            this.initializeTable(this.users);
+          }
+        });
   }
 
 

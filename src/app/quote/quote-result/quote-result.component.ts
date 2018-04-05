@@ -5,7 +5,6 @@ import { Rates } from '../../_models/rates';
 import { AuthService } from '../../_services/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ShoppingCartService } from '../../_services/shopping-cart.service';
-import { AppError } from '../../_errors/app-error';
 import { MatSnackBar } from '@angular/material';
 import { NavbarComponent } from '../../navbar/navbar.component';
 
@@ -22,14 +21,12 @@ export class QuoteResultComponent implements OnInit {
   @Input('rates') rates: Rates;
   @Input('type') type: string;
 
-  cartProducts;;
-
-
+  cartProducts;
 
   constructor(
-    public authService: AuthService, 
+    public authService: AuthService,
     private cartService: ShoppingCartService,
-    private _router: Router, 
+    private _router: Router,
     private _route: ActivatedRoute,
     private snackBar: MatSnackBar) {
 
@@ -42,7 +39,7 @@ export class QuoteResultComponent implements OnInit {
 
   addToCart(package_type) {
 
-    if(!this.authService.isAuthenticated()) {
+    if (!this.authService.isAuthenticated()) {
       this.addProductToLocalStorage(package_type);
       this.openSnackBar("You are added new product to the Cart", "Dismiss")
       return;
@@ -50,23 +47,14 @@ export class QuoteResultComponent implements OnInit {
     let cartProduct = this.generateProduct(package_type);
     let userId = this.authService.userInfo.id;
     this.cartService.post(cartProduct, userId)
-        .subscribe(response => {
-         console.log(response);
-         this.openSnackBar("You are added new product to the Cart", "Dismiss")
-        },
-        (error: AppError) => {
-          if (error instanceof AppError) {
-            console.log("Adding Product to a Cart is Failed");
-          }
-          else
-            throw error;
-        });
+      .subscribe(response => response ? this.openSnackBar("You add a new product to the Cart", "Dismiss")
+        : this.openSnackBar("An Error Occured in Adding the Product to the Cart", "Dismiss"));
   }
 
   private addProductToLocalStorage(package_type) {
     let cartProduct = this.generateProduct(package_type);
     this.cartProducts.push(cartProduct);
-    localStorage.setItem("cartProducts", JSON.stringify(this.cartProducts)); 
+    localStorage.setItem("cartProducts", JSON.stringify(this.cartProducts));
   }
 
   private openSnackBar(message: string, action: string) {

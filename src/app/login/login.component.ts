@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AppError } from '../_errors/app-error';
-import { NotFoundError } from '../_errors/not-found-error';
-import { BadInput } from '../_errors/bad-input';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from '../_services/auth.service';
 import { ShoppingCartService } from '../_services/shopping-cart.service';
 import { Title } from '@angular/platform-browser';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-login',
@@ -23,9 +21,10 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private cartService: ShoppingCartService,
     private router: Router,
-    private route: ActivatedRoute) {
-      this.titleService.setTitle("Life Insurance | Login");
-     }
+    private route: ActivatedRoute,
+    private snackBar: MatSnackBar) {
+    this.titleService.setTitle("Life Insurance | Login");
+  }
 
   ngOnInit() { }
 
@@ -35,44 +34,34 @@ export class LoginComponent implements OnInit {
         response => {
           if (response) {
             this.invalidLogin = false;
-            console.log(this.authService.isAuthenticated())
             let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
-
-            if (returnUrl == "shopping-cart") {
-              let cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
-              let userId = this.authService.userInfo.id;
-              cartProducts.forEach(cartProduct => {
-                this.cartService.post(cartProduct, userId)
-                  .subscribe(response => {
-                    console.log("You add new item to your cart");
-                  },
-                    (error: AppError) => {
-                      if (error instanceof AppError) {
-                        console.log("Adding Product to a Cart is Failed");
-                      }
-                      else
-                        throw error;
-                    });
-              });
-              localStorage.removeItem("cartProducts")
-            }
+            this.checkIfReturnToShoppingCart(returnUrl);
             this.router.navigate([returnUrl || '/'])
           }
           else
             this.invalidLogin = true;
-        },
-        (error: AppError) => {
-          if (error instanceof AppError) {
-            console.log("Login Failed");
-            this.invalidLogin = true;
-          }
-          else
-            throw error;
         });
 
+  }
 
+  private checkIfReturnToShoppingCart(returnUrl) {
+    if (returnUrl == "shopping-cart") {
+      let cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
+      cartProducts.forEach((cartProduct, index, productsArray) => {
+        this.cartService.post(cartProduct, this.authService.userInfo.id)
+          .subscribe(response => {
+            if (response && index == productsArray.length - 1)
+              this.openSnackBar("You add new products to the Cart", "Dismiss")
+          });
+      });
+      localStorage.removeItem("cartProducts")
+    }
+  }
 
-
+  private openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 2000
+    });
   }
 }
 
