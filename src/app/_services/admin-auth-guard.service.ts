@@ -1,6 +1,6 @@
-import { Injectable } from "@angular/core";
-import { Router, CanActivate } from "@angular/router";
-import { AuthService } from "./auth.service";
+import { Injectable } from '@angular/core';
+import { Router, CanActivate } from '@angular/router';
+import { AuthService } from './auth.service';
 
 
 @Injectable()
@@ -12,7 +12,8 @@ export class AdminAuthGuard implements CanActivate {
     ) { }
 
     canActivate() {
-        let user = this.authService.currentUser;
+        const user = this.authService.currentUser;
+        // tslint:disable-next-line:curly
         if (user && user.role.includes('ROLE_ADMIN')) return true;
         this.router.navigate(['/no-access']);
         return false;

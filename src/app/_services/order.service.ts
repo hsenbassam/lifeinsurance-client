@@ -1,6 +1,6 @@
-import { Injectable } from "@angular/core";
-import { Http, RequestOptions, Headers } from "@angular/http";
-import { Observable } from "rxjs/Observable"
+import { Injectable } from '@angular/core';
+import { Http, RequestOptions, Headers } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
@@ -27,10 +27,7 @@ export class OrderService {
 
     add(userId) {
         this.addHeaders();
-        return this.http.post(this.url + "?userId=" + userId, null, this.options)
+        return this.http.post(this.url + '?userId=' + userId, null, this.options)
             .map(response => response.json());
     }
-
-
-
 }

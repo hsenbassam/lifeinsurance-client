@@ -1,0 +1,27 @@
+<!-- Sidebar -->
+<div id="sidebar-wrapper">
+  <ul class="sidebar-nav">
+    <li class="sidebar-brand">
+      <a routerLink="/">
+        <i class="icon-home"></i> Home</a>
+    </li>
+    <li>
+      <a routerLink="/admin/dashboard" [routerLinkActive]="['router-link-active']">
+        <i class="icon-graph"></i> Dashboard
+      </a>
+    </li>
+    <li>
+      <a routerLink="/admin/orders" [routerLinkActive]="['router-link-active']">
+        <i class="icon-calculator"></i> Orders
+        <span class="badge badge-info">4</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/admin/users" [routerLinkActive]="['router-link-active']">
+        <i class="icon-user"></i> Users
+      </a>
+    </li>
+
+
+  </ul>
+</div>

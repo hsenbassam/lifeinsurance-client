@@ -17,9 +17,7 @@ export class AdminUsersComponent implements OnInit {
   items: User[] = [];
   itemCount: number;
 
-  constructor(private userService: UserService, private titleService: Title) {
-    this.titleService.setTitle("Life Insurance | Administration Mode");
-  }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
     this.userService.getAll()

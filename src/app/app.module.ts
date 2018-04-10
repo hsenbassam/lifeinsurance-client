@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router'
+import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
@@ -12,23 +12,23 @@ import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
-import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { LoginComponent } from './login/login.component';
 import { FooterComponent } from './footer/footer.component';
 import { DatePipe } from '@angular/common';
-import { DataTableModule } from 'angular5-data-table'
+import { DataTableModule } from 'angular5-data-table';
 
-import { BsDropdownModule, CollapseModule, BsDatepickerModule, TabsModule  } from 'ngx-bootstrap';
+import { BsDropdownModule, CollapseModule, BsDatepickerModule, TabsModule } from 'ngx-bootstrap';
 import { LoadingBarHttpModule } from '@ngx-loading-bar/http';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
 
-import { 
-  MatStepperModule, 
-  MatProgressSpinnerModule, 
-  MatRadioModule, 
-  MatProgressBarModule, 
+import {
+  MatStepperModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatProgressBarModule,
   MatSnackBarModule,
-  MatSlideToggleModule } from '@angular/material'
+  MatSlideToggleModule
+} from '@angular/material';
 
 
 import { ErrorHandler } from '@angular/core';
@@ -37,7 +37,7 @@ import { AuthService } from './_services/auth.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { JwtModule } from '@auth0/angular-jwt';
 import { HttpClientModule } from '@angular/common/http';
-import { AuthGuardService as AuthGuard  } from './_services/auth-guard.service';
+import { AuthGuardService as AuthGuard } from './_services/auth-guard.service';
 import { NoAccessComponent } from './no-access/no-access.component';
 import { AdminAuthGuard } from './_services/admin-auth-guard.service';
 import { ProductCardComponent } from './products/product-card/product-card.component';
@@ -53,21 +53,20 @@ import { WholeLifeProductComponent } from './whole-life-product/whole-life-produ
 import { WholeLifeSimulatorService } from './_services/wholelife-simulator.service';
 import { routes } from './app-routing.module';
 import { UserItemComponent } from './user-item/user-item.component';
-import { AdminUsersComponent } from './admin/admin-users/admin-users.component'
 import { UserService } from './_services/user.service';
 import { UserFormComponent } from './user-form/user-form.component';
 import { RoleService } from './_services/role.service';
 import { PasswordRecoveryComponent } from './password-recovery/password-recovery.component';
-import { PaymentProcessComponent } from './payment-process/payment-process.component';
-import { PaymentSuccessComponent } from './payment-success/payment-success.component';
-import { PaymentConfirmationComponent } from './payment-confirmation/payment-confirmation.component';
 import { PaypalPaymentService } from './_services/paypal.payment.service';
-import { PaymentFailureComponent } from './payment-failure/payment-failure.component';
 import { ScrollToTopDirective } from './_directives/scroll-to-top.directive';
 import { ShoppingCartService } from './_services/shopping-cart.service';
 import { OrderService } from './_services/order.service';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { AdminModule } from './admin/admin.module';
+import { PaymentModule } from './payment/payment.module';
+import { SharedModule } from './_shared/shared.module';
 import { PasswordChangeComponent } from './password-change/password-change.component';
+
 
 @NgModule({
   declarations: [
@@ -77,11 +76,8 @@ import { PasswordChangeComponent } from './password-change/password-change.compo
     ProductsComponent,
     ShoppingCartComponent,
     CheckoutComponent,
-    PaymentSuccessComponent,
-    AdminOrdersComponent,
     LoginComponent,
     FooterComponent,
-    NoAccessComponent,
     ProductCardComponent,
     ProductItemComponent,
     QuoteComponent,
@@ -91,20 +87,19 @@ import { PasswordChangeComponent } from './password-change/password-change.compo
     OccupationSelectComponent,
     TermLifeProductComponent,
     WholeLifeProductComponent,
-    UserItemComponent,
-    AdminUsersComponent,
-    UserFormComponent,
+    // UserItemComponent,
     PasswordRecoveryComponent,
-    PasswordChangeComponent,
-    PaymentProcessComponent,
-    PaymentConfirmationComponent,
-    PaymentFailureComponent,
+    // PasswordChangeComponent,
     ScrollToTopDirective,
-    NotFoundComponent
+    NotFoundComponent,
+    NoAccessComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,    
+    SharedModule,
+    AdminModule,
+    PaymentModule,
+    FormsModule,
     MatStepperModule,
     MatProgressSpinnerModule,
     MatProgressBarModule,
@@ -112,13 +107,13 @@ import { PasswordChangeComponent } from './password-change/password-change.compo
     MatSlideToggleModule,
     MatRadioModule,
     LoadingBarHttpModule,
-    BrowserAnimationsModule, 
+    BrowserAnimationsModule,
     LoadingBarModule.forRoot(),
     HttpModule,
     JwtModule.forRoot({
       config: {
-       tokenGetter() {
-          return localStorage.getItem('token')
+        tokenGetter() {
+          return localStorage.getItem('token');
         }
       }
     }),

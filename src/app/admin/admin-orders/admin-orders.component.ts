@@ -8,9 +8,7 @@ import { Title } from '@angular/platform-browser';
 })
 export class AdminOrdersComponent implements OnInit {
 
-  constructor(private titleService: Title) {
-    this.titleService.setTitle("Life Insurance | Administration Mode");
-  }
+  constructor() {}
 
   ngOnInit() {
   }

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { DateFormat } from '../utils/date-format';
-import { PaypalPaymentService } from '../_services/paypal.payment.service';
+import { DateFormat } from '../../utils/date-format';
+import { PaypalPaymentService } from '../../_services/paypal.payment.service';
 import { Router } from '@angular/router';
-import { ShoppingCartService } from '../_services/shopping-cart.service';
-import { AuthService } from '../_services/auth.service';
+import { ShoppingCartService } from '../../_services/shopping-cart.service';
+import { AuthService } from '../../_services/auth.service';
 import { Title } from '@angular/platform-browser';
 
 @Component({

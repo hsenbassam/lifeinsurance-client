@@ -1,6 +1,6 @@
-import { Injectable } from "@angular/core";
-import { Http, Headers, RequestOptions } from "@angular/http";
-import { DataService } from "./data.service";
+import { Injectable } from '@angular/core';
+import { Http, Headers, RequestOptions } from '@angular/http';
+import { DataService } from './data.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import 'rxjs/add/operator/map';
 
@@ -14,10 +14,10 @@ export class AuthService {
     constructor(private http: Http, private jwtHelper: JwtHelperService) { }
 
     login(resource) {
-        return this.http.post(this.url + "loginProcess", resource, this.options)
+        return this.http.post(this.url + 'loginProcess', resource, this.options)
             .map(response => {
-                let payload = response.json();
-                let token = response.headers.get('Token');
+                const payload = response.json();
+                const token = response.headers.get('Token');
                 if (!payload.errorCode && token) {
                     localStorage.setItem('token', token);
                     localStorage.setItem('user', JSON.stringify(payload));
@@ -34,15 +34,18 @@ export class AuthService {
     isAuthenticated(): boolean {
 
         const token = localStorage.getItem('token');
+        // tslint:disable-next-line:curly
         if (!token) return false;
-        let isExpired = this.jwtHelper.isTokenExpired(token);
+        const isExpired = this.jwtHelper.isTokenExpired(token);
         return !isExpired;
     }
 
 
     get currentUser() {
-        let token = localStorage.getItem('token');
-        if (!token) return null;
+        const token = localStorage.getItem('token');
+        if (!token) {
+            return null;
+        }
         return this.jwtHelper.decodeToken(token);
     }
 

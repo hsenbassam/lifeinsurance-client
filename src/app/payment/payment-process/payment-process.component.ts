@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PaypalPaymentService } from '../_services/paypal.payment.service';
+import { PaypalPaymentService } from '../../_services/paypal.payment.service';
 import { Title } from '@angular/platform-browser';
 
 @Component({

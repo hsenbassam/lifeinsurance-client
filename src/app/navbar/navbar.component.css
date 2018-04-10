@@ -3,7 +3,7 @@
 }
 
 .navbar-fixed-top {
-  position: absolute !important;
+  position: fixed !important;
 }
 
 /* .bg-info {

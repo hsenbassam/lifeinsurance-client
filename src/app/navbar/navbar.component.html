@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-info fixed-top navbar-fixed-top p-3 px-md-4 box-shadow">
+<nav class="navbar navbar-expand-md navbar-dark bg-info fixed-top navbar-fixed-top box-shadow">
   <!-- p-3 px-md-4     -->
   <div class="container">
     <a class="navbar-brand" routerLink="/">Life Insurance</a>
@@ -39,6 +39,7 @@
         <div class="nav-item login" *ngIf="!authService.isAuthenticated()">
           <a class="nav-link" routerLinkActive="active" routerLink="/login">Login</a>
         </div>
+        
         <div class="nav-item dropdown username" dropdown *ngIf="authService.isAuthenticated()">
           <a class="nav-link dropdown-toggle " dropdownToggle>{{authService.userInfo.firstname}} {{authService.userInfo.lastname}}</a>
           <div class="dropdown-menu" *dropdownMenu>
@@ -54,8 +55,7 @@
               </div>
             </div>
 
-            <a class="dropdown-item" *ngIf="authService.currentUser.role.includes('ROLE_ADMIN')" routerLinkActive="active" routerLink="/admin/orders">Manage Orders</a>
-            <a class="dropdown-item" *ngIf="authService.currentUser.role.includes('ROLE_ADMIN')" routerLinkActive="active" routerLink="/admin/users">Manage Users</a>
+            <a class="dropdown-item" *ngIf="authService.currentUser.role.includes('ROLE_ADMIN')" routerLinkActive="active" routerLink="/admin">Administration</a>
             <li class="divider dropdown-divider"></li>
             <a class="dropdown-item" style="cursor:pointer" (click)="logout()">
               <i class="icon-logout"></i> Logout</a>

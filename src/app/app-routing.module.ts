@@ -12,17 +12,15 @@ import { QuoteComponent } from './quote/quote.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { LoginComponent } from './login/login.component';
 import { AdminAuthGuard } from './_services/admin-auth-guard.service';
-import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { NoAccessComponent } from './no-access/no-access.component';
 import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
 import { UserFormComponent } from './user-form/user-form.component';
 import { PasswordRecoveryComponent } from './password-recovery/password-recovery.component';
-import { PaymentProcessComponent } from './payment-process/payment-process.component';
-import { PaymentSuccessComponent } from './payment-success/payment-success.component';
-import { PaymentConfirmationComponent } from './payment-confirmation/payment-confirmation.component';
-import { PaymentFailureComponent } from './payment-failure/payment-failure.component';
 import { PasswordChangeComponent } from './password-change/password-change.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { AdminModule } from './admin/admin.module';
+import { PaymentModule } from './payment/payment.module';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -30,34 +28,20 @@ export const routes: Routes = [
     { path: 'products/term-life', component: TermLifeProductComponent },
     { path: 'products/whole-life', component: WholeLifeProductComponent },
     { path: 'products', component: ProductsComponent },
-    { path: 'shopping-cart', component: ShoppingCartComponent},
+    { path: 'shopping-cart', component: ShoppingCartComponent },
     { path: 'quote/:type', component: QuoteComponent },
+    { path: 'login', component: LoginComponent },
+    { path: 'register', component: UserFormComponent },
     {
         path: 'checkout',
         component: CheckoutComponent,
         canActivate: [AuthGuard]
     },
     {
-        path: 'payment/confirm',
-        component: PaymentConfirmationComponent,
+        path: 'payment',
+        loadChildren: () => PaymentModule,
         canActivate: [AuthGuard]
     },
-    {
-        path: 'payment/process',
-        component: PaymentProcessComponent,
-        canActivate: [AuthGuard]
-    },
-    {
-        path: 'payment/success',
-        component: PaymentSuccessComponent,
-        canActivate: [AuthGuard]
-    },
-    {
-        path: 'payment/failure',
-        component: PaymentFailureComponent,
-        canActivate: [AuthGuard]
-    },
-    { path: 'login', component: LoginComponent },
     {
         path: 'profile/passwordRecovery',
         component: PasswordRecoveryComponent
@@ -72,29 +56,15 @@ export const routes: Routes = [
         component: UserFormComponent,
         canActivate: [AuthGuard]
     },
-
-
-    { path: 'register', component: UserFormComponent },
-
     {
-        path: 'admin/users/:id',
-        component: UserFormComponent,
-        canActivate: [AuthGuard, AdminAuthGuard]
-    },
-    {
-        path: 'admin/users',
-        component: AdminUsersComponent,
-        canActivate: [AuthGuard, AdminAuthGuard]
-    },
-    {
-        path: 'admin/orders',
-        component: AdminOrdersComponent,
+        path: 'admin',
+        loadChildren: () => AdminModule,
         canActivate: [AuthGuard, AdminAuthGuard]
     },
 
     { path: 'no-access', component: NoAccessComponent },
     { path: 'not-found', component: NotFoundComponent },
     { path: '**', redirectTo: 'not-found' }
-]
+];
 
-export class AppRoutingModule { }
+export class AppRoutingModule {}
