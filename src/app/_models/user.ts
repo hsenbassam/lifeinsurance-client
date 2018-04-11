@@ -10,5 +10,5 @@ export class User {
     phone: string;
     enabled: boolean;
 
-    constructor(){}
+    constructor() { }
 }

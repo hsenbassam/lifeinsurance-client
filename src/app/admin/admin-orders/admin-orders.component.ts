@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
+import { Order } from '../../_models/order';
+import { OrderService } from '../../_services/order.service';
 
 @Component({
   selector: 'app-admin-orders',
@@ -8,9 +10,36 @@ import { Title } from '@angular/platform-browser';
 })
 export class AdminOrdersComponent implements OnInit {
 
-  constructor() {}
+  orders: Order[];
+
+  displayedColumns = ['id', 'type', 'coverage', 'package', 'amount', 'owner', 'premium'];
+
+  dataSource = new MatTableDataSource();
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+
+  constructor(private orderService: OrderService) { }
 
   ngOnInit() {
+
+    this.orderService.getAll()
+      .subscribe(
+        orders => {
+          if (orders) {
+            this.orders = orders;
+            this.dataSource = new MatTableDataSource(this.orders);
+            this.dataSource.sort = this.sort;
+            this.dataSource.paginator = this.paginator;
+          }
+        });
+  }
+
+
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
+    this.dataSource.filter = filterValue;
   }
 
 }

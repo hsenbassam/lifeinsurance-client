@@ -8,11 +8,11 @@ import { Title } from '@angular/platform-browser';
 })
 export class PaymentFailureComponent implements OnInit {
 
-  paymentFailure; 
+  paymentFailure;
   constructor(private titleService: Title) {
 
-    this.titleService.setTitle("Life Insurance | Payment Failure");
-    this.paymentFailure = JSON.parse(localStorage.getItem("paymentResponse")).issue.message || "";
+    this.titleService.setTitle('Life Insurance | Payment Failure');
+    this.paymentFailure = JSON.parse(localStorage.getItem('paymentResponse')).issue.message || '';
   }
 
   ngOnInit() {

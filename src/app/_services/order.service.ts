@@ -30,4 +30,10 @@ export class OrderService {
         return this.http.post(this.url + '?userId=' + userId, null, this.options)
             .map(response => response.json());
     }
+
+    getAll() {
+        this.addHeaders();
+        return this.http.get(this.url, this.options)
+            .map(response => response.json());
+    }
 }

@@ -12,8 +12,8 @@ export class Quote {
     income: number;
 
     constructor() {
-        this.health1 = "true";
-        this.health2 = "true";
-        this.health3 = "true";
+        this.health1 = 'true';
+        this.health2 = 'true';
+        this.health3 = 'true';
     }
 }

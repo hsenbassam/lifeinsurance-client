@@ -1,0 +1,49 @@
+:host ::ng-deep mat-table {
+  overflow: auto;
+  max-height: 500px;
+}
+
+/* Structure */
+
+.table-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+.table-header {
+  min-height: 64px;
+  padding: 8px 24px 0;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.mat-column-coverage {
+  flex: 0 0 200px;
+}
+
+.mat-column-id {
+  flex: 0 0 40px;
+}
+
+.mat-column-package {
+  flex: 0 0 100px;
+}
+
+.mat-column-type {
+  flex: 0 0 180px;
+}
+.mat-column-premium {
+  flex: 0 0 100px;
+}
+
+mat-row:nth-child(odd) {
+  background-color: #F6F6F6;
+}
+
+mat-row:hover {
+  background-color: #dee2e6
+}

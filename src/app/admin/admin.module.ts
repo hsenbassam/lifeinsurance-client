@@ -7,14 +7,14 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminOrdersComponent } from './admin-orders/admin-orders.component';
 import { AdminUsersComponent } from './admin-users/admin-users.component';
-import { DataTableModule } from 'angular5-data-table';
 import { SharedModule } from '../_shared/shared.module';
+import { CarouselModule } from 'ngx-bootstrap';
 
 @NgModule({
     imports: [
         CommonModule,
-        DataTableModule,
         SharedModule,
+        CarouselModule.forRoot(),
         AdminRoutingModule
     ],
     declarations: [AdminComponent, SidebarComponent, DashboardComponent, AdminOrdersComponent, AdminUsersComponent]

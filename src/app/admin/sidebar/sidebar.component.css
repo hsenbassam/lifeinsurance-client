@@ -69,6 +69,7 @@
   background: none;
 }
 
-::ng-deep footer.footer {
+
+/* ::ng-deep footer.footer {
   padding-left: 250px
-}
+}  */

@@ -1,42 +1,70 @@
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <a routerLink="/admin">Administration Mode</a>
+    </li>
+    <li class="breadcrumb-item active">Users</li>
+  </ol>
+<div class="table-container mat-elevation-z8">
+  <div class="table-header">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+  </div>
 
-  <p>
-    <input type="text" #query (keyup)="filter(query.value)" class="form-control" placeholder="Search ...">
-  </p>
-  
-  <data-table [items]="items" [itemCount]="itemCount" (reload)="reloadItems($event)">
-  
-    <data-table-column [property]="'firstname'" [header]="'Firstname'" [sortable]="true" [resizable]="true" >
-    </data-table-column>
-    <data-table-column [property]="'lastname'" [header]="'Lastname'" [sortable]="true" [resizable]="true" >
-    </data-table-column>
-    <data-table-column [property]="'email'" [header]="'Email'" [sortable]="true" [resizable]="true" width="240px">
-    </data-table-column>
-    <data-table-column [property]="'datecreated'" [header]="'User Since'" [sortable]="true" [resizable]="true" width="130px">
-    </data-table-column>
+  <mat-table #table [dataSource]="dataSource" matSort>
 
-  
-    <data-table-column
-    [property]="'active'"
-    [header]="'Active'"
-    [sortable]="true"
-    [resizable]="true">
-    <ng-template #dataTableHeader let-item="item">
-        <span style="color: rgb(232, 0, 0)">Active</span>
-    </ng-template>
-    <ng-template #dataTableCell let-item="item">
+    <!-- User Id Column -->
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> # </mat-header-cell>
+      <mat-cell *matCellDef="let index = index"> {{index + 1}} </mat-cell>
+    </ng-container>
+
+    <!-- Type Column -->
+    <ng-container matColumnDef="firstname">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Firstname </mat-header-cell>
+      <mat-cell *matCellDef="let user"> {{user.firstname}} </mat-cell>
+    </ng-container>
+
+    <!-- Coverage Column -->
+    <ng-container matColumnDef="lastname">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Lastname </mat-header-cell>
+      <mat-cell *matCellDef="let user"> {{user.lastname}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
+      <mat-cell *matCellDef="let user"> {{user.email}} </mat-cell>
+    </ng-container>
+
+    <!-- Package Column -->
+    <ng-container matColumnDef="datecreated">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> User Since </mat-header-cell>
+      <mat-cell *matCellDef="let user"> {{user.datecreated}} </mat-cell>
+    </ng-container>
+
+    <!-- Amount Column -->
+    <ng-container matColumnDef="active">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Active </mat-header-cell>
+      <mat-cell *matCellDef="let user">
         <span style="color: grey">
-        <i class="fa fa-check" *ngIf="item.enabled"></i>
-        <i class="fa fa-remove" *ngIf="!item.enabled"></i>
+          <i class="fa fa-check" *ngIf="user.enabled"></i>
+          <i class="fa fa-remove" *ngIf="!user.enabled"></i>
         </span>
-    </ng-template>
-</data-table-column>
+      </mat-cell>
+    </ng-container>
 
-  
-<data-table-column [property]="'$key'" >
-    <ng-template #dataTableCell let-item="item">
-      <a [routerLink]="['/admin/users/', item.id]">Edit</a>
-    </ng-template>
-  </data-table-column>
-  
-  </data-table>
-  
+    <!-- Premium Column -->
+    <ng-container matColumnDef="edit">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Edit </mat-header-cell>
+      <mat-cell *matCellDef="let user">
+          <a [routerLink]="['/admin/users/', user.id]">Edit</a>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator #paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true">
+  </mat-paginator>
+</div>

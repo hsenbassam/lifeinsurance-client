@@ -1,7 +1,30 @@
 .main-container {
-    -ms-overflow-x: hidden;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    position: relative;
-    overflow: hidden;
+  -ms-overflow-x: hidden;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  position: relative;
+  overflow: hidden;
 }
+
+.table-container,
+::ng-deep .mat-table,
+::ng-deep .mat-paginator-container {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f8f9fa;
+  font-size: 1rem;
+}
+
+:host ::ng-deep .mat-sort-header-button {
+  font-weight: bold;
+  color: black;
+  font-size: 1rem;
+}
+
+:host ::ng-deep.mat-row {
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+

@@ -64,7 +64,7 @@
         <div class="row">
           <div class="col-xs-12 col-12 col-md-4 form-group">
             <input type="text" class="form-control" [maxDate]="maxDate" #dp="bsDatepicker" #birthday="ngModel" name="birthday" bsDatepicker
-              [(ngModel)]="bsValue" (ngModelChange)="user.birthday=bsValue" [bsConfig]="{containerClass: 'theme-dark-blue' }"
+              [(ngModel)]="user.birthday" [bsConfig]="{containerClass: 'theme-dark-blue', dateInputFormat: 'YYYY-MM-DD'  }"
               required [ngClass]="{'is-invalid': !birthday.valid && birthday.touched}">
           </div>
           <div class="col-xs-12 col-12 col-md-3 form-group">

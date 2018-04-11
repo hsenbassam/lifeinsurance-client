@@ -1,3 +1,64 @@
-<p>
-  admin-orders works!
-</p>
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <a routerLink="/admin">Administration Mode</a>
+    </li>
+    <li class="breadcrumb-item active">Orders</li>
+  </ol>
+<div class="table-container mat-elevation-z8">
+  <div class="table-header">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+  </div>
+
+  <mat-table #table [dataSource]="dataSource" matSort>
+
+    <!-- Order Id Column -->
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> # </mat-header-cell>
+      <mat-cell *matCellDef="let index = index"> {{index +  1}} </mat-cell>
+    </ng-container>
+
+    <!-- Type Column -->
+    <ng-container matColumnDef="type">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Type </mat-header-cell>
+      <mat-cell *matCellDef="let order"> {{order.type}} </mat-cell>
+    </ng-container>
+
+    <!-- Coverage Column -->
+    <ng-container matColumnDef="coverage">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Coverage </mat-header-cell>
+      <mat-cell *matCellDef="let order"> {{order.coverage}} </mat-cell>
+    </ng-container>
+
+    <!-- Package Column -->
+    <ng-container matColumnDef="package">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Package </mat-header-cell>
+      <mat-cell *matCellDef="let order"> {{order.package}} </mat-cell>
+    </ng-container>
+
+    <!-- Amount Column -->
+    <ng-container matColumnDef="amount">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Amount </mat-header-cell>
+      <mat-cell *matCellDef="let order"> {{order.amount | currency:'USD':symbol}} </mat-cell>
+    </ng-container>
+
+    <!-- Owner Column -->
+    <ng-container matColumnDef="owner">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Owner </mat-header-cell>
+      <mat-cell *matCellDef="let order"> {{order.firstname}} {{order.lastname}}</mat-cell>
+    </ng-container>
+
+    <!-- Premium Column -->
+    <ng-container matColumnDef="premium">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Premium </mat-header-cell>
+      <mat-cell *matCellDef="let order"> {{order.premium | currency:'USD':symbol}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator #paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true">
+  </mat-paginator>
+</div>

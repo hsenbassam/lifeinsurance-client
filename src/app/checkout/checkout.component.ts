@@ -24,7 +24,7 @@ export class CheckoutComponent implements OnInit {
     private cartService: ShoppingCartService,
     private authService: AuthService) {
 
-    this.titleService.setTitle("Life Insurance | Checkout");
+    this.titleService.setTitle('Life Insurance | Checkout');
 
     this.checkout = new Checkout();
 
@@ -34,7 +34,7 @@ export class CheckoutComponent implements OnInit {
     this.cartService.getAll(this.authService.userInfo.id)
       .subscribe(cartProducts => {
         this.cartProducts = cartProducts;
-        cartProducts ? this.getTotalPremium() : this._router.navigate(['shopping-cart'])
+        cartProducts ? this.getTotalPremium() : this._router.navigate(['shopping-cart']);
       });
   }
 
@@ -46,9 +46,9 @@ export class CheckoutComponent implements OnInit {
   }
 
   checkoutProcess(form) {
-    form.payment_method = "PayPal";
+    form.payment_method = 'PayPal';
     localStorage.setItem('invoice-header', JSON.stringify(form));
-    this._router.navigate(['payment/confirm'])
+    this._router.navigate(['payment/confirm']);
   }
 
 }

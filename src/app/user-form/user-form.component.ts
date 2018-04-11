@@ -10,6 +10,7 @@ import 'rxjs/add/operator/take';
 import { Title } from '@angular/platform-browser';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'user-form',
   templateUrl: './user-form.component.html',
   styleUrls: ['./user-form.component.css']
@@ -17,7 +18,7 @@ import { Title } from '@angular/platform-browser';
 export class UserFormComponent implements OnInit {
 
   maxDate = new Date();
-  bsValue: Date = new Date();
+  currentDate: Date = new Date();
   user: User;
   failedRegistration = false;
   failedUpdate = false;
@@ -42,23 +43,25 @@ export class UserFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this._router.url == "/profile") {
-      this.titleService.setTitle("Life Insurance | Profile");
+    if (this._router.url === '/profile') {
+      this.titleService.setTitle('Life Insurance | Profile');
       this.userService.get(this.authService.userInfo.id).take(1).subscribe(u => this.user = u);
     }
-    if (this._router.url == "/register")
-      this.titleService.setTitle("Life Insurance | Register");
+    if (this._router.url === '/register') {
+      this.titleService.setTitle('Life Insurance | Register');
+      this.user.birthday = this.currentDate;
+    }
 
     if (this.id) {
-      this.titleService.setTitle("Life Insurance | Administration Mode");
+      this.titleService.setTitle('Life Insurance | Administration Mode');
       this.userService.get(this.id).take(1).subscribe(user => {
         if (user) {
-          this.user = user
+          this.user = user;
           this.isAdmin = user.roles.includes('ROLE_ADMIN');
           this.roles = user.roles;
+        } else {
+          this._router.navigate(['/not-found']);
         }
-        else
-          this._router.navigate(['/not-found'])
       });
     }
 
@@ -66,31 +69,36 @@ export class UserFormComponent implements OnInit {
 
 
   userProcess(form: NgForm) {
-
+    form.value.birthday = this.datePipe.transform(form.value.birthday, 'yyyy-MM-dd');
     if (this.url.includes('/register')) {
+      console.log(form.value);
       this.registerService.post(form.value)
         .subscribe(response => response ? this._router.navigate(['/login']) : this.failedRegistration = true);
-    }
-    else {
+    } else {
       if (this.id) {
-        if (this.isAdmin && !this.roles.includes('ROLE_ADMIN'))
-          this.roles.push("ROLE_ADMIN");
-        if (!this.isAdmin && this.roles.includes('ROLE_ADMIN'))
+        if (this.isAdmin && !this.roles.includes('ROLE_ADMIN')) {
+          this.roles.push('ROLE_ADMIN');
+        }
+        if (!this.isAdmin && this.roles.includes('ROLE_ADMIN')) {
           this.roles.splice(this.roles.indexOf('ROLE_ADMIN', 0), 1);
+        }
         form.value.roles = this.roles;
       }
       form.value.id = this.id ? this.id : this.authService.userInfo.id;
       form.value.enabled = this.user.enabled;
-      form.value.birthday = this.datePipe.transform(form.value.birthday, 'yyyy-MM-dd');
+      console.log(form.value);
       this.userService.update(form.value)
-        .subscribe(response => response ? this.id ? this._router.navigate(['/admin/users']) : this._router.navigate(['/']) : this.failedUpdate = true)
+        .subscribe(
+          response => response ?
+            this.id ? this._router.navigate(['/admin/users']) : this._router.navigate(['/'])
+            : this.failedUpdate = true);
     }
   }
 
   delete() {
-    if (!confirm("Are you sure you want to delete this user?")) return;
+    if (!confirm('Are you sure you want to delete this user?')) { return; }
 
     this.userService.delete(this.id)
-      .subscribe(response => response ? this._router.navigate(['/admin/users']) : this.failedDelete = true)
+      .subscribe(response => response ? this._router.navigate(['/admin/users']) : this.failedDelete = true);
   }
 }

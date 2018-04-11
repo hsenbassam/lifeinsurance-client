@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { DataTableResource } from 'angular5-data-table';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { User } from '../../_models/user';
 import { UserService } from '../../_services/user.service';
 import { Title } from '@angular/platform-browser';
+import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 
 @Component({
   selector: 'app-admin-users',
@@ -13,9 +13,14 @@ export class AdminUsersComponent implements OnInit {
 
   users: User[];
 
-  tableResource: DataTableResource<User>;
-  items: User[] = [];
-  itemCount: number;
+
+  displayedColumns = ['id', 'firstname', 'lastname', 'email', 'datecreated', 'active', 'edit'];
+
+  dataSource = new MatTableDataSource();
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+
 
   constructor(private userService: UserService) { }
 
@@ -25,31 +30,17 @@ export class AdminUsersComponent implements OnInit {
         users => {
           if (users) {
             this.users = users;
-            this.initializeTable(this.users);
+            this.dataSource = new MatTableDataSource(this.users);
+            this.dataSource.sort = this.sort;
+            this.dataSource.paginator = this.paginator;
           }
         });
   }
 
-
-  filter(query: string) {
-    let filteredProducts = (query) ?
-      this.users.filter(p => p.firstname.toLowerCase().includes(query.toLowerCase())) : this.users;
-    this.initializeTable(filteredProducts);
-  }
-
-  reloadItems(params) {
-    if (!this.tableResource) return;
-
-    this.tableResource.query(params)
-      .then(items => this.items = items);
-  }
-
-  private initializeTable(products) {
-    this.tableResource = new DataTableResource(products);
-    this.tableResource.query({ offset: 0 })
-      .then(items => this.items = items);
-    this.tableResource.count()
-      .then(count => this.itemCount = count);
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
+    this.dataSource.filter = filterValue;
   }
 
 

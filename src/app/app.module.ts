@@ -14,8 +14,6 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { LoginComponent } from './login/login.component';
 import { FooterComponent } from './footer/footer.component';
-import { DatePipe } from '@angular/common';
-import { DataTableModule } from 'angular5-data-table';
 
 import { BsDropdownModule, CollapseModule, BsDatepickerModule, TabsModule } from 'ngx-bootstrap';
 import { LoadingBarHttpModule } from '@ngx-loading-bar/http';
@@ -52,9 +50,7 @@ import { TermLifeProductComponent } from './term-life-product/term-life-product.
 import { WholeLifeProductComponent } from './whole-life-product/whole-life-product.component';
 import { WholeLifeSimulatorService } from './_services/wholelife-simulator.service';
 import { routes } from './app-routing.module';
-import { UserItemComponent } from './user-item/user-item.component';
 import { UserService } from './_services/user.service';
-import { UserFormComponent } from './user-form/user-form.component';
 import { RoleService } from './_services/role.service';
 import { PasswordRecoveryComponent } from './password-recovery/password-recovery.component';
 import { PaypalPaymentService } from './_services/paypal.payment.service';
@@ -65,7 +61,6 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { AdminModule } from './admin/admin.module';
 import { PaymentModule } from './payment/payment.module';
 import { SharedModule } from './_shared/shared.module';
-import { PasswordChangeComponent } from './password-change/password-change.component';
 
 
 @NgModule({
@@ -87,9 +82,7 @@ import { PasswordChangeComponent } from './password-change/password-change.compo
     OccupationSelectComponent,
     TermLifeProductComponent,
     WholeLifeProductComponent,
-    // UserItemComponent,
     PasswordRecoveryComponent,
-    // PasswordChangeComponent,
     ScrollToTopDirective,
     NotFoundComponent,
     NoAccessComponent
@@ -118,7 +111,6 @@ import { PasswordChangeComponent } from './password-change/password-change.compo
       }
     }),
     HttpClientModule,
-    DataTableModule,
     BsDropdownModule.forRoot(),
     CollapseModule.forRoot(),
     BsDatepickerModule.forRoot(),
@@ -137,8 +129,7 @@ import { PasswordChangeComponent } from './password-change/password-change.compo
     TermLifeSimulatorService,
     WholeLifeSimulatorService,
     OrderService,
-    RoleService,
-    DatePipe
+    RoleService
   ],
   bootstrap: [AppComponent]
 })
