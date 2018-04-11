@@ -25,7 +25,6 @@
     "@angular/router": "^5.2.0",
     "@auth0/angular-jwt": "^1.0.0-beta.9",
     "@ngx-loading-bar/http": "^1.3.1",
-    "angular5-data-table": "^0.5.1",
     "bootstrap": "^4.0.0",
     "core-js": "^2.4.1",
     "font-awesome": "^4.7.0",

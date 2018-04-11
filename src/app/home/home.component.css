@@ -6,16 +6,6 @@
 main {
   color: #5a5a5a;
 }
-
-.full-width {
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-}
-
 header.masthead {
   position: relative;
   background-color: #343a40;
@@ -27,6 +17,18 @@ header.masthead {
   margin-top: -45px;
   padding-bottom: 8rem;
 }
+
+.first {
+  background: url("/assets/carousel2.jpg") no-repeat center bottom;
+  background-size: 100%
+}
+
+.second {
+  background: url("/assets/carousel1.jpg") no-repeat center bottom;
+  background-size: 100%
+}
+
+
 
 header.masthead .overlay {
   position: absolute;

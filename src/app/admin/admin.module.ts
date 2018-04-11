@@ -8,13 +8,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminOrdersComponent } from './admin-orders/admin-orders.component';
 import { AdminUsersComponent } from './admin-users/admin-users.component';
 import { SharedModule } from '../_shared/shared.module';
-import { CarouselModule } from 'ngx-bootstrap';
 
 @NgModule({
     imports: [
         CommonModule,
         SharedModule,
-        CarouselModule.forRoot(),
         AdminRoutingModule
     ],
     declarations: [AdminComponent, SidebarComponent, DashboardComponent, AdminOrdersComponent, AdminUsersComponent]

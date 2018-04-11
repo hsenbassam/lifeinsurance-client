@@ -1,12 +1,9 @@
 .first {
-  background: url("/assets/term-life.jpg") no-repeat center top;
-  background-size: 100% 350px
+  background: url("/assets/carousel2.jpg") no-repeat center bottom;
 }
 
 .second {
-  background: url("/assets/whole-life.jpg") no-repeat center right;
-  ;
-  background-size: 100% 300px
+  background: url("/assets/carousel1.jpg") no-repeat center bottom;
 }
 
 .card-body-icon {

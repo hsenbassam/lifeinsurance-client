@@ -8,6 +8,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { PasswordChangeComponent } from '../password-change/password-change.component';
 import { routes } from './shared-routing.module';
 
+import { CarouselModule } from 'ngx-bootstrap';
+
 import { DatePipe } from '@angular/common';
 import {
     MatRadioModule,
@@ -30,6 +32,7 @@ import {
         MatSlideToggleModule,
         MatPaginatorModule,
         MatSortModule,
+        CarouselModule.forRoot(),
         BsDatepickerModule.forRoot(),
         RouterModule.forChild(routes)
     ],
@@ -50,7 +53,9 @@ import {
         MatTableModule,
         MatInputModule,
         MatPaginatorModule,
-        MatSortModule
+        MatSortModule,
+        CarouselModule,
+        BsDatepickerModule
     ]
 })
 export class SharedModule { }
