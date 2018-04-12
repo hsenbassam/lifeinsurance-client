@@ -58,8 +58,6 @@ import { ScrollToTopDirective } from './_directives/scroll-to-top.directive';
 import { ShoppingCartService } from './_services/shopping-cart.service';
 import { OrderService } from './_services/order.service';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { AdminModule } from './admin/admin.module';
-import { PaymentModule } from './payment/payment.module';
 import { SharedModule } from './_shared/shared.module';
 
 
@@ -90,8 +88,6 @@ import { SharedModule } from './_shared/shared.module';
   imports: [
     BrowserModule,
     SharedModule,
-    AdminModule,
-    PaymentModule,
     FormsModule,
     MatStepperModule,
     MatProgressSpinnerModule,

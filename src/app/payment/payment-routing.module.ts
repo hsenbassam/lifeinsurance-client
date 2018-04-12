@@ -9,25 +9,30 @@ import { PaymentFailureComponent } from './payment-failure/payment-failure.compo
 
 const routes: Routes = [
   {
-    path: 'payment',
-    redirectTo: 'payment/confirm',
-    pathMatch: 'full'
-  },
-  {
-    path: 'confirm',
-    component: PaymentConfirmationComponent
-  },
-  {
-    path: 'process',
-    component: PaymentProcessComponent
-  },
-  {
-    path: 'success',
-    component: PaymentSuccessComponent
-  },
-  {
-    path: 'failure',
-    component: PaymentFailureComponent
+    path: '',
+    component: PaymentComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'confirm',
+        pathMatch: 'full'
+      },
+      {
+        path: 'confirm',
+        component: PaymentConfirmationComponent
+      },
+      {
+        path: 'process',
+        component: PaymentProcessComponent
+      },
+      {
+        path: 'success',
+        component: PaymentSuccessComponent
+      },
+      {
+        path: 'failure',
+        component: PaymentFailureComponent
+      }]
   }
 ];
 

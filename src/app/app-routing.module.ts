@@ -19,8 +19,6 @@ import { PasswordRecoveryComponent } from './password-recovery/password-recovery
 import { PasswordChangeComponent } from './password-change/password-change.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
-import { AdminModule } from './admin/admin.module';
-import { PaymentModule } from './payment/payment.module';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -39,7 +37,7 @@ export const routes: Routes = [
     },
     {
         path: 'payment',
-        loadChildren: () => PaymentModule,
+        loadChildren: './payment/payment.module#PaymentModule',
         canActivate: [AuthGuard]
     },
     {
@@ -58,13 +56,13 @@ export const routes: Routes = [
     },
     {
         path: 'admin',
-        loadChildren: () => AdminModule,
+        loadChildren: './admin/admin.module#AdminModule',
         canActivate: [AuthGuard, AdminAuthGuard]
     },
 
     { path: 'no-access', component: NoAccessComponent },
     { path: 'not-found', component: NotFoundComponent },
-    { path: '**', redirectTo: 'not-found' }
+    { path: '**', redirectTo: 'not-found', pathMatch: 'full'}
 ];
 
 export class AppRoutingModule {}

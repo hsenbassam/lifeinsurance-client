@@ -9,8 +9,6 @@ export class ProductItemComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-    
-  }
+  ngOnInit() { }
 
 }

@@ -8,31 +8,29 @@ import { AdminUsersComponent } from './admin-users/admin-users.component';
 
 const routes: Routes = [
   {
-    path: 'admin',
-    redirectTo: 'admin/dashboard',
-    pathMatch: 'full'
-  },
-  {
-    path: 'dashboard',
+    path: '',
     component: AdminComponent,
     children: [
-      { path: '', component: DashboardComponent },
-    ]
-  },
-  {
-    path: 'orders',
-    component: AdminComponent,
-    children: [
-      { path: '', component: AdminOrdersComponent }
-    ]
-  },
-  {
-    path: 'users',
-    component: AdminComponent,
-    children: [
-      { path: '', component: AdminUsersComponent },
-      { path: ':id', component: UserFormComponent }
-    ]
+      {
+        path: '',
+        redirectTo: 'dashboard',
+        pathMatch: 'full'
+      },
+      {
+        path: 'dashboard',
+        component: DashboardComponent
+      },
+      {
+        path: 'orders',
+        component: AdminOrdersComponent
+      },
+      {
+        path: 'users',
+        children: [
+          { path: '', component: AdminUsersComponent },
+          { path: ':id', component: UserFormComponent }
+        ]
+      }]
   }
 ];
 
