@@ -9,16 +9,14 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-  
+
   category;
 
-  constructor(private titleService:Title) { 
-    this.titleService.setTitle("Life Insurance | Products");
+  constructor(private titleService: Title) {
+    this.titleService.setTitle('Life Insurance | Products');
   }
- 
 
   ngOnInit() {
   }
-  
 
 }

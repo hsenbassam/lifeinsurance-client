@@ -1,7 +1,8 @@
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, PreloadAllModules } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
@@ -15,17 +16,14 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { LoginComponent } from './login/login.component';
 import { FooterComponent } from './footer/footer.component';
 
-import { BsDropdownModule, CollapseModule, BsDatepickerModule, TabsModule } from 'ngx-bootstrap';
+import { BsDropdownModule, CollapseModule, TabsModule } from 'ngx-bootstrap';
 import { LoadingBarHttpModule } from '@ngx-loading-bar/http';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
 
 import {
   MatStepperModule,
-  MatProgressSpinnerModule,
   MatRadioModule,
-  MatProgressBarModule,
-  MatSnackBarModule,
-  MatSlideToggleModule
+  MatSnackBarModule
 } from '@angular/material';
 
 
@@ -86,14 +84,12 @@ import { SharedModule } from './_shared/shared.module';
     NoAccessComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     SharedModule,
     FormsModule,
     MatStepperModule,
-    MatProgressSpinnerModule,
-    MatProgressBarModule,
     MatSnackBarModule,
-    MatSlideToggleModule,
     MatRadioModule,
     LoadingBarHttpModule,
     BrowserAnimationsModule,
@@ -109,7 +105,6 @@ import { SharedModule } from './_shared/shared.module';
     HttpClientModule,
     BsDropdownModule.forRoot(),
     CollapseModule.forRoot(),
-    BsDatepickerModule.forRoot(),
     TabsModule.forRoot(),
     RouterModule.forRoot(routes)
   ],

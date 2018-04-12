@@ -8,10 +8,8 @@ import { LoadingBarService } from '@ngx-loading-bar/core';
 })
 export class AppComponent {
 
-  title = "Life Insurance";
+  title = 'Life Insurance';
 
-  constructor(private loader: LoadingBarService) {
-    
-  }
+  constructor(private loader: LoadingBarService) {}
 
 }

@@ -15,6 +15,12 @@ import { SharedModule } from '../_shared/shared.module';
         SharedModule,
         AdminRoutingModule
     ],
-    declarations: [AdminComponent, SidebarComponent, DashboardComponent, AdminOrdersComponent, AdminUsersComponent]
+    declarations: [
+        AdminComponent,
+        SidebarComponent,
+        DashboardComponent,
+        AdminOrdersComponent,
+        AdminUsersComponent
+    ]
 })
 export class AdminModule { }
