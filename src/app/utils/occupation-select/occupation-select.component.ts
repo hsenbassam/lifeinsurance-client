@@ -9,7 +9,7 @@ export class OccupationSelectComponent implements OnInit {
 
 
 
-  @Output('occupationChanged') occupationChanged : EventEmitter<string> = new EventEmitter<string>();
+  @Output('occupationChanged') occupationChanged: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() { }
 
@@ -17,7 +17,7 @@ export class OccupationSelectComponent implements OnInit {
   }
 
   onChange(occupationValue) {
-    this.occupationChanged.emit(occupationValue)
+    this.occupationChanged.emit(occupationValue);
  }
 
 

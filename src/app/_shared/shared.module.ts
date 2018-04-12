@@ -1,15 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UserFormComponent } from '../user-form/user-form.component';
 import { BsDatepickerModule } from 'ngx-bootstrap';
-import { FormsModule } from '@angular/forms';
-import { UserItemComponent } from '../user-item/user-item.component';
-import { RouterModule, Routes } from '@angular/router';
-import { PasswordChangeComponent } from '../password-change/password-change.component';
 import { routes } from './shared-routing.module';
 
-import { CarouselModule } from 'ngx-bootstrap';
-
+import { BsDropdownModule, CollapseModule, TabsModule, CarouselModule } from 'ngx-bootstrap';
 import { DatePipe } from '@angular/common';
 import {
     MatRadioModule,
@@ -18,44 +12,51 @@ import {
     MatFormFieldModule,
     MatInputModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatStepperModule,
+    MatSnackBarModule
 } from '@angular/material';
 
 @NgModule({
     imports: [
         CommonModule,
-        FormsModule,
         MatRadioModule,
         MatTableModule,
         MatFormFieldModule,
         MatInputModule,
         MatSlideToggleModule,
         MatPaginatorModule,
+        MatStepperModule,
+        MatRadioModule,
+        MatSnackBarModule,
         MatSortModule,
+        BsDropdownModule.forRoot(),
+        CollapseModule.forRoot(),
+        TabsModule.forRoot(),
         CarouselModule.forRoot(),
-        BsDatepickerModule.forRoot(),
-        RouterModule.forChild(routes)
+        BsDatepickerModule.forRoot()
     ],
-    declarations: [
-        UserFormComponent,
-        UserItemComponent,
-        PasswordChangeComponent
-    ],
+    declarations: [],
     providers: [
         DatePipe
     ],
     exports: [
-        UserFormComponent,
-        UserItemComponent,
-        PasswordChangeComponent,
         DatePipe,
-        MatFormFieldModule,
+        MatRadioModule,
         MatTableModule,
+        MatFormFieldModule,
         MatInputModule,
+        MatSlideToggleModule,
         MatPaginatorModule,
+        MatStepperModule,
+        MatRadioModule,
+        MatSnackBarModule,
         MatSortModule,
         CarouselModule,
-        BsDatepickerModule
+        BsDatepickerModule,
+        TabsModule,
+        BsDropdownModule,
+        CollapseModule
     ]
 })
 export class SharedModule { }

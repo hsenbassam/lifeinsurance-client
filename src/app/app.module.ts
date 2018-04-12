@@ -10,21 +10,13 @@ import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
-import { ProductsComponent } from './products/products.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { LoginComponent } from './login/login.component';
 import { FooterComponent } from './footer/footer.component';
 
-import { BsDropdownModule, CollapseModule, TabsModule } from 'ngx-bootstrap';
 import { LoadingBarHttpModule } from '@ngx-loading-bar/http';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
-
-import {
-  MatStepperModule,
-  MatRadioModule,
-  MatSnackBarModule
-} from '@angular/material';
 
 
 import { ErrorHandler } from '@angular/core';
@@ -36,16 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthGuardService as AuthGuard } from './_services/auth-guard.service';
 import { NoAccessComponent } from './no-access/no-access.component';
 import { AdminAuthGuard } from './_services/admin-auth-guard.service';
-import { ProductCardComponent } from './products/product-card/product-card.component';
-import { ProductItemComponent } from './product-item/product-item.component';
-import { QuoteComponent } from './quote/quote.component';
-import { QuoteResultComponent } from './quote/quote-result/quote-result.component';
 import { TermLifeSimulatorService } from './_services/termlife-simulator.service';
-import { CountrySelectComponent } from './utils/country-select/country-select.component';
 import { AboutComponent } from './about/about.component';
-import { OccupationSelectComponent } from './utils/occupation-select/occupation-select.component';
-import { TermLifeProductComponent } from './term-life-product/term-life-product.component';
-import { WholeLifeProductComponent } from './whole-life-product/whole-life-product.component';
 import { WholeLifeSimulatorService } from './_services/wholelife-simulator.service';
 import { routes } from './app-routing.module';
 import { UserService } from './_services/user.service';
@@ -57,40 +41,33 @@ import { ShoppingCartService } from './_services/shopping-cart.service';
 import { OrderService } from './_services/order.service';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SharedModule } from './_shared/shared.module';
-
+import { UserFormComponent } from './user-form/user-form.component';
+import { UserItemComponent } from './user-form/user-item/user-item.component';
+import { PasswordChangeComponent } from './password-change/password-change.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    ProductsComponent,
     ShoppingCartComponent,
     CheckoutComponent,
     LoginComponent,
     FooterComponent,
-    ProductCardComponent,
-    ProductItemComponent,
-    QuoteComponent,
-    QuoteResultComponent,
-    CountrySelectComponent,
     AboutComponent,
-    OccupationSelectComponent,
-    TermLifeProductComponent,
-    WholeLifeProductComponent,
     PasswordRecoveryComponent,
     ScrollToTopDirective,
     NotFoundComponent,
-    NoAccessComponent
+    NoAccessComponent,
+    UserFormComponent,
+    UserItemComponent,
+    PasswordChangeComponent,
   ],
   imports: [
     CommonModule,
     BrowserModule,
     SharedModule,
     FormsModule,
-    MatStepperModule,
-    MatSnackBarModule,
-    MatRadioModule,
     LoadingBarHttpModule,
     BrowserAnimationsModule,
     LoadingBarModule.forRoot(),
@@ -103,10 +80,12 @@ import { SharedModule } from './_shared/shared.module';
       }
     }),
     HttpClientModule,
-    BsDropdownModule.forRoot(),
-    CollapseModule.forRoot(),
-    TabsModule.forRoot(),
     RouterModule.forRoot(routes)
+  ],
+  exports: [
+    UserFormComponent,
+    UserItemComponent,
+    PasswordChangeComponent
   ],
   providers: [
     RegisterService,

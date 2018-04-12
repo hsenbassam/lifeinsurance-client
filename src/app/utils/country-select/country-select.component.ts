@@ -7,7 +7,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 })
 export class CountrySelectComponent implements OnInit {
 
-  @Output('countryChanged') countryChanged : EventEmitter<string> = new EventEmitter<string>();
+  @Output('countryChanged') countryChanged: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() { }
 
@@ -15,7 +15,7 @@ export class CountrySelectComponent implements OnInit {
   }
 
   onChange(countryValue) {
-    this.countryChanged.emit(countryValue)
+    this.countryChanged.emit(countryValue);
  }
 
 

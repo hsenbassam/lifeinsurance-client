@@ -9,7 +9,7 @@ import { Title } from '@angular/platform-browser';
 export class NotFoundComponent implements OnInit {
 
   constructor(private titleService: Title) {
-    this.titleService.setTitle("Life Insurance | 404 Not Found");
+    this.titleService.setTitle('Life Insurance | 404 Not Found');
    }
 
   ngOnInit() {

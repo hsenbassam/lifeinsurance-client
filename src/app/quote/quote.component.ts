@@ -7,7 +7,7 @@ import { DateFormatter } from 'ngx-bootstrap/datepicker/date-formatter';
 import { Quote } from '../_models/quote';
 import { Rates } from '../_models/rates';
 import { WholeLifeSimulatorService } from '../_services/wholelife-simulator.service';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Rx';
 import { Title } from '@angular/platform-browser';
 
 @Component({
@@ -37,7 +37,7 @@ export class QuoteComponent implements OnInit {
     private termLifeService: TermLifeSimulatorService,
     private wholeLifeService: WholeLifeSimulatorService) {
 
-    this.titleService.setTitle("Life Insurance | Quote");
+    this.titleService.setTitle('Life Insurance | Quote');
 
     this._route.queryParams.subscribe(params => this.completed = params['completed']);
     this._route.params.subscribe(params => this.type = params['type']);
@@ -56,10 +56,10 @@ export class QuoteComponent implements OnInit {
     form.value.country = this.countrySelected;
     form.value.occupation = this.occupationSelected;
     this.userQuote = form.value;
-    
-    if (this.type == "term-life")
+
+    if (this.type === 'term-life')
       this.service = this.termLifeService.post(form.value);
-    if (this.type == "whole-life")
+    if (this.type === 'whole-life')
       this.service = this.wholeLifeService.post(form.value);
 
     this.service.subscribe(
@@ -73,6 +73,6 @@ export class QuoteComponent implements OnInit {
             }
           });
         }
-      })
+      });
   }
 }

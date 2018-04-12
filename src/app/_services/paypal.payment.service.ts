@@ -1,6 +1,6 @@
-import { Injectable } from "@angular/core";
-import { Http, RequestOptions, Headers } from "@angular/http";
-import { Observable } from "rxjs/Observable";
+import { Injectable } from '@angular/core';
+import { Http, RequestOptions, Headers } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
@@ -22,12 +22,12 @@ export class PaypalPaymentService {
 
 
     makePayment(sum) {
-        return this.http.post(this.url + "make/payment?sum=" + sum, null, this.options)
+        return this.http.post(this.url + 'make/payment?sum=' + sum, null, this.options)
             .map(response => response.json());
     }
 
     completePayment(paymentId, payerId) {
-        return this.http.post(this.url + "complete/payment?paymentId=" + paymentId + "&payerId=" + payerId, null, this.options)
+        return this.http.post(this.url + 'complete/payment?paymentId=' + paymentId + '&payerId=' + payerId, null, this.options)
             .map(response => response.json());
     }
 

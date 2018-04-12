@@ -8,8 +8,8 @@ import { Title } from '@angular/platform-browser';
 })
 export class TermLifeProductComponent implements OnInit {
 
-  constructor(private titleService:Title) {
-    this.titleService.setTitle("Life Insurance | Term Life Product");
+  constructor(private titleService: Title) {
+    this.titleService.setTitle('Life Insurance | Term Life Product');
    }
 
   ngOnInit() {

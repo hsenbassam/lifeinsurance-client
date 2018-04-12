@@ -8,8 +8,8 @@ import { Title } from '@angular/platform-browser';
 })
 export class WholeLifeProductComponent implements OnInit {
 
-  constructor(private titleService:Title) {
-    this.titleService.setTitle("Life Insurance | Whole Life Product");
+  constructor(private titleService: Title) {
+    this.titleService.setTitle('Life Insurance | Whole Life Product');
    }
 
   ngOnInit() {

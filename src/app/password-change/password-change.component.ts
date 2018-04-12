@@ -20,7 +20,7 @@ export class PasswordChangeComponent implements OnInit {
     private userService: UserService,
     private _router: Router,
     private snackBar: MatSnackBar) {
-    this.titleService.setTitle("Life Insurance | Password Change");
+    this.titleService.setTitle('Life Insurance | Password Change');
   }
 
   ngOnInit() {
@@ -33,11 +33,11 @@ export class PasswordChangeComponent implements OnInit {
         if (response.errorCode)
           message = response.details;
         else {
-          message = "Password has been Changed !";
-          this._router.navigate(['/profile'])
+          message = 'Password has been Changed !';
+          this._router.navigate(['/profile']);
         }
-        this.openSnackBar(message, "Dismiss")
-      })
+        this.openSnackBar(message, 'Dismiss');
+      });
   }
 
   private openSnackBar(message: string, action: string) {

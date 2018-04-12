@@ -21,8 +21,8 @@ export class PaymentProcessComponent implements OnInit {
     private paypalService: PaypalPaymentService,
     private _router: Router) {
 
-    this.titleService.setTitle("Life Insurance | Payment Process");
-    this.redirectUrl = localStorage.getItem("redirect_url") || "";
+    this.titleService.setTitle('Life Insurance | Payment Process');
+    this.redirectUrl = localStorage.getItem('redirect_url') || '';
   }
 
   ngOnInit() {
@@ -31,22 +31,22 @@ export class PaymentProcessComponent implements OnInit {
   }
 
   paypalPay() {
-    if (this.redirectUrl == "") {
-      alert("Redirect URL is not valid");
+    if (this.redirectUrl === '') {
+      alert('Redirect URL is not valid');
       return;
     }
-    if (!confirm("You are redirecting to payment. Would you like to continue?")) return;
+    if (!confirm('You are redirecting to payment. Would you like to continue?')) return;
     this.redirect = true;
     window.location.href = this.redirectUrl;
   }
   paypalComplete() {
-    if (!confirm("You are completing the payment. Would you like to continue?")) return;
+    if (!confirm('You are completing the payment. Would you like to continue?')) return;
     this.paypalService.completePayment(this.paymentId, this.payerId)
       .subscribe(
         response => {
-          localStorage.setItem("paymentResponse", JSON.stringify(response));
-          response.status == "success" ? this._router.navigate(['payment/success']) : this._router.navigate(['payment/failure']);
-        })
+          localStorage.setItem('paymentResponse', JSON.stringify(response));
+          response.status === 'success' ? this._router.navigate(['payment/success']) : this._router.navigate(['payment/failure']);
+        });
   }
 
 }

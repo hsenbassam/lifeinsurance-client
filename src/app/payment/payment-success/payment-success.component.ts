@@ -21,26 +21,27 @@ export class PaymentSuccessComponent implements OnInit, OnDestroy {
     private _router: Router,
     private snackBar: MatSnackBar) {
 
-    this.titleService.setTitle("Life Insurance | Payment Success");
+    this.titleService.setTitle('Life Insurance | Payment Success');
 
-    this.paymentResponse = JSON.parse(localStorage.getItem("paymentResponse")) || {};
-    localStorage.removeItem("redirect_url");
-    localStorage.removeItem("invoice-header");
+    this.paymentResponse = JSON.parse(localStorage.getItem('paymentResponse')) || {};
+    localStorage.removeItem('redirect_url');
+    localStorage.removeItem('invoice-header');
   }
 
   ngOnInit() {
     if (!this.paymentResponse.payment)
-      this._router.navigate(['shopping-cart'])
+      this._router.navigate(['shopping-cart']);
 
     this.orderService.add(this.authService.userInfo.id)
-      .subscribe(ordersCount => this.openSnackBar("You have now " + ordersCount + " Life Insurance products, Enjoy your Life :)", "Dismiss"));
+      .subscribe(ordersCount =>
+        this.openSnackBar('You have now ' + ordersCount + ' Life Insurance products, Enjoy your Life :)', 'Dismiss'));
   }
   ngOnDestroy() {
-    localStorage.removeItem("paymentResponse");
+    localStorage.removeItem('paymentResponse');
   }
 
   print() {
-    window.print();
+    (<any>window).print();
   }
 
   private openSnackBar(message: string, action: string) {
