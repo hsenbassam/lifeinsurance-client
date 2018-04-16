@@ -3,22 +3,22 @@
   <ul class="sidebar-nav">
     <li class="sidebar-brand">
       <a routerLink="/">
-        <i class="icon-home"></i> Home</a>
+        <i class="icon-home"></i> <span class="label">Home</span></a>
     </li>
     <li>
       <a routerLink="/admin/dashboard" [routerLinkActive]="['router-link-active']">
-        <i class="icon-graph"></i> Dashboard
+        <i class="icon-graph"></i> <div class="label">Dashboard</div>
       </a>
     </li>
     <li>
       <a routerLink="/admin/orders" [routerLinkActive]="['router-link-active']">
-        <i class="icon-calculator"></i> Orders
-        <span class="badge badge-info">4</span>
+        <i class="icon-calculator"></i> <div class="label">Orders</div> 
+        <!-- <span class="badge badge-info">4</span> -->
       </a>
     </li>
     <li>
       <a routerLink="/admin/users" [routerLinkActive]="['router-link-active']">
-        <i class="icon-user"></i> Users
+        <i class="icon-user"></i> <div class="label">Users</div> 
       </a>
     </li>
 

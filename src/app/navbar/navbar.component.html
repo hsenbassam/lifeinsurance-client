@@ -43,7 +43,7 @@
         <div class="nav-item dropdown username" dropdown *ngIf="authService.isAuthenticated()">
           <a class="nav-link dropdown-toggle " dropdownToggle>{{authService.userInfo.firstname}} {{authService.userInfo.lastname}}</a>
           <div class="dropdown-menu" *dropdownMenu>
-            <a class="dropdown-item" routerLinkActive="active" routerLink="/my-orders">My Orders</a>
+            <a class="dropdown-item" routerLinkActive="active" routerLink="/my-orders">My Policies</a>
 
             <div role="menuitem" dropdown triggers="mouseover" placement="right" container="body">
               <a dropdownToggle class="dropdown-item dropdown-toggle" (click)="false">My Account
@@ -63,11 +63,6 @@
         </div>
         <a class="btn btn-outline-light active register" routerLink="/register">Register</a>
       </div>
-      <!-- Search Button
-      <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form> -->
     </div>
   </div>
 

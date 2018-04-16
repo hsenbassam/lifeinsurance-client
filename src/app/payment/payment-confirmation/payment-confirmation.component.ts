@@ -26,30 +26,30 @@ export class PaymentConfirmationComponent implements OnInit {
     private cartService: ShoppingCartService,
     private authService: AuthService) {
 
-    this.titleService.setTitle("Life Insurance | Payment Confirmation");
-    this.invoiceHeaders = JSON.parse(localStorage.getItem("invoice-header")) || {};
+    this.titleService.setTitle('Life Insurance | Payment Confirmation');
+    this.invoiceHeaders = JSON.parse(localStorage.getItem('invoice-header')) || {};
     this.currentDate = DateFormat.formatDate(new Date());
-    this.getTotalPremium()
+    this.getTotalPremium();
   }
 
   ngOnInit() {
     this.cartService.getAll(this.authService.userInfo.id)
       .subscribe(cartProducts => {
         this.cartProducts = cartProducts;
-        cartProducts ? this.getTotalPremium() : this._router.navigate(['shopping-cart'])
+        cartProducts ? this.getTotalPremium() : this._router.navigate(['shopping-cart']);
       });
   }
 
   paypalCheckout() {
-    if (!confirm("You are redirecting to payment. Would you like to continue?")) return;
+    if (!confirm('You are redirecting to payment. Would you like to continue?')) return;
 
-    let finalPremium = (this.totalPremium + this.redeem).toFixed(2);
+    const finalPremium = (this.totalPremium + this.redeem).toFixed(2);
     this.paypalService.makePayment(finalPremium)
       .subscribe(
         response => {
-          localStorage.setItem("redirect_url", response.redirect_url);
+          localStorage.setItem('redirect_url', response.redirect_url);
           this._router.navigate(['payment/process']);
-        })
+        });
 
   }
   getTotalPremium() {
@@ -60,7 +60,7 @@ export class PaymentConfirmationComponent implements OnInit {
   }
 
   print() {
-    window.print();
+    (<any>window).print();
   }
 
 }

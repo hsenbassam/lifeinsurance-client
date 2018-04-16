@@ -9,15 +9,14 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminOrdersComponent } from './admin-orders/admin-orders.component';
 import { AdminUsersComponent } from './admin-users/admin-users.component';
 import { SharedModule } from '../_shared/shared.module';
-import { UserFormComponent } from '../user-form/user-form.component';
-import { UserItemComponent } from '../user-form/user-item/user-item.component';
-import { PasswordChangeComponent } from '../password-change/password-change.component';
+import { AdminUserModule } from '../_shared/admin-user/admin-user.module';
 
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
         SharedModule,
+        AdminUserModule,
         AdminRoutingModule
     ],
     declarations: [

@@ -27,8 +27,8 @@ const routes: Routes = [
       {
         path: 'users',
         children: [
-          { path: '', component: AdminUsersComponent },
-          { path: ':id', component: UserFormComponent }
+          { path: ':id', component: UserFormComponent },
+          { path: '', component: AdminUsersComponent }
         ]
       }]
   }

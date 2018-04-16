@@ -41,9 +41,8 @@ import { ShoppingCartService } from './_services/shopping-cart.service';
 import { OrderService } from './_services/order.service';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SharedModule } from './_shared/shared.module';
-import { UserFormComponent } from './user-form/user-form.component';
-import { UserItemComponent } from './user-form/user-item/user-item.component';
 import { PasswordChangeComponent } from './password-change/password-change.component';
+import { AdminUserModule } from './_shared/admin-user/admin-user.module';
 
 @NgModule({
   declarations: [
@@ -59,14 +58,13 @@ import { PasswordChangeComponent } from './password-change/password-change.compo
     ScrollToTopDirective,
     NotFoundComponent,
     NoAccessComponent,
-    UserFormComponent,
-    UserItemComponent,
-    PasswordChangeComponent,
+    PasswordChangeComponent
   ],
   imports: [
     CommonModule,
     BrowserModule,
     SharedModule,
+    AdminUserModule,
     FormsModule,
     LoadingBarHttpModule,
     BrowserAnimationsModule,
@@ -81,11 +79,6 @@ import { PasswordChangeComponent } from './password-change/password-change.compo
     }),
     HttpClientModule,
     RouterModule.forRoot(routes)
-  ],
-  exports: [
-    UserFormComponent,
-    UserItemComponent,
-    PasswordChangeComponent
   ],
   providers: [
     RegisterService,

@@ -19,12 +19,12 @@ export class NavbarComponent implements OnInit {
     private cartService: ShoppingCartService) { }
 
   ngOnInit() {
-    if (this.authService.isAuthenticated()) {
-      this.cartService.getAll(this.authService.userInfo.id)
-        .subscribe(cartProducts => this.cartProducts = cartProducts ? cartProducts : []);
-    }
-    else
-      this.cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
+    // if (this.authService.isAuthenticated()) {
+    //   this.cartService.getAll(this.authService.userInfo.id)
+    //     .subscribe(cartProducts => this.cartProducts = cartProducts ? cartProducts : []);
+    // }
+    // else
+    //   this.cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
   }
 
 

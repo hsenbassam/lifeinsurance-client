@@ -1,16 +1,21 @@
-
-<div class="col-md-12" *ngIf="!paymentId">
-    <h2 class="mt-4 mb-3">You are almost done !</h2><hr>
-    <h5>You will be redirecting to PayPal Payment</h5><br>
-  <input type="image" (click)="paypalPay()"
-    src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png"
-    alt="Pay with PayPal" />  
-    <br><br>
+<div class="row payment">
+  <div class="col-md-12" *ngIf="!paymentId">
+    <h2 class="mt-4 mb-3">You are almost done !</h2>
+    <hr>
+    <h5>You will be redirecting to PayPal Payment</h5>
+    <br>
+    <input type="image" (click)="paypalPay()" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png"
+      alt="Pay with PayPal" />
+    <br>
+    <br>
     <h5 style="color:#c2185b" [hidden]="!redirect">You are redirecting to PayPal, Please Wait ...</h5>
-</div>
+  </div>
 
-<div class="col-md-12" *ngIf="paymentId">
-    <h2 class="mt-4 mb-3">Last Step!</h2><hr>
-    <h5>Just Complete the Payment</h5><br>
-    <button class="btn btn-info btn-lg" (click)="paypalComplete()">Complete Payment</button> 
+  <div class="col-md-12" *ngIf="paymentId">
+    <h2 class="mt-4 mb-3">Last Step!</h2>
+    <hr>
+    <h5>Just Complete the Payment and get the Invoice</h5>
+    <br>
+    <button class="btn btn-info btn-lg" (click)="paypalComplete()">Complete Payment</button>
+  </div>
 </div>

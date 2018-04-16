@@ -3,7 +3,6 @@
   top: 55px;
   left: 250px;
   width: 250px;
-  *background: #f8f9fa !important;
   background: linear-gradient(rgba(255, 255, 255, .5), rgba(255, 255, 255, .5)),
               url(/assets/sidebar-background.jpg) no-repeat bottom center;
   border-right: 2px #17a2b8 solid;
@@ -16,6 +15,9 @@
 
 #page-content-wrapper {
   width: 100%;
+}
+.label {
+  display: inline;
 }
 
 .sidebar-nav {
@@ -70,6 +72,24 @@
 }
 
 
-/* ::ng-deep footer.footer {
-  padding-left: 250px
-}  */
+@media (max-width: 1200px) {
+  #sidebar-wrapper {
+      width:200px
+  }
+}
+
+@media (max-width: 850px) {
+  #sidebar-wrapper {
+      width:170px
+  }
+}
+
+@media (max-width: 800px) {
+  #sidebar-wrapper {
+      width:60px  
+  }
+
+  .label {
+    display: none
+  }
+}

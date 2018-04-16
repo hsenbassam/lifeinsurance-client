@@ -11,7 +11,7 @@ export class PasswordRecoveryComponent implements OnInit {
 
 
   constructor( private titleService: Title) {
-    this.titleService.setTitle("Life Insurance | Password Recovery");
+    this.titleService.setTitle('Life Insurance | Password Recovery');
    }
 
   ngOnInit() {

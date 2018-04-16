@@ -31,7 +31,6 @@ export const routes: Routes = [
     { path: 'shopping-cart', component: ShoppingCartComponent },
     {
         path: 'quote',
-        //component: QuoteComponent
         loadChildren: './quote/quote.module#QuoteModule'
     },
     { path: 'login', component: LoginComponent },

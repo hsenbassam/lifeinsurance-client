@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BsDatepickerModule } from 'ngx-bootstrap';
-import { routes } from './shared-routing.module';
 
 import { BsDropdownModule, CollapseModule, TabsModule, CarouselModule } from 'ngx-bootstrap';
 import { DatePipe } from '@angular/common';

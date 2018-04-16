@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private snackBar: MatSnackBar) {
-    this.titleService.setTitle("Life Insurance | Login");
+    this.titleService.setTitle('Life Insurance | Login');
   }
 
   ngOnInit() { }
@@ -34,27 +34,27 @@ export class LoginComponent implements OnInit {
         response => {
           if (response) {
             this.invalidLogin = false;
-            let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
+            const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
             this.checkIfReturnToShoppingCart(returnUrl);
-            this.router.navigate([returnUrl || '/'])
-          }
-          else
+            const url = this.authService.currentUser.role.includes('ROLE_ADMIN') ? '/admin' : '/';
+            this.router.navigate([returnUrl ||  url]);
+          } else
             this.invalidLogin = true;
         });
 
   }
 
   private checkIfReturnToShoppingCart(returnUrl) {
-    if (returnUrl == "shopping-cart") {
-      let cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
+    if (returnUrl === 'shopping-cart') {
+      const cartProducts = JSON.parse(localStorage.getItem('cartProducts')) || [];
       cartProducts.forEach((cartProduct, index, productsArray) => {
         this.cartService.post(cartProduct, this.authService.userInfo.id)
           .subscribe(response => {
-            if (response && index == productsArray.length - 1)
-              this.openSnackBar("You add new products to the Cart", "Dismiss")
+            if (response && index === productsArray.length - 1)
+              this.openSnackBar('You add new products to the Cart', 'Dismiss');
           });
       });
-      localStorage.removeItem("cartProducts")
+      localStorage.removeItem('cartProducts');
     }
   }
 

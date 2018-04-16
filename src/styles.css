@@ -15,8 +15,6 @@ html {
 
 body {
   padding-top: 100px;
-  *margin-bottom: 60px;
-  *background-color: rgb(235, 245, 245);
   background-color: #f8f9fa !important;
   overflow-x: hidden;
   font-family: 'Montserrat', sans-serif;
