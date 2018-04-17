@@ -20,6 +20,7 @@ import { PasswordChangeComponent } from './password-change/password-change.compo
 import { NotFoundComponent } from './not-found/not-found.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { AllProductsComponent } from './products/all-products/all-products.component';
+import { UserPoliciesComponent } from './user-policies/user-policies.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -52,6 +53,11 @@ export const routes: Routes = [
     {
         path: 'profile/passwordChange',
         component: PasswordChangeComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'my-policies',
+        component: UserPoliciesComponent,
         canActivate: [AuthGuard]
     },
     {

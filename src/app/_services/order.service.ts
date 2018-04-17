@@ -36,4 +36,10 @@ export class OrderService {
         return this.http.get(this.url, this.options)
             .map(response => response.json());
     }
+
+    getAllByUserId(userId) {
+        this.addHeaders();
+        return this.http.get(this.url + '?userId=' + userId, this.options)
+            .map(response => response.json());
+    }
 }

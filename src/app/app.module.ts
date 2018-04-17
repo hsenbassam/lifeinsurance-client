@@ -43,6 +43,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { SharedModule } from './_shared/shared.module';
 import { PasswordChangeComponent } from './password-change/password-change.component';
 import { AdminUserModule } from './_shared/admin-user/admin-user.module';
+import { UserPoliciesComponent } from './user-policies/user-policies.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { AdminUserModule } from './_shared/admin-user/admin-user.module';
     ScrollToTopDirective,
     NotFoundComponent,
     NoAccessComponent,
-    PasswordChangeComponent
+    PasswordChangeComponent,
+    UserPoliciesComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,53 @@
+<div class="row">
+ 
+  <ng-container *ngFor="let order of orders">
+    <div class="col-md-6">
+      <div class="blog-container">
+  
+        <div class="blog-header">
+          <div [ngClass]="order.type.startsWith('Term') ? 'term-life' : 'whole-life'">
+          </div>
+        </div>
+  
+        <div class="blog-body">
+          <div class="blog-title">
+            <h1>
+              <p>{{order.type}}</p>
+            </h1>
+          </div>
+          <div class="blog-summary">
+            <p>
+              <span class="detail-hearder">Package</span>: {{order.package}}</p>
+            <p>
+              <span class="detail-hearder">Coverage</span>: {{order.coverage}}</p>
+            <p>
+              <span class="detail-hearder">Amount</span>: {{order.amount | currency:'USD':symbol}}</p>
+            <p>
+              <span class="detail-hearder">Premium</span>: {{order.premium | currency:'USD':symbol}}</p>
+          </div>
+          <!-- <div class="blog-tags">
+            <ul>
+              <li>
+                <a href="#">css</a>
+              </li>
+              <li>
+                <a href="#">web design</a>
+              </li>
+              <li>
+                <a href="#">codepen</a>
+              </li>
+              <li>
+                <a href="https://twitter.com/russbeye">twitter</a>
+              </li>
+            </ul>
+          </div> -->
+        </div>
+  
+        <div class="blog-footer">
+        </div>
+  
+      </div>
+    </div>
+  </ng-container>
+
+</div>

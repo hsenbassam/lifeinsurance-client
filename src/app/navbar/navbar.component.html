@@ -43,7 +43,7 @@
         <div class="nav-item dropdown username" dropdown *ngIf="authService.isAuthenticated()">
           <a class="nav-link dropdown-toggle " dropdownToggle>{{authService.userInfo.firstname}} {{authService.userInfo.lastname}}</a>
           <div class="dropdown-menu" *dropdownMenu>
-            <a class="dropdown-item" routerLinkActive="active" routerLink="/my-orders">My Policies</a>
+            <a class="dropdown-item" routerLinkActive="active" routerLink="/my-policies">My Policies</a>
 
             <div role="menuitem" dropdown triggers="mouseover" placement="right" container="body">
               <a dropdownToggle class="dropdown-item dropdown-toggle" (click)="false">My Account

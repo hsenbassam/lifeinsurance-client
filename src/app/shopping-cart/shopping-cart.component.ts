@@ -19,7 +19,7 @@ export class ShoppingCartComponent implements OnInit {
     private cartService: ShoppingCartService,
     public authService: AuthService,
     private snackBar: MatSnackBar) {
-    this.titleService.setTitle("Life Insurance | Shopping Cart");
+    this.titleService.setTitle('Life Insurance | Shopping Cart');
   }
 
   ngOnInit() {
@@ -29,9 +29,8 @@ export class ShoppingCartComponent implements OnInit {
           this.cartProducts = cartProducts ? cartProducts : [];
           this.getTotalPremium();
         });
-    }
-    else {
-      this.cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || []
+    } else {
+      this.cartProducts = JSON.parse(localStorage.getItem('cartProducts')) || [];
       this.getTotalPremium();
     }
   }
@@ -43,22 +42,21 @@ export class ShoppingCartComponent implements OnInit {
     });
   }
   delete(index) {
-    if (!confirm("Are you sure you want to delete this insurance product from the cart?")) return;
+    if (!confirm('Are you sure you want to delete this insurance product from the cart?')) return;
 
-    let product = this.cartProducts[index];
+    const product = this.cartProducts[index];
     this.cartProducts.splice(index, 1);
 
     if (this.authService.isAuthenticated()) {
       this.cartService.delete(product.id)
         .subscribe(
           response => {
-            if (response) this.openSnackBar("You have deleted a product from the cart", "Dismiss")
+            if (response) this.openSnackBar('You have deleted a product from the cart', 'Dismiss');
           }
-        )
-    }
-    else {
-      localStorage.setItem("cartProducts", JSON.stringify(this.cartProducts));
-      this.openSnackBar("You have deleted a product from the cart", "Dismiss")
+        );
+    } else {
+      localStorage.setItem('cartProducts', JSON.stringify(this.cartProducts));
+      this.openSnackBar('You have deleted a product from the cart', 'Dismiss');
     }
 
     this.getTotalPremium();
