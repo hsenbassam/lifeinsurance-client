@@ -33,10 +33,25 @@
   flex: 0 0 200px;
 }
 
+.mat-column-firstname {
+  flex: 0 0 130px;
+}
+.mat-column-lastname {
+  flex: 0 0 130px;
+}
+.mat-column-datecreated {
+  flex: 0 0 130px;
+}
+
+
 mat-row:nth-child(odd) {
   background-color: #F6F6F6;
 }
 
 mat-row:hover {
   background-color: #dee2e6
+}
+
+mat-cell {
+  font-weight: 800
 }

@@ -12,7 +12,7 @@ export class AdminOrdersComponent implements OnInit {
 
   orders: Order[];
 
-  displayedColumns = ['id', 'type', 'coverage', 'package', 'amount', 'owner', 'premium'];
+  displayedColumns = ['timestamp', 'type', 'coverage', 'amount', 'owner', 'premium'];
 
   dataSource = new MatTableDataSource();
 

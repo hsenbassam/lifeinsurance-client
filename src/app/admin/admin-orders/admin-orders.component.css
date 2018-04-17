@@ -21,23 +21,28 @@
   width: 100%;
 }
 
-.mat-column-coverage {
-  flex: 0 0 200px;
+.mat-column-timestamp {
+  flex: 0 0 150px;
 }
 
-.mat-column-id {
-  flex: 0 0 40px;
+.timestamp {
+  color: #e74c3c
 }
-
-.mat-column-package {
+.mat-column-amount {
   flex: 0 0 100px;
 }
 
 .mat-column-type {
-  flex: 0 0 180px;
+  flex: 0 0 200px;
 }
 .mat-column-premium {
   flex: 0 0 100px;
+}
+.mat-column-owner {
+  flex: 0 0 130px;
+}
+.mat-column-coverage {
+  flex: 0 0 170px;
 }
 
 mat-row:nth-child(odd) {
@@ -46,4 +51,8 @@ mat-row:nth-child(odd) {
 
 mat-row:hover {
   background-color: #dee2e6
+}
+
+mat-cell {
+  font-weight: 800
 }

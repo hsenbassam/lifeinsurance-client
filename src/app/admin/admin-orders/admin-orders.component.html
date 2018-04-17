@@ -13,28 +13,22 @@
 
   <mat-table #table [dataSource]="dataSource" matSort>
 
-    <!-- Order Id Column -->
-    <ng-container matColumnDef="id">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> # </mat-header-cell>
-      <mat-cell *matCellDef="let index = index"> {{index +  1}} </mat-cell>
+    <!-- Timestamp Column -->
+    <ng-container matColumnDef="timestamp">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Bought At </mat-header-cell>
+      <mat-cell *matCellDef="let order"> <span class="timestamp">{{order.timestamp}}</span> </mat-cell>
     </ng-container>
 
     <!-- Type Column -->
     <ng-container matColumnDef="type">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Type </mat-header-cell>
-      <mat-cell *matCellDef="let order"> {{order.type}} </mat-cell>
+      <mat-cell *matCellDef="let order"> {{order.type}} | {{order.package}} </mat-cell>
     </ng-container>
 
     <!-- Coverage Column -->
     <ng-container matColumnDef="coverage">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Coverage </mat-header-cell>
       <mat-cell *matCellDef="let order"> {{order.coverage}} </mat-cell>
-    </ng-container>
-
-    <!-- Package Column -->
-    <ng-container matColumnDef="package">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Package </mat-header-cell>
-      <mat-cell *matCellDef="let order"> {{order.package}} </mat-cell>
     </ng-container>
 
     <!-- Amount Column -->

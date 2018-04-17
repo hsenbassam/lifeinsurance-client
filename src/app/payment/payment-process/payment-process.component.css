@@ -2,3 +2,7 @@
   background: linear-gradient(rgba(255, 255, 255, .8), rgba(255, 255, 255, .8)), 
               url(/assets/payment.jpg) no-repeat;
 }
+
+.complete {
+  margin-bottom: 10px
+}

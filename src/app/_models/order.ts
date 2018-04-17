@@ -2,6 +2,7 @@
 export class Order {
 
     id: number;
+    timestamp: Date;
     firstname: string;
     lastname: string;
     email: string;
