@@ -1,39 +1,14 @@
 
 .blog-container {
-  background: #fff;
+  *background: #fff;
+
+  background: linear-gradient(rgba(255, 255, 255, .6), rgba(255, 255, 255, .6)),
+              url(/assets/header1.jpg) no-repeat bottom center;
+  background-size: cover;
   border-radius: 5px;
   box-shadow: hsla(0, 0, 0, .2) 0 4px 2px -2px;
   font-weight: 100;
-  margin-bottom:20px
-}
-
-/* @media screen and (min-width: 480px) {
-  .blog-container {
-    width: 28rem;
-  }
-}
-
-@media screen and (min-width: 767px) {
-    .blog-container {
-        width: 40rem;
-      }
-}
-
-@media screen and (min-width: 959px) {
-    .blog-container {
-        width: 50rem;
-      }
-} */
-
-.blog-container a {
-  color: #4d4dff;
-  text-decoration: none;
-  transition: .25s ease;
-
-}
-.blog-container a:hover {
-    border-color: #ff4d4d;
-      color: #ff4d4d;
+  margin-bottom:20px;
 }
 
 

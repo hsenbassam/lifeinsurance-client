@@ -25,22 +25,16 @@
             <p>
               <span class="detail-hearder">Premium</span>: {{order.premium | currency:'USD':symbol}}</p>
           </div>
-          <!-- <div class="blog-tags">
+          <div class="blog-tags">
             <ul>
-              <li>
-                <a href="#">css</a>
+              <li *ngIf="order.type.startsWith('Term')">
+                <a routerLink="/products/term-life">View Term Life Insurance Product</a>
               </li>
-              <li>
-                <a href="#">web design</a>
-              </li>
-              <li>
-                <a href="#">codepen</a>
-              </li>
-              <li>
-                <a href="https://twitter.com/russbeye">twitter</a>
+              <li *ngIf="order.type.startsWith('Whole')">
+                <a routerLink="/products/whole-life">View Whole Life Insurance Product</a>
               </li>
             </ul>
-          </div> -->
+          </div>
         </div>
   
         <div class="blog-footer">
