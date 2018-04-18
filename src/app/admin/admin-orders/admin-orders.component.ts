@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
+import { MatTableDataSource, MatPaginator, MatSort, MatSortable } from '@angular/material';
 import { Order } from '../../_models/order';
 import { OrderService } from '../../_services/order.service';
 
@@ -22,6 +22,8 @@ export class AdminOrdersComponent implements OnInit {
   constructor(private orderService: OrderService) { }
 
   ngOnInit() {
+
+    this.sort.sort(<MatSortable>{ id: 'timestamp', start: 'desc' });
 
     this.orderService.getAll()
       .subscribe(
