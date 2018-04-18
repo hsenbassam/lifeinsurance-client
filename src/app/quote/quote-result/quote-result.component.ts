@@ -31,7 +31,7 @@ export class QuoteResultComponent implements OnInit {
     private snackBar: MatSnackBar) {
 
     this.quote = new Quote();
-    this.cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
+    this.cartProducts = JSON.parse(localStorage.getItem('cartProducts')) || [];
   }
 
   ngOnInit() { }
@@ -41,20 +41,20 @@ export class QuoteResultComponent implements OnInit {
 
     if (!this.authService.isAuthenticated()) {
       this.addProductToLocalStorage(package_type);
-      this.openSnackBar("You are added new product to the Cart", "Dismiss")
+      this.openSnackBar('You are added new product to the Cart', 'Dismiss');
       return;
     }
-    let cartProduct = this.generateProduct(package_type);
-    let userId = this.authService.userInfo.id;
+    const cartProduct = this.generateProduct(package_type);
+    const userId = this.authService.userInfo.id;
     this.cartService.post(cartProduct, userId)
-      .subscribe(response => response ? this.openSnackBar("You add a new product to the Cart", "Dismiss")
-        : this.openSnackBar("An Error Occured in Adding the Product to the Cart", "Dismiss"));
+      .subscribe(response => response ? this.openSnackBar('You add a new product to the Cart', 'Dismiss')
+        : this.openSnackBar('An Error Occured in Adding the Product to the Cart', 'Dismiss'));
   }
 
   private addProductToLocalStorage(package_type) {
-    let cartProduct = this.generateProduct(package_type);
+    const cartProduct = this.generateProduct(package_type);
     this.cartProducts.push(cartProduct);
-    localStorage.setItem("cartProducts", JSON.stringify(this.cartProducts));
+    localStorage.setItem('cartProducts', JSON.stringify(this.cartProducts));
   }
 
   private openSnackBar(message: string, action: string) {
@@ -69,34 +69,34 @@ export class QuoteResultComponent implements OnInit {
     let premium;
 
     switch (package_type) {
-      case "basic":
-        p_type = "Basic";
+      case 'basic':
+        p_type = 'Basic';
         premium = this.rates.basic_monthly;
         break;
-      case "plus":
-        p_type = "Plus";
+      case 'plus':
+        p_type = 'Plus';
         premium = this.rates.plus_monthly;
         break;
-      case "ultra":
-        p_type = "Ultra";
+      case 'ultra':
+        p_type = 'Ultra';
         premium = this.rates.ultra_monthly;
         break;
     }
 
-    let cartProduct = {
-      "type": this.typeFormat(this.type),
-      "package": p_type,
-      "amount": this.quote.amount,
-      "coverage": this.quote.coverage ? this.quote.coverage + "-Year Guarenteed Level Term" : "Lifetime Insurance",
-      "premium": premium
+    const cartProduct = {
+      'type': this.typeFormat(this.type),
+      'package': p_type,
+      'amount': this.quote.amount,
+      'coverage': this.quote.coverage ? this.quote.coverage + '-Year Guarenteed Level Term' : 'Lifetime Insurance',
+      'premium': premium
     }
     return cartProduct;
 
   }
 
   private typeFormat(type) {
-    let str = type.split("-").join(" ");
-    return str.replace(/\w\S*/g, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); }) + " Insurance";
+    const str = type.split('-').join(' ');
+    return str.replace(/\w\S*/g, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); }) + ' Insurance';
   }
 
 

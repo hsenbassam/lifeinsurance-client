@@ -9,6 +9,7 @@ import { Rates } from '../_models/rates';
 import { WholeLifeSimulatorService } from '../_services/wholelife-simulator.service';
 import { Observable } from 'rxjs/Rx';
 import { Title } from '@angular/platform-browser';
+import { UniversalLifeSimulatorService } from '../_services/universallife-simulator.service';
 
 @Component({
   selector: 'quote',
@@ -35,7 +36,8 @@ export class QuoteComponent implements OnInit {
     private _router: Router,
     private _route: ActivatedRoute,
     private termLifeService: TermLifeSimulatorService,
-    private wholeLifeService: WholeLifeSimulatorService) {
+    private wholeLifeService: WholeLifeSimulatorService,
+    private universalLifeService: UniversalLifeSimulatorService) {
 
     this.titleService.setTitle('Life Insurance | Quote');
 
@@ -62,7 +64,7 @@ export class QuoteComponent implements OnInit {
     if (this.type === 'whole-life')
       this.service = this.wholeLifeService.post(form.value);
     if (this.type === 'universal-life')
-      this.service = this.wholeLifeService.post(form.value);
+      this.service = this.universalLifeService.post(form.value);
 
     this.service.subscribe(
       rates => {

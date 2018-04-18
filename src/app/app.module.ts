@@ -44,6 +44,7 @@ import { SharedModule } from './_shared/shared.module';
 import { PasswordChangeComponent } from './password-change/password-change.component';
 import { AdminUserModule } from './_shared/admin-user/admin-user.module';
 import { UserPoliciesComponent } from './user-policies/user-policies.component';
+import { UniversalLifeSimulatorService } from './_services/universallife-simulator.service';
 
 @NgModule({
   declarations: [
@@ -93,6 +94,7 @@ import { UserPoliciesComponent } from './user-policies/user-policies.component';
     UserService,
     TermLifeSimulatorService,
     WholeLifeSimulatorService,
+    UniversalLifeSimulatorService,
     OrderService,
     RoleService
   ],

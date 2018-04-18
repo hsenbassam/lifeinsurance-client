@@ -42,6 +42,9 @@
 .mat-column-datecreated {
   flex: 0 0 130px;
 }
+.mat-column-edit {
+  flex: 0 0 100px;
+}
 
 
 mat-row:nth-child(odd) {
