@@ -11,3 +11,10 @@ footer.footer {
 a {
   color: #17a2b8 !important;
 }
+
+@media (max-width: 991px) {
+  footer.footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

@@ -10,6 +10,7 @@ import { SharedModule } from '../_shared/shared.module';
 import { ProductsRoutingModule } from './products-routing.module';
 import { ProductsComponent } from './products.component';
 import { AllProductsComponent } from './all-products/all-products.component';
+import { UniversalLifeProductComponent } from './universal-life-product/universal-life-product.component';
 
 @NgModule({
     imports: [
@@ -23,7 +24,8 @@ import { AllProductsComponent } from './all-products/all-products.component';
         ProductCardComponent,
         ProductItemComponent,
         TermLifeProductComponent,
-        WholeLifeProductComponent
+        WholeLifeProductComponent,
+        UniversalLifeProductComponent
     ],
     exports: [
         ProductsComponent,
@@ -31,7 +33,8 @@ import { AllProductsComponent } from './all-products/all-products.component';
         ProductCardComponent,
         ProductItemComponent,
         TermLifeProductComponent,
-        WholeLifeProductComponent
+        WholeLifeProductComponent,
+        UniversalLifeProductComponent
     ]
 })
 export class ProductsModule { }

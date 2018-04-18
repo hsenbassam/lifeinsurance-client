@@ -1,6 +1,7 @@
 <form class="col-md-12 quote" *ngIf="!completed" (ngSubmit)="getQuoteProcess(f)" #f="ngForm" ngNativeValidate>
   <h2 *ngIf="type == 'term-life'" >Term Life Insurance Simulator</h2>
   <h2 *ngIf="type == 'whole-life'" >Whole Life Insurance Simulator</h2>
+  <h2 *ngIf="type == 'universal-life'" >Universal Life Insurance Simulator</h2>
   <hr>
   <!-- <div class="progress">
     <div class="progress-bar progress-bar-striped bg-success active progress-bar-animated" role="progressbar" aria-valuemin="0"
@@ -76,7 +77,7 @@
             <label for="coverage">Coverage Type</label>
             <div class="input-group">
 
-              <div *ngIf="type =='term-life'; else whole" style="width:100%">
+              <div *ngIf="type =='term-life'; else permanent" style="width:100%">
               <select [ngModel]="userQuote.coverage" #coverage="ngModel" name="coverage" class="form-control" id="coverage" required>
                 <option disabled [ngValue]="undefined" hidden selected>Choose your Coverage Type</option>
                 <option [ngValue]="35">35-Year Guarenteed Level Term</option>
@@ -86,7 +87,7 @@
                 <option [ngValue]="15">15-Year Guarenteed Level Term</option>
               </select>
             </div>
-            <ng-template #whole >
+            <ng-template #permanent >
               <p class="form-control">Lifetime Coverage</p>
             </ng-template>
 
@@ -184,6 +185,9 @@
           <input type="number" class="form-control" min="0" name="income" [ngModel]="userQuote.income" required #income="ngModel" name="income"
             placeholder="Monthly Income" />
         </div>
+        <div class="alert alert-warning" role="alert" style="margin-top:10px">
+            <strong>If you need to provide more information, Please visit us at one of our desks to fill a detailed application.</strong>
+          </div>
         <button type="button" name="previous" mat-button matStepperPrevious class="previous btn btn-default">Previous</button>
         <button class="btn btn-success" type="submit" [disabled]="!f.valid">Continue</button>
 

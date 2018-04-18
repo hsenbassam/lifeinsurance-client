@@ -5,6 +5,7 @@ import { ProductsComponent } from './products.component';
 import { AllProductsComponent } from './all-products/all-products.component';
 import { TermLifeProductComponent } from './term-life-product/term-life-product.component';
 import { WholeLifeProductComponent } from './whole-life-product/whole-life-product.component';
+import { UniversalLifeProductComponent } from './universal-life-product/universal-life-product.component';
 
 const routes: Routes = [
     {
@@ -22,6 +23,10 @@ const routes: Routes = [
             {
                 path: 'whole-life',
                 component: WholeLifeProductComponent
+            },
+            {
+                path: 'universal-life',
+                component: UniversalLifeProductComponent
             },
         ]
     }

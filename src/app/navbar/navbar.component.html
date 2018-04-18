@@ -22,6 +22,9 @@
               <li>
                 <a class="dropdown-item" routerLinkActive="active" routerLink="/products/whole-life">Whole Life Product</a>
               </li>
+              <li>
+                <a class="dropdown-item" routerLinkActive="active" routerLink="/products/universal-life">Universal Life Product</a>
+              </li>
             </ul>
           </div>
         </div>
@@ -39,7 +42,7 @@
         <div class="nav-item login" *ngIf="!authService.isAuthenticated()">
           <a class="nav-link" routerLinkActive="active" routerLink="/login">Login</a>
         </div>
-        
+
         <div class="nav-item dropdown username" dropdown *ngIf="authService.isAuthenticated()">
           <a class="nav-link dropdown-toggle " dropdownToggle>{{authService.userInfo.firstname}} {{authService.userInfo.lastname}}</a>
           <div class="dropdown-menu" *dropdownMenu>

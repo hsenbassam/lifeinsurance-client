@@ -61,6 +61,8 @@ export class QuoteComponent implements OnInit {
       this.service = this.termLifeService.post(form.value);
     if (this.type === 'whole-life')
       this.service = this.wholeLifeService.post(form.value);
+    if (this.type === 'universal-life')
+      this.service = this.wholeLifeService.post(form.value);
 
     this.service.subscribe(
       rates => {
