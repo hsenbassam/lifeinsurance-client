@@ -21,10 +21,12 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { AllProductsComponent } from './products/all-products/all-products.component';
 import { UserPoliciesComponent } from './user-policies/user-policies.component';
+import { ContactComponent } from './contact/contact.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'about', component: AboutComponent },
+    { path: 'contact', component: ContactComponent },
     {
         path: 'products',
         loadChildren: './products/products.module#ProductsModule'

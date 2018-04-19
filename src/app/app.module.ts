@@ -45,6 +45,7 @@ import { PasswordChangeComponent } from './password-change/password-change.compo
 import { AdminUserModule } from './_shared/admin-user/admin-user.module';
 import { UserPoliciesComponent } from './user-policies/user-policies.component';
 import { UniversalLifeSimulatorService } from './_services/universallife-simulator.service';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { UniversalLifeSimulatorService } from './_services/universallife-simulat
     NotFoundComponent,
     NoAccessComponent,
     PasswordChangeComponent,
-    UserPoliciesComponent
+    UserPoliciesComponent,
+    ContactComponent
   ],
   imports: [
     CommonModule,
