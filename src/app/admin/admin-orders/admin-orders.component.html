@@ -16,7 +16,7 @@
     <!-- Timestamp Column -->
     <ng-container matColumnDef="timestamp">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Bought At </mat-header-cell>
-      <mat-cell *matCellDef="let order"> <span class="timestamp">{{order.timestamp}}</span> </mat-cell>
+      <mat-cell *matCellDef="let order"> <span class="timestamp">{{order.timestamp | date : 'yyyy-MM-dd hh:mm:ss' : '+6'}}</span> </mat-cell>
     </ng-container>
 
     <!-- Type Column -->
