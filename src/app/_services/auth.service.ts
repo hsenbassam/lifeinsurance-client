@@ -9,7 +9,7 @@ export class AuthService {
 
     private headers = new Headers({ 'Content-Type': 'application/json' });
     private options = new RequestOptions({ headers: this.headers });
-    private url = 'http://localhost:8080/lifeinsurance/';
+    private url = 'http://18.216.136.136:8080/lifeinsurance/';
 
     constructor(private http: Http, private jwtHelper: JwtHelperService) { }
 
