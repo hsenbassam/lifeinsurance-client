@@ -3,13 +3,14 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 import { DataService } from './data.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import 'rxjs/add/operator/map';
+import { LOCALHOST } from '../_shared/constants';
 
 @Injectable()
 export class AuthService {
 
     private headers = new Headers({ 'Content-Type': 'application/json' });
     private options = new RequestOptions({ headers: this.headers });
-    private url = 'http://18.216.136.136:8080/lifeinsurance/';
+    private url = LOCALHOST;
 
     constructor(private http: Http, private jwtHelper: JwtHelperService) { }
 

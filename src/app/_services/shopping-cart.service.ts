@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
+import { LOCALHOST } from '../_shared/constants';
 
 
 @Injectable()
@@ -11,7 +12,7 @@ export class ShoppingCartService {
 
     private headers = new Headers;
     private options = new RequestOptions;
-    private url = 'http://localhost:8080/lifeinsurance/api/shopping-cart';
+    private url = LOCALHOST + 'api/shopping-cart';
 
     constructor(private http: Http) {
     }

@@ -5,6 +5,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 
+import { LOCALHOST } from '../_shared/constants';
 
 
 @Injectable()
@@ -15,7 +16,7 @@ export class PaypalPaymentService {
         'Authorization': 'Bearer ' + localStorage.getItem('token')
     });
     private options = new RequestOptions({ headers: this.headers });
-    private url = 'http://localhost:8080/lifeinsurance/api/paypal/';
+    private url = LOCALHOST + 'api/paypal/';
 
     constructor(private http: Http) {
     }
