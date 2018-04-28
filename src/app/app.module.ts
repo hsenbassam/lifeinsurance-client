@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
@@ -84,6 +84,7 @@ import { ContactComponent } from './contact/contact.component';
     }),
     HttpClientModule,
     RouterModule.forRoot(routes)
+    // , { useHash: true }
   ],
   providers: [
     RegisterService,
