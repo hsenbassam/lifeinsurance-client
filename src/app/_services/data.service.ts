@@ -50,6 +50,6 @@ export class DataService {
         this.addHeaders();
         return this.http.delete(this.url + '/' + id, this.options)
             .map(response => response.arrayBuffer().byteLength === 0);
-    } 
+    }
 
 }
