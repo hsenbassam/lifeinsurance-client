@@ -1,8 +1,6 @@
 # Stage 0, based on Node.js, to build and compile Angular
 FROM node:8.6 as node
 
-LABEL maintainer "hsenbassam (husseinbassam95@gmail.com)"
-
 WORKDIR /app
 
 COPY package.json /app/
