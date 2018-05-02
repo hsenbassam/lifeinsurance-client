@@ -112,66 +112,7 @@
           Payment Method: <strong>PayPal</strong>
           <img class="img-responsive " style="width:50%; vertical-align:middle" src="http://www.prepbootstrap.com/Content/images/shared/misc/creditcardicons.png">
         </div>
-        <!-- <div class="d-block my-3">
-          
-          <div class="custom-control custom-radio">
-            <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
-            <label class="custom-control-label" for="credit">Credit card</label>
-          </div>
-          <div class="custom-control custom-radio">
-            <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
-            <label class="custom-control-label" for="debit">Debit card</label>
-          </div>
-          <div class="custom-control custom-radio">
-            <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
-            <label class="custom-control-label" for="paypal">Paypal</label>
-          </div>
-        </div> -->
-        <!-- <div class="row">
-          <div class="col-md-6 mb-3">
-            <label for="cc-name">Name on card</label>
-            <input type="text" class="form-control" id="cc-name"
-            [(ngModel)]="checkout.ccname" #ccname="ngModel" name="ccname" 
-             required [ngClass]="{'is-invalid': !ccname.valid && ccname.touched}">
-            <small class="text-muted">Full name as displayed on card</small>
-            <div class="invalid-feedback">
-              Name on card is required
-            </div>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="cc-number">Credit card number</label>
-            <input type="text" class="form-control" id="cc-number"
-            [(ngModel)]="checkout.ccnumber" #ccnumber="ngModel" name="ccnumber" 
-            required [ngClass]="{'is-invalid': !ccnumber.valid && ccnumber.touched}">
-            <div class="invalid-feedback">
-              Credit card number is required
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-3 mb-3">
-            <label for="cc-expiration">Expiration</label>
-            <input type="text" class="form-control" id="cc-expiration" placeholder="MM/YY"
-            [(ngModel)]="checkout.ccexpiration" #ccexpiration="ngModel" name="ccexpiration" 
-            required [ngClass]="{'is-invalid': !ccexpiration.valid && ccexpiration.touched}">
-            <div class="invalid-feedback">
-              Expiration date required
-            </div>
-          </div>
-          <div class="col-md-3 mb-3">
-            <label for="cc-cccvv">CVV / CVC *</label>
-            <input type="number" class="form-control" id="cc-cvv" [pattern]="'[0-9]\{3\}'"
-            [(ngModel)]="checkout.cccvv" #cccvv="ngModel" name="cccvv" max="999" 
-            required [ngClass]="{'is-invalid': !cccvv.valid && cccvv.touched}">
-            <div class="invalid-feedback">
-              Security code required
-            </div>
-          </div>
-          <div class="col">
-            <small class="text-muted">* CVV or CVC is the card security code, unique three digits number on the back of your card separate from its
-              number.</small>
-          </div>
-        </div> -->
+ 
         <hr class="mb-4">
         <button class="btn btn-info btn-lg btn-block" [disabled]="!f.valid || totalPremium == 0" type="submit">Continue to Checkout &nbsp; <i class="fa fa-lock fa-lg"></i></button>
       </form>
