@@ -11,6 +11,8 @@ COPY ./ /app/
 
 ARG env=prod
 
+RUN npm cache clear 
+
 RUN npm run build -- --prod --environment $env
 
 # Stage 1, based on Nginx, to have only the compiled app, ready for production with Nginx
