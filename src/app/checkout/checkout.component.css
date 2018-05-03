@@ -6,3 +6,8 @@
 
 .lh-condensed { line-height: 1.25; }
 
+:host ::ng-deep  .mat-radio-label-content{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+  }
+

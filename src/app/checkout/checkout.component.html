@@ -78,20 +78,6 @@
 
 
 
-
-        <div class="mb-3">
-            <label for="paypalemail">PayPal Email</label>
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text">@</span>
-              </div>
-              <input type="email" [(ngModel)]="checkout.paypalemail" #paypalemail="ngModel" name="paypalemail" class="form-control" id="paypalemail" placeholder="youpaypal@example.com"
-                required [ngClass]="{'is-invalid': !paypalemail.valid && paypalemail.touched}">
-              <div class="invalid-feedback">
-                Your email is required and should be well formated.
-              </div>
-            </div>
-          </div>
   
         <div class="mb-3">
           <label for="phone">Phone Number</label>
@@ -109,8 +95,19 @@
         <h4 class="mb-3">Payment</h4>
         
         <div class="display-td"> 
-          Payment Method: <strong>PayPal</strong>
-          <img class="img-responsive " style="width:50%; vertical-align:middle" src="http://www.prepbootstrap.com/Content/images/shared/misc/creditcardicons.png">
+          Payment Method:
+          <!-- <img class="img-responsive " style="width:50%; vertical-align:middle" src="http://www.prepbootstrap.com/Content/images/shared/misc/creditcardicons.png">
+        -->
+        
+        <mat-radio-group name="payment" [ngModel]="checkout.payment" #payment="ngModel">
+          <div class="form-check">
+            <mat-radio-button checked="checked" required value="paypal" ngDefaultControl id="paypal">Paypal</mat-radio-button>
+          </div>
+          <div class="form-check">
+            <mat-radio-button value="credit" name="credit" disabled id="credit" ngDefaultControl>Credit Card <small>Not Available Now</small></mat-radio-button>
+          </div>
+        </mat-radio-group>
+       
         </div>
  
         <hr class="mb-4">
