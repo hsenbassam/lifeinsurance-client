@@ -7,7 +7,6 @@ export class Checkout {
     payment: string;
 
     constructor() {
-
         this.payment = 'paypal';
      }
 }

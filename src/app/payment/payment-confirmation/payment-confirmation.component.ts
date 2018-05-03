@@ -52,6 +52,19 @@ export class PaymentConfirmationComponent implements OnInit {
         });
 
   }
+
+  creditCheckout() {
+    if (!confirm('You are redirecting to payment. Would you like to continue?')) return;
+
+    const finalPremium = (this.totalPremium + this.redeem).toFixed(2);
+    // this.paypalService.makePayment(finalPremium)
+    //   .subscribe(
+    //     response => {
+    //       localStorage.setItem('redirect_url', response.redirect_url);
+    //       this._router.navigate(['payment/process']);
+    //     });
+
+  }
   getTotalPremium() {
     this.totalPremium = 0;
     this.cartProducts.forEach(item => {

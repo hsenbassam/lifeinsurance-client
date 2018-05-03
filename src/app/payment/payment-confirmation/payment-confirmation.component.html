@@ -133,8 +133,11 @@
   <div class="row d-print-none">
     <div class="col-md-12">
   
-      <button class="pull-right btn btn-info btn-lg btn-block" style="max-width:50%" [disabled]="totalPremium == 0"
-      (click)="paypalCheckout()" alt="Check out with PayPal">Pay  &nbsp; <i class="fa fa-lock fa-lg"></i></button>
+      <button *ngIf="invoiceHeaders.payment == 'paypal'" class="pull-right btn btn-info btn-lg btn-block" style="max-width:50%" [disabled]="totalPremium == 0"
+      (click)="paypalCheckout()" alt="Check out with Credit Card">Pay  &nbsp; <i class="fa fa-lock fa-lg"></i></button>
+
+      <button *ngIf="invoiceHeaders.payment == 'credit'" class="pull-right btn btn-info btn-lg btn-block" style="max-width:50%" [disabled]="totalPremium == 0"
+      (click)="creditCheckout()" alt="Check out with PayPal">Pay  &nbsp; <i class="fa fa-lock fa-lg"></i></button>
     </div>
   </div>
 </div>

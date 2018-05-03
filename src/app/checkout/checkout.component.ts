@@ -46,9 +46,9 @@ export class CheckoutComponent implements OnInit {
   }
 
   checkoutProcess(form) {
-    console.log(form);
     localStorage.setItem('invoice-header', JSON.stringify(form));
     this._router.navigate(['payment/confirm']);
   }
+
 
 }
