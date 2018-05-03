@@ -5,13 +5,13 @@ WORKDIR /app
 
 COPY package.json /app/
 
+RUN npm cache clear 
+
 RUN npm install
 
 COPY ./ /app/
 
 ARG env=prod
-
-RUN npm cache clear 
 
 RUN npm run build -- --prod --environment $env
 
