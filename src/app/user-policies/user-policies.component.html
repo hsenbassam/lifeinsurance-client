@@ -38,6 +38,9 @@
               <li *ngIf="order.type.startsWith('Whole')">
                 <a routerLink="/products/whole-life">View Whole Life Insurance Product</a>
               </li>
+               <li *ngIf="order.type.startsWith('Universal')">
+                <a routerLink="/products/universal-life">View Universal Life Insurance Product</a>
+              </li>
             </ul>
           </div>
         </div>
