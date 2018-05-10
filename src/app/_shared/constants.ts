@@ -1,1 +1,1 @@
-export const LOCALHOST = 'http://18.219.57.222:8080/lifeinsurance/';
+export const LOCALHOST = 'http://localhost:8080/lifeinsurance/';

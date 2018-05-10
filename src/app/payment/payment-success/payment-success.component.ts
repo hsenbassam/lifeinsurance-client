@@ -22,7 +22,6 @@ export class PaymentSuccessComponent implements OnInit, OnDestroy {
     private snackBar: MatSnackBar) {
 
     this.titleService.setTitle('Life Insurance | Payment Success');
-
     this.paymentResponse = JSON.parse(localStorage.getItem('paymentResponse')) || {};
     localStorage.removeItem('redirect_url');
     localStorage.removeItem('invoice-header');
