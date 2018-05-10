@@ -11,6 +11,13 @@ footer.footer {
 a {
   color: #17a2b8 !important;
 }
+.logo {
+  width: 130px
+}
+.logo {
+  width: 130px
+}
+
 
 @media (max-width: 991px) {
   footer.footer {
