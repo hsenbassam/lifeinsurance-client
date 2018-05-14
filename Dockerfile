@@ -1,17 +1,21 @@
-# Stage 0, based on Node.js, to build and compile Angular
-FROM node:9.11-slim as node
 
-WORKDIR /app
+# We label our stage as 'builder'
+FROM node:8-alpine as builder
 
-COPY package.json /app/
+COPY package.json package-lock.json ./
 
-RUN npm install
+RUN npm set progress=false && npm config set depth 0 && npm cache clean --force
 
-COPY ./ /app/
+## Storing node modules on a separate layer will prevent unnecessary npm installs at each build
+RUN npm i && mkdir /ng-app && cp -R ./node_modules ./ng-app
 
-ARG env=prod
+WORKDIR /ng-app
 
-RUN npm run build -- --prod --environment $env
+COPY . .
+
+## Build the angular app in production mode and store the artifacts in dist folder
+RUN $(npm bin)/ng build --prod --build-optimizer
+
 
 # Stage 1, based on Nginx, to have only the compiled app, ready for production with Nginx
 FROM nginx:1.13
