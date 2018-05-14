@@ -1,6 +1,6 @@
 
 # We label our stage as 'builder'
-FROM node:8-alpine as builder
+FROM node:6-alpine as builder
 
 COPY package.json package-lock.json ./
 
