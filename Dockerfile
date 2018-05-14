@@ -1,11 +1,11 @@
 # Stage 0, based on Node.js, to build and compile Angular
-FROM node:8.11-slim as node
+FROM node:9.11-slim as node
 
 WORKDIR /app
 
 COPY package.json /app/
 
-RUN npm install --no-bin-links
+RUN npm install
 
 COPY ./ /app/
 
