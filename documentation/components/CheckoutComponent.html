@@ -1,0 +1,849 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>lifeinsurance-client documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">lifeinsurance-client documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>CheckoutComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/checkout/checkout.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-checkout</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>checkout.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./checkout.component.html</code></td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#cartProducts">cartProducts</a>
+                            </li>
+                            <li>
+                                <a href="#checkout">checkout</a>
+                            </li>
+                            <li>
+                                <a href="#countrySelected">countrySelected</a>
+                            </li>
+                            <li>
+                                <a href="#totalPremium">totalPremium</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#checkoutProcess">checkoutProcess</a>
+                            </li>
+                            <li>
+                                <a href="#getTotalPremium">getTotalPremium</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(titleService: <a href="https://angular.io/api/platform-browser/Title" target="_blank">Title</a>, _router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, cartService: <a href="../injectables/ShoppingCartService.html">ShoppingCartService</a>, authService: <a href="../injectables/AuthService.html">AuthService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/checkout/checkout.component.ts:18</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>titleService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/platform-browser/Title" target="_blank" >Title</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_router</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>cartService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/ShoppingCartService.html" target="_self" >ShoppingCartService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>authService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="checkoutProcess"></a>
+                        <span class="name">
+                            <b>
+                            checkoutProcess
+                            </b>
+                            <a href="#checkoutProcess"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>checkoutProcess(form: )</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/checkout/checkout.component.ts:48</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>form</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getTotalPremium"></a>
+                        <span class="name">
+                            <b>
+                            getTotalPremium
+                            </b>
+                            <a href="#getTotalPremium"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getTotalPremium()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/checkout/checkout.component.ts:41</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ngOnInit"></a>
+                        <span class="name">
+                            <b>
+                            ngOnInit
+                            </b>
+                            <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>ngOnInit()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/checkout/checkout.component.ts:33</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="cartProducts"></a>
+                        <span class="name">
+                            <b>
+                            cartProducts
+                            </b>
+                            <a href="#cartProducts"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>cartProducts:     <code>[]</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/checkout/checkout.component.ts:16</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="checkout"></a>
+                        <span class="name">
+                            <b>
+                            checkout
+                            </b>
+                            <a href="#checkout"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>checkout:     <code><a href="../classes/Checkout.html" target="_self" >Checkout</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../classes/Checkout.html" target="_self" >Checkout</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/checkout/checkout.component.ts:15</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="countrySelected"></a>
+                        <span class="name">
+                            <b>
+                            countrySelected
+                            </b>
+                            <a href="#countrySelected"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>countrySelected:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/checkout/checkout.component.ts:18</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="totalPremium"></a>
+                        <span class="name">
+                            <b>
+                            totalPremium
+                            </b>
+                            <a href="#totalPremium"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>totalPremium:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/checkout/checkout.component.ts:17</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { Checkout } from &#x27;../_models/checkout&#x27;;
+import { ShoppingCartService } from &#x27;../_services/shopping-cart.service&#x27;;
+import { AuthService } from &#x27;../_services/auth.service&#x27;;
+import { Title } from &#x27;@angular/platform-browser&#x27;;
+
+@Component({
+  selector: &#x27;app-checkout&#x27;,
+  templateUrl: &#x27;./checkout.component.html&#x27;,
+  styleUrls: [&#x27;./checkout.component.css&#x27;]
+})
+export class CheckoutComponent implements OnInit {
+
+  checkout: Checkout;
+  cartProducts &#x3D; [];
+  totalPremium: number;
+  countrySelected: string;
+
+
+  constructor(
+    private titleService: Title,
+    private _router: Router,
+    private cartService: ShoppingCartService,
+    private authService: AuthService) {
+
+    this.titleService.setTitle(&#x27;Life Insurance | Checkout&#x27;);
+
+    this.checkout &#x3D; new Checkout();
+
+  }
+
+  ngOnInit() {
+    this.cartService.getAll(this.authService.userInfo.id)
+      .subscribe(cartProducts &#x3D;&gt; {
+        this.cartProducts &#x3D; cartProducts;
+        cartProducts ? this.getTotalPremium() : this._router.navigate([&#x27;shopping-cart&#x27;]);
+      });
+  }
+
+  getTotalPremium() {
+    this.totalPremium &#x3D; 0;
+    this.cartProducts.forEach(item &#x3D;&gt; {
+      this.totalPremium +&#x3D; item.premium;
+    });
+  }
+
+  checkoutProcess(form) {
+    localStorage.setItem(&#x27;invoice-header&#x27;, JSON.stringify(form));
+    this._router.navigate([&#x27;payment/confirm&#x27;]);
+  }
+
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;h1 class&#x3D;&quot;mt-4 mb-3&quot;&gt;Checkout&lt;/h1&gt;
+
+&lt;div class&#x3D;&quot;row&quot;&gt;
+  &lt;div class&#x3D;&quot;col-md-4 order-md-2 mb-4&quot;&gt;
+    &lt;h4 class&#x3D;&quot;d-flex justify-content-between align-items-center mb-3&quot;&gt;
+      &lt;span class&#x3D;&quot;text-muted&quot;&gt;Your cart&lt;/span&gt;
+      &lt;span class&#x3D;&quot;badge badge-secondary badge-pill&quot;&gt;{{cartProducts.length}}&lt;/span&gt;
+    &lt;/h4&gt;
+    &lt;ul class&#x3D;&quot;list-group mb-3&quot;&gt;
+
+
+      &lt;li class&#x3D;&quot;list-group-item d-flex justify-content-between lh-condensed&quot; *ngFor&#x3D;&quot;let item of cartProducts&quot;&gt;
+        &lt;div&gt;
+          &lt;h6 class&#x3D;&quot;my-0&quot;&gt;{{item.type}}&lt;/h6&gt;
+          &lt;small class&#x3D;&quot;text-muted&quot;&gt;{{item.package}} Package&lt;/small&gt;
+        &lt;/div&gt;
+        &lt;span class&#x3D;&quot;text-muted&quot;&gt;{{item.premium | currency:&#x27;USD&#x27;:&#x27;symbol&#x27;}}&lt;/span&gt;
+      &lt;/li&gt;
+
+      &lt;!-- &lt;li class&#x3D;&quot;list-group-item d-flex justify-content-between bg-light&quot;&gt;
+        &lt;div class&#x3D;&quot;text-success&quot;&gt;
+          &lt;h6 class&#x3D;&quot;my-0&quot;&gt;Promo code&lt;/h6&gt;
+          &lt;small&gt;EXAMPLECODE&lt;/small&gt;
+        &lt;/div&gt;
+        &lt;span class&#x3D;&quot;text-success&quot;&gt;-$5&lt;/span&gt;
+      &lt;/li&gt; --&gt;
+      &lt;li class&#x3D;&quot;list-group-item d-flex justify-content-between&quot;&gt;
+        &lt;span&gt;Total (USD)&lt;/span&gt;
+        &lt;strong&gt;{{totalPremium | currency:&#x27;USD&#x27;:&#x27;symbol&#x27;}}&lt;/strong&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;!-- &lt;form class&#x3D;&quot;card p-2&quot;&gt;
+      &lt;div class&#x3D;&quot;input-group&quot;&gt;
+        &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; placeholder&#x3D;&quot;Promo code&quot;&gt;
+        &lt;div class&#x3D;&quot;input-group-append&quot;&gt;
+          &lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;btn btn-secondary&quot;&gt;Redeem&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/form&gt; --&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;col-md-8 order-md-1 &quot;&gt;
+    &lt;h4 class&#x3D;&quot;mb-3&quot;&gt;Invoice Information&lt;/h4&gt;
+
+    &lt;form class&#x3D;&quot;needs-validation&quot; (ngSubmit)&#x3D;&quot;checkoutProcess(f.value)&quot; #f&#x3D;&quot;ngForm&quot; novalidate&gt;
+      &lt;div class&#x3D;&quot;row&quot;&gt;
+        &lt;div class&#x3D;&quot;col-md-6 mb-3&quot;&gt;
+          &lt;label for&#x3D;&quot;firstname&quot;&gt;First name&lt;/label&gt;
+          &lt;input type&#x3D;&quot;text&quot; [(ngModel)]&#x3D;&quot;checkout.firstname&quot; #firstname&#x3D;&quot;ngModel&quot; name&#x3D;&quot;firstname&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;firstName&quot;
+            placeholder&#x3D;&quot;Firstname&quot; required [ngClass]&#x3D;&quot;{&#x27;is-invalid&#x27;: !firstname.valid &amp;&amp; firstname.touched}&quot;&gt;
+          &lt;div class&#x3D;&quot;invalid-feedback&quot;&gt;
+            Valid first name is required.
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;col-md-6 mb-3&quot;&gt;
+          &lt;label for&#x3D;&quot;lastname&quot;&gt;Last name&lt;/label&gt;
+          &lt;input type&#x3D;&quot;text&quot; [(ngModel)]&#x3D;&quot;checkout.lastname&quot; #lastname&#x3D;&quot;ngModel&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;lastName&quot; name&#x3D;&quot;lastname&quot;
+            placeholder&#x3D;&quot;Lastname&quot; required [ngClass]&#x3D;&quot;{&#x27;is-invalid&#x27;: !lastname.valid &amp;&amp; lastname.touched}&quot;&gt;
+          &lt;div class&#x3D;&quot;invalid-feedback&quot;&gt;
+            Valid last name is required.
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;mb-3&quot;&gt;
+        &lt;label for&#x3D;&quot;email&quot;&gt;Email&lt;/label&gt;
+        &lt;div class&#x3D;&quot;input-group&quot;&gt;
+          &lt;div class&#x3D;&quot;input-group-prepend&quot;&gt;
+            &lt;span class&#x3D;&quot;input-group-text&quot;&gt;@&lt;/span&gt;
+          &lt;/div&gt;
+          &lt;input type&#x3D;&quot;email&quot; [(ngModel)]&#x3D;&quot;checkout.email&quot; #email&#x3D;&quot;ngModel&quot; name&#x3D;&quot;email&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;email&quot; placeholder&#x3D;&quot;you@example.com&quot;
+            required [ngClass]&#x3D;&quot;{&#x27;is-invalid&#x27;: !email.valid &amp;&amp; email.touched}&quot;&gt;
+          &lt;div class&#x3D;&quot;invalid-feedback&quot;&gt;
+            Your email is required and should be well formated.
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+
+
+
+      &lt;div class&#x3D;&quot;mb-3&quot;&gt;
+        &lt;label for&#x3D;&quot;phone&quot;&gt;Phone Number&lt;/label&gt;
+        &lt;input type&#x3D;&quot;string&quot; [(ngModel)]&#x3D;&quot;checkout.phone&quot; #phone&#x3D;&quot;ngModel&quot; name&#x3D;&quot;phone&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;phone&quot; placeholder&#x3D;&quot;Phone Number&quot;
+          required [ngClass]&#x3D;&quot;{&#x27;is-invalid&#x27;: !phone.valid &amp;&amp; phone.touched}&quot;&gt;
+        &lt;div class&#x3D;&quot;invalid-feedback&quot;&gt;
+          Your phone number is required.
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+
+
+      &lt;hr class&#x3D;&quot;mb-4&quot;&gt;
+
+      &lt;h4 class&#x3D;&quot;mb-3&quot;&gt;Payment&lt;/h4&gt;
+
+      &lt;div class&#x3D;&quot;display-td&quot;&gt;
+        Payment Method:
+
+        &lt;div class&#x3D;&quot;radio&quot;&gt;
+          &lt;label&gt;
+            &lt;input type&#x3D;&quot;radio&quot; [attr.checked]&#x3D;&quot;true&quot; name&#x3D;&quot;payment&quot; required #payment&#x3D;&quot;ngModel&quot; value&#x3D;&quot;paypal&quot; [(ngModel)]&#x3D;&quot;checkout.payment&quot;&gt;
+             &lt;img class&#x3D;&quot;paypal&quot; src&#x3D;&quot;./assets/paypal.png&quot; alt&#x3D;&quot;paypal&quot;&gt;
+          &lt;/label&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;radio&quot;&gt;
+          &lt;label&gt;
+            &lt;input type&#x3D;&quot;radio&quot; [attr.disabled]&#x3D;&quot;true&quot; name&#x3D;&quot;payment&quot; #payment&#x3D;&quot;ngModel&quot; value&#x3D;&quot;credit&quot; [(ngModel)]&#x3D;&quot;checkout.payment&quot;&gt;
+            &lt;img class&#x3D;&quot;visa&quot; src&#x3D;&quot;data:image/png;base64,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&#x3D;&quot; alt&#x3D;&quot;visa&quot;&gt;
+            &lt;small&gt;Not Available Now&lt;/small&gt;
+          &lt;/label&gt;
+        &lt;/div&gt;
+
+
+        &lt;!-- &lt;div class&#x3D;&quot;paymentWrap&quot;&gt;
+          &lt;div class&#x3D;&quot;btn-group paymentBtnGroup btn-group-justified&quot; data-toggle&#x3D;&quot;buttons&quot;&gt;
+                  &lt;label class&#x3D;&quot;btn paymentMethod&quot; [ngClass]&#x3D;&quot;{&#x27;active&#x27;:payment.checked}&quot;&gt;
+                    &lt;div class&#x3D;&quot;method visa&quot;&gt;&lt;/div&gt;
+                      &lt;input type&#x3D;&quot;radio&quot; name&#x3D;&quot;payment1&quot; required #payment&#x3D;&quot;ngModel&quot; value&#x3D;&quot;paypal&quot; [(ngModel)]&#x3D;&quot;checkout.payment&quot;&gt; 
+                  &lt;/label&gt;
+                  &lt;label class&#x3D;&quot;btn paymentMethod&quot;&gt;
+                    &lt;div class&#x3D;&quot;method master-card&quot;&gt;&lt;/div&gt;
+                      &lt;input type&#x3D;&quot;radio&quot; name&#x3D;&quot;payment&quot; #payment&#x3D;&quot;ngModel&quot; value&#x3D;&quot;credit&quot; [(ngModel)]&#x3D;&quot;checkout.payment&quot;&gt; 
+                  &lt;/label&gt;
+                
+               
+              &lt;/div&gt;        
+        &lt;/div&gt; --&gt;
+      &lt;/div&gt;
+
+      &lt;hr class&#x3D;&quot;mb-4&quot;&gt;
+      &lt;button class&#x3D;&quot;btn btn-info btn-lg btn-block&quot; [disabled]&#x3D;&quot;!f.valid || totalPremium &#x3D;&#x3D; 0&quot; type&#x3D;&quot;submit&quot;&gt;Continue to Checkout &amp;nbsp;
+        &lt;i class&#x3D;&quot;fa fa-lock fa-lg&quot;&gt;&lt;/i&gt;
+      &lt;/button&gt;
+    &lt;/form&gt;
+
+  &lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><h1 class="mt-4 mb-3">Checkout</h1><div class="row">  <div class="col-md-4 order-md-2 mb-4">    <h4 class="d-flex justify-content-between align-items-center mb-3">      <span class="text-muted">Your cart</span>      <span class="badge badge-secondary badge-pill">{{cartProducts.length}}</span>    </h4>    <ul class="list-group mb-3">      <li class="list-group-item d-flex justify-content-between lh-condensed" *ngFor="let item of cartProducts">        <div>          <h6 class="my-0">{{item.type}}</h6>          <small class="text-muted">{{item.package}} Package</small>        </div>        <span class="text-muted">{{item.premium | currency:\'USD\':\'symbol\'}}</span>      </li>      <!-- <li class="list-group-item d-flex justify-content-between bg-light">        <div class="text-success">          <h6 class="my-0">Promo code</h6>          <small>EXAMPLECODE</small>        </div>        <span class="text-success">-$5</span>      </li> -->      <li class="list-group-item d-flex justify-content-between">        <span>Total (USD)</span>        <strong>{{totalPremium | currency:\'USD\':\'symbol\'}}</strong>      </li>    </ul>    <!-- <form class="card p-2">      <div class="input-group">        <input type="text" class="form-control" placeholder="Promo code">        <div class="input-group-append">          <button type="submit" class="btn btn-secondary">Redeem</button>        </div>      </div>    </form> -->  </div>  <div class="col-md-8 order-md-1 ">    <h4 class="mb-3">Invoice Information</h4>    <form class="needs-validation" (ngSubmit)="checkoutProcess(f.value)" #f="ngForm" novalidate>      <div class="row">        <div class="col-md-6 mb-3">          <label for="firstname">First name</label>          <input type="text" [(ngModel)]="checkout.firstname" #firstname="ngModel" name="firstname" class="form-control" id="firstName"            placeholder="Firstname" required [ngClass]="{\'is-invalid\': !firstname.valid && firstname.touched}">          <div class="invalid-feedback">            Valid first name is required.          </div>        </div>        <div class="col-md-6 mb-3">          <label for="lastname">Last name</label>          <input type="text" [(ngModel)]="checkout.lastname" #lastname="ngModel" class="form-control" id="lastName" name="lastname"            placeholder="Lastname" required [ngClass]="{\'is-invalid\': !lastname.valid && lastname.touched}">          <div class="invalid-feedback">            Valid last name is required.          </div>        </div>      </div>      <div class="mb-3">        <label for="email">Email</label>        <div class="input-group">          <div class="input-group-prepend">            <span class="input-group-text">@</span>          </div>          <input type="email" [(ngModel)]="checkout.email" #email="ngModel" name="email" class="form-control" id="email" placeholder="you@example.com"            required [ngClass]="{\'is-invalid\': !email.valid && email.touched}">          <div class="invalid-feedback">            Your email is required and should be well formated.          </div>        </div>      </div>      <div class="mb-3">        <label for="phone">Phone Number</label>        <input type="string" [(ngModel)]="checkout.phone" #phone="ngModel" name="phone" class="form-control" id="phone" placeholder="Phone Number"          required [ngClass]="{\'is-invalid\': !phone.valid && phone.touched}">        <div class="invalid-feedback">          Your phone number is required.        </div>      </div>      <hr class="mb-4">      <h4 class="mb-3">Payment</h4>      <div class="display-td">        Payment Method:        <div class="radio">          <label>            <input type="radio" [attr.checked]="true" name="payment" required #payment="ngModel" value="paypal" [(ngModel)]="checkout.payment">             <img class="paypal" src="./assets/paypal.png" alt="paypal">          </label>        </div>        <div class="radio">          <label>            <input type="radio" [attr.disabled]="true" name="payment" #payment="ngModel" value="credit" [(ngModel)]="checkout.payment">            <img class="visa" src="data:image/png;base64,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" alt="visa">            <small>Not Available Now</small>          </label>        </div>        <!-- <div class="paymentWrap">          <div class="btn-group paymentBtnGroup btn-group-justified" data-toggle="buttons">                  <label class="btn paymentMethod" [ngClass]="{\'active\':payment.checked}">                    <div class="method visa"></div>                      <input type="radio" name="payment1" required #payment="ngModel" value="paypal" [(ngModel)]="checkout.payment">                   </label>                  <label class="btn paymentMethod">                    <div class="method master-card"></div>                      <input type="radio" name="payment" #payment="ngModel" value="credit" [(ngModel)]="checkout.payment">                   </label>                                             </div>                </div> -->      </div>      <hr class="mb-4">      <button class="btn btn-info btn-lg btn-block" [disabled]="!f.valid || totalPremium == 0" type="submit">Continue to Checkout &nbsp;        <i class="fa fa-lock fa-lg"></i>      </button>    </form>  </div></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AdminOrdersComponent', 'selector': 'app-admin-orders'},{'name': 'AdminUsersComponent', 'selector': 'app-admin-users'},{'name': 'AllProductsComponent', 'selector': 'app-all-products'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'ContactComponent', 'selector': 'app-contact'},{'name': 'CountrySelectComponent', 'selector': 'country-select'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'navbar'},{'name': 'NoAccessComponent', 'selector': 'app-no-access'},{'name': 'NotFoundComponent', 'selector': 'not-found'},{'name': 'OccupationSelectComponent', 'selector': 'occupation-select'},{'name': 'PasswordChangeComponent', 'selector': 'app-password-change'},{'name': 'PasswordRecoveryComponent', 'selector': 'app-password-recovery'},{'name': 'PaymentComponent', 'selector': 'app-payment'},{'name': 'PaymentConfirmationComponent', 'selector': 'payment-confirmation'},{'name': 'PaymentFailureComponent', 'selector': 'app-payment-failure'},{'name': 'PaymentProcessComponent', 'selector': 'payment-process'},{'name': 'PaymentSuccessComponent', 'selector': 'app-order-success'},{'name': 'ProductCardComponent', 'selector': 'product-card'},{'name': 'ProductItemComponent', 'selector': 'product-item'},{'name': 'ProductsComponent', 'selector': 'app-products'},{'name': 'QuoteComponent', 'selector': 'quote'},{'name': 'QuoteResultComponent', 'selector': 'quote-result'},{'name': 'ShoppingCartComponent', 'selector': 'app-shopping-cart'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'TermLifeProductComponent', 'selector': 'term-life-product'},{'name': 'UniversalLifeProductComponent', 'selector': 'app-universal-life-product'},{'name': 'UserFormComponent', 'selector': 'user-form'},{'name': 'UserItemComponent', 'selector': 'user-item'},{'name': 'UserPoliciesComponent', 'selector': 'app-user-policies'},{'name': 'WholeLifeProductComponent', 'selector': 'app-whole-life-product'}];
+    var DIRECTIVES = [{'name': 'ScrollToTopDirective', 'selector': '[scrollToTop]'}];
+    var ACTUAL_COMPONENT = {'name': 'CheckoutComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'CheckoutComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <script src="../js/menu-wc.js"></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,852 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>lifeinsurance-client documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">lifeinsurance-client documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>PaymentSuccessComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/payment/payment-success/payment-success.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-order-success</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>payment-success.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./payment-success.component.html</code></td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#authService">authService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#orderService">orderService</a>
+                            </li>
+                            <li>
+                                <a href="#paymentResponse">paymentResponse</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnDestroy">ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#openSnackBar">openSnackBar</a>
+                            </li>
+                            <li>
+                                <a href="#print">print</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(titleService: <a href="https://angular.io/api/platform-browser/Title" target="_blank">Title</a>, authService: <a href="../injectables/AuthService.html">AuthService</a>, orderService: <a href="../injectables/OrderService.html">OrderService</a>, _router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, snackBar: MatSnackBar)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/payment/payment-success/payment-success.component.ts:15</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>titleService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/platform-browser/Title" target="_blank" >Title</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>authService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>orderService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/OrderService.html" target="_self" >OrderService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_router</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>snackBar</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatSnackBar</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ngOnDestroy"></a>
+                        <span class="name">
+                            <b>
+                            ngOnDestroy
+                            </b>
+                            <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/payment/payment-success/payment-success.component.ts:38</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ngOnInit"></a>
+                        <span class="name">
+                            <b>
+                            ngOnInit
+                            </b>
+                            <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>ngOnInit()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/payment/payment-success/payment-success.component.ts:30</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="openSnackBar"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            openSnackBar
+                            </b>
+                            <a href="#openSnackBar"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>openSnackBar(message: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, action: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/payment/payment-success/payment-success.component.ts:46</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>message</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>action</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="print"></a>
+                        <span class="name">
+                            <b>
+                            print
+                            </b>
+                            <a href="#print"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>print()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/payment/payment-success/payment-success.component.ts:42</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="authService"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            authService
+                            </b>
+                            <a href="#authService"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>authService:     <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/payment/payment-success/payment-success.component.ts:19</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="orderService"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            orderService
+                            </b>
+                            <a href="#orderService"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>orderService:     <code><a href="../injectables/OrderService.html" target="_self" >OrderService</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../injectables/OrderService.html" target="_self" >OrderService</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/payment/payment-success/payment-success.component.ts:20</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="paymentResponse"></a>
+                        <span class="name">
+                            <b>
+                            paymentResponse
+                            </b>
+                            <a href="#paymentResponse"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>paymentResponse:     <code></code>
+</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/payment/payment-success/payment-success.component.ts:15</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, OnDestroy } from &#x27;@angular/core&#x27;;
+import { AuthService } from &#x27;../../_services/auth.service&#x27;;
+import { OrderService } from &#x27;../../_services/order.service&#x27;;
+import { MatSnackBar } from &#x27;@angular/material&#x27;;
+import { Title } from &#x27;@angular/platform-browser&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+
+@Component({
+  selector: &#x27;app-order-success&#x27;,
+  templateUrl: &#x27;./payment-success.component.html&#x27;,
+  styleUrls: [&#x27;./payment-success.component.css&#x27;]
+})
+export class PaymentSuccessComponent implements OnInit, OnDestroy {
+
+  paymentResponse;
+
+  constructor(
+    private titleService: Title,
+    public authService: AuthService,
+    public orderService: OrderService,
+    private _router: Router,
+    private snackBar: MatSnackBar) {
+
+    this.titleService.setTitle(&#x27;Life Insurance | Payment Success&#x27;);
+    this.paymentResponse &#x3D; JSON.parse(localStorage.getItem(&#x27;paymentResponse&#x27;)) || {};
+    localStorage.removeItem(&#x27;redirect_url&#x27;);
+    localStorage.removeItem(&#x27;invoice-header&#x27;);
+  }
+
+  ngOnInit() {
+    if (!this.paymentResponse.payment)
+      this._router.navigate([&#x27;shopping-cart&#x27;]);
+
+    this.orderService.add(this.authService.userInfo.id)
+      .subscribe(ordersCount &#x3D;&gt;
+        this.openSnackBar(&#x27;You have now &#x27; + ordersCount + &#x27; Life Insurance products, Enjoy your Life :)&#x27;, &#x27;Dismiss&#x27;));
+  }
+  ngOnDestroy() {
+    localStorage.removeItem(&#x27;paymentResponse&#x27;);
+  }
+
+  print() {
+    (&lt;any&gt;window).print();
+  }
+
+  private openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 2000
+    });
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;h4 class&#x3D;&quot;mt-4 mb-3 d-print-none&quot;&gt;
+  &lt;div class&#x3D;&quot;row&quot;&gt;
+    &lt;div class&#x3D;&quot;col-sm-12 col-md-12&quot;&gt;
+      &lt;div class&#x3D;&quot;alert-message alert-message-success&quot;&gt;
+        &lt;h4&gt;
+          Success&lt;/h4&gt;
+        &lt;p&gt;
+          &lt;strong&gt;
+            Thank you {{authService.userInfo.firstname}}, Your Payment has been successfully done.
+          &lt;/strong&gt;
+          &lt;a routerLink&#x3D;&quot;/&quot;&gt; Go Back to the Home Page &lt;/a&gt;
+        &lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/h4&gt;
+&lt;div class&#x3D;&quot;receipt-content&quot;&gt;
+  &lt;div class&#x3D;&quot;container bootstrap snippet&quot;&gt;
+
+    &lt;div class&#x3D;&quot;row&quot;&gt;
+      &lt;div class&#x3D;&quot;col-md-12&quot;&gt;
+        &lt;div class&#x3D;&quot;invoice-wrapper&quot; id&#x3D;&quot;print-section&quot;&gt;
+          &lt;div class&#x3D;&quot;intro&quot;&gt;
+            Hi
+            &lt;strong&gt;{{paymentResponse.payment.payer.payerInfo.firstName}} {{paymentResponse.payment.payer.payerInfo.lastName}}&lt;/strong&gt;,
+            &lt;br&gt; This is the receipt for a payment of
+            &lt;strong&gt;{{paymentResponse.payment.transactions[0].amount.total | currency:&#x27;USD&#x27;:&#x27;symbol&#x27;}}&lt;/strong&gt; (USD) for your Life Insurance products
+            &lt;div class&#x3D;&quot;text-right&quot;&gt;
+              &lt;img src&#x3D;&quot;./assets/paypal.png&quot; class&#x3D;&quot;paypallogo&quot; alt&#x3D;&quot;PayPal&quot; &gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;payment-info&quot;&gt;
+            &lt;div class&#x3D;&quot;row&quot;&gt;
+              &lt;div class&#x3D;&quot;col-sm-6&quot;&gt;
+                &lt;span&gt;Payment ID&lt;/span&gt;
+                &lt;strong&gt;{{paymentResponse.payment.id}}&lt;/strong&gt;
+              &lt;/div&gt;
+              &lt;div class&#x3D;&quot;col-sm-6 text-right&quot;&gt;
+                &lt;span&gt;Payment Date&lt;/span&gt;
+                &lt;strong&gt;{{paymentResponse.payment.createTime | date}}&lt;/strong&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;payment-details&quot;&gt;
+            &lt;div class&#x3D;&quot;row&quot;&gt;
+              &lt;div class&#x3D;&quot;col-sm-6&quot;&gt;
+                &lt;span&gt;Buyer Info&lt;/span&gt;
+                &lt;strong&gt;
+                  {{paymentResponse.payment.payer.payerInfo.firstName}} {{paymentResponse.payment.payer.payerInfo.lastName}}
+                &lt;/strong&gt;
+                &lt;p&gt;
+                  {{paymentResponse.payment.payer.payerInfo.shippingAddress.line1}}
+                  &lt;br&gt; {{paymentResponse.payment.payer.payerInfo.shippingAddress.city}}
+                  &lt;br&gt; {{paymentResponse.payment.payer.payerInfo.shippingAddress.postalCode}} - {{paymentResponse.payment.payer.payerInfo.shippingAddress.countryCode}}
+                  &lt;br&gt;
+                  &lt;a href&#x3D;&quot;#&quot;&gt;
+                    {{paymentResponse.payment.payer.payerInfo.email}}
+                  &lt;/a&gt;
+                &lt;/p&gt;
+              &lt;/div&gt;
+              &lt;div class&#x3D;&quot;col-sm-6 text-right&quot;&gt;
+                &lt;span&gt;Seller Info&lt;/span&gt;
+                &lt;strong&gt;
+                  Life Insurance&#x27;s Test Store
+                &lt;/strong&gt;
+                &lt;p&gt;
+                  &lt;a href&#x3D;&quot;#&quot;&gt;
+                    payment@lifeinsurance.com
+                  &lt;/a&gt;
+                &lt;/p&gt;
+                &lt;span&gt;Paid With&lt;/span&gt;
+                &lt;strong&gt;
+                  PayPal Balance
+                &lt;/strong&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;line-items&quot;&gt;
+
+
+            &lt;div class&#x3D;&quot;total text-right&quot;&gt;
+
+              &lt;!-- &lt;div class&#x3D;&quot;field&quot;&gt;
+              Subtotal &lt;span&gt;$379.00&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;field&quot;&gt;
+              Shipping &lt;span&gt;$0.00&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;field&quot;&gt;
+              Discount &lt;span&gt;4.5%&lt;/span&gt;
+            &lt;/div&gt; --&gt;
+              &lt;div class&#x3D;&quot;field grand-total&quot;&gt;
+                Total
+                &lt;span&gt;{{paymentResponse.payment.transactions[0].amount.total | currency:&#x27;USD&#x27;:&#x27;symbol&#x27;}}&lt;/span&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;footer-invoice d-print-none&quot;&gt;
+          &lt;div class&#x3D;&quot;print&quot;&gt;
+            &lt;button (click)&#x3D;&quot;print()&quot;&gt;
+              &lt;i class&#x3D;&quot;fa fa-print&quot;&gt;&lt;/i&gt;
+              Print this receipt
+            &lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><h4 class="mt-4 mb-3 d-print-none">  <div class="row">    <div class="col-sm-12 col-md-12">      <div class="alert-message alert-message-success">        <h4>          Success</h4>        <p>          <strong>            Thank you {{authService.userInfo.firstname}}, Your Payment has been successfully done.          </strong>          <a routerLink="/"> Go Back to the Home Page </a>        </p>      </div>    </div>  </div></h4><div class="receipt-content">  <div class="container bootstrap snippet">    <div class="row">      <div class="col-md-12">        <div class="invoice-wrapper" id="print-section">          <div class="intro">            Hi            <strong>{{paymentResponse.payment.payer.payerInfo.firstName}} {{paymentResponse.payment.payer.payerInfo.lastName}}</strong>,            <br> This is the receipt for a payment of            <strong>{{paymentResponse.payment.transactions[0].amount.total | currency:\'USD\':\'symbol\'}}</strong> (USD) for your Life Insurance products            <div class="text-right">              <img src="./assets/paypal.png" class="paypallogo" alt="PayPal" >            </div>          </div>          <div class="payment-info">            <div class="row">              <div class="col-sm-6">                <span>Payment ID</span>                <strong>{{paymentResponse.payment.id}}</strong>              </div>              <div class="col-sm-6 text-right">                <span>Payment Date</span>                <strong>{{paymentResponse.payment.createTime | date}}</strong>              </div>            </div>          </div>          <div class="payment-details">            <div class="row">              <div class="col-sm-6">                <span>Buyer Info</span>                <strong>                  {{paymentResponse.payment.payer.payerInfo.firstName}} {{paymentResponse.payment.payer.payerInfo.lastName}}                </strong>                <p>                  {{paymentResponse.payment.payer.payerInfo.shippingAddress.line1}}                  <br> {{paymentResponse.payment.payer.payerInfo.shippingAddress.city}}                  <br> {{paymentResponse.payment.payer.payerInfo.shippingAddress.postalCode}} - {{paymentResponse.payment.payer.payerInfo.shippingAddress.countryCode}}                  <br>                  <a href="#">                    {{paymentResponse.payment.payer.payerInfo.email}}                  </a>                </p>              </div>              <div class="col-sm-6 text-right">                <span>Seller Info</span>                <strong>                  Life Insurance\'s Test Store                </strong>                <p>                  <a href="#">                    payment@lifeinsurance.com                  </a>                </p>                <span>Paid With</span>                <strong>                  PayPal Balance                </strong>              </div>            </div>          </div>          <div class="line-items">            <div class="total text-right">              <!-- <div class="field">              Subtotal <span>$379.00</span>            </div>            <div class="field">              Shipping <span>$0.00</span>            </div>            <div class="field">              Discount <span>4.5%</span>            </div> -->              <div class="field grand-total">                Total                <span>{{paymentResponse.payment.transactions[0].amount.total | currency:\'USD\':\'symbol\'}}</span>              </div>            </div>          </div>        </div>        <div class="footer-invoice d-print-none">          <div class="print">            <button (click)="print()">              <i class="fa fa-print"></i>              Print this receipt            </button>          </div>        </div>      </div>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AdminOrdersComponent', 'selector': 'app-admin-orders'},{'name': 'AdminUsersComponent', 'selector': 'app-admin-users'},{'name': 'AllProductsComponent', 'selector': 'app-all-products'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'ContactComponent', 'selector': 'app-contact'},{'name': 'CountrySelectComponent', 'selector': 'country-select'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'navbar'},{'name': 'NoAccessComponent', 'selector': 'app-no-access'},{'name': 'NotFoundComponent', 'selector': 'not-found'},{'name': 'OccupationSelectComponent', 'selector': 'occupation-select'},{'name': 'PasswordChangeComponent', 'selector': 'app-password-change'},{'name': 'PasswordRecoveryComponent', 'selector': 'app-password-recovery'},{'name': 'PaymentComponent', 'selector': 'app-payment'},{'name': 'PaymentConfirmationComponent', 'selector': 'payment-confirmation'},{'name': 'PaymentFailureComponent', 'selector': 'app-payment-failure'},{'name': 'PaymentProcessComponent', 'selector': 'payment-process'},{'name': 'PaymentSuccessComponent', 'selector': 'app-order-success'},{'name': 'ProductCardComponent', 'selector': 'product-card'},{'name': 'ProductItemComponent', 'selector': 'product-item'},{'name': 'ProductsComponent', 'selector': 'app-products'},{'name': 'QuoteComponent', 'selector': 'quote'},{'name': 'QuoteResultComponent', 'selector': 'quote-result'},{'name': 'ShoppingCartComponent', 'selector': 'app-shopping-cart'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'TermLifeProductComponent', 'selector': 'term-life-product'},{'name': 'UniversalLifeProductComponent', 'selector': 'app-universal-life-product'},{'name': 'UserFormComponent', 'selector': 'user-form'},{'name': 'UserItemComponent', 'selector': 'user-item'},{'name': 'UserPoliciesComponent', 'selector': 'app-user-policies'},{'name': 'WholeLifeProductComponent', 'selector': 'app-whole-life-product'}];
+    var DIRECTIVES = [{'name': 'ScrollToTopDirective', 'selector': '[scrollToTop]'}];
+    var ACTUAL_COMPONENT = {'name': 'PaymentSuccessComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'PaymentSuccessComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <script src="../js/menu-wc.js"></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
